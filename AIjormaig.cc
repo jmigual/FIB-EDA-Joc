@@ -14,9 +14,9 @@ using namespace std;
 /**
  * Podeu declarar constants aquí
  */
-const int POST      =  0;   // Ens indica que hi ha un post
 const int NO_PASSAR = -1;   // Ens indica que no hem de passar
 const int NO_VIST   = -2;   // Pel BFS, per marcar les caselles no vistes
+const int POST      = -3;   // Ens indica que hi ha un post
 const int MAX_FOC   =  2;   // Màxim de torns que tolerem un foc per un BFS
 const int DIRS      =  8;   // Direccions totals en les que es pot avançar
 
@@ -94,15 +94,18 @@ struct PLAYER_NAME : public Player
     
     void mouSoldats(VE &soldats)
     {
-        for (int y : soldats)
+        for (int a : soldats)
         {
-            Info s = dades(y);
+            Info s = dades(a);
             
-            if (dir[s.pos.x][s.pos.y].second > POST)
+            if (dir[s.pos.x][s.pos.y].first >= 0)
             {
-                s.pos.x += X[dir[s.pos.x][s.pos.y].first];
-                s.pos.y += Y[dir[s.pos.y][s.pos.y].first];
-                ordena_soldat(y, s.pos.x, s.pos.y);
+                int x = s.pos.x;
+                int y = s.pos.y;
+                     
+                s.pos.x += X[dir[x][y].first];
+                s.pos.y += Y[dir[x][y].first];
+                ordena_soldat(a, s.pos.x, s.pos.y);
             }
         }
     }
@@ -113,7 +116,7 @@ struct PLAYER_NAME : public Player
         VP2 Pos = posts();
         
         for (Post y : Pos)
-            if (y.equip != player) Q.push(find(POST, POST, y.pos));
+            if (y.equip != player) Q.push(find(POST, 0, y.pos));
             
         while (not Q.empty())
         {
@@ -131,7 +134,7 @@ struct PLAYER_NAME : public Player
                 else
                 {
                     if (p.dir == POST)
-                        dir[p.pos.x][p.pos.y] = make_pair(POST, POST);
+                        dir[p.pos.x][p.pos.y] = make_pair(POST, 0);
                     else dir[p.pos.x][p.pos.y] = make_pair(p.dir, p.dist);
                     
                     for (int i = 0; i < DIRS; ++i)
@@ -141,15 +144,7 @@ struct PLAYER_NAME : public Player
                     }
                 }
             }
-        }
-        
-        for (int i = 0; i < MAX; ++i)
-        {
-            for (int j = 0; j < MAX; ++j) cerr << dir[i][j].first << " ";
-            
-            cerr << endl;
-        }
-        
+        }        
     }
     
     /**
@@ -165,7 +160,7 @@ struct PLAYER_NAME : public Player
             dir = VVPa(MAX, VPa(MAX, make_pair(NO_VIST, NO_VIST)));
             updatePosts();
         }
-        else if (quin_torn()%20 == 0)
+        else if (quin_torn()%5 == 0)
         {
             dir = VVPa(MAX, VPa(MAX, make_pair(NO_VIST, NO_VIST)));
             updatePosts();

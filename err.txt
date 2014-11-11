@@ -13,7 +13,6 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-QUÈ? 4 4 4
 info:     end player 4
 start next
 end next
@@ -74,6 +73,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 52 39 32 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -86,6 +86,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 52 39 32 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -218,6 +219,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 64 40 32 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -230,6 +232,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 64 40 32 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -242,6 +245,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 20 40 32 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -410,6 +414,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 84 19 14 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -422,6 +427,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 84 19 14 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -434,6 +440,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 84 19 14 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -446,6 +453,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 84 19 14 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -482,6 +490,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 88 41 33 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -494,6 +503,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 88 41 33 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -554,6 +564,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 56 39 31 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 88 45 37 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -566,6 +578,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 40 45 37 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 56 39 31 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -578,6 +592,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 56 39 31 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 84 10 15 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -590,6 +606,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 12 51 43 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 84 10 15 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -602,6 +620,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 12 51 43 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 84 10 15 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -614,6 +634,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 12 51 43 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 84 12 15 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -626,6 +648,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 12 51 43 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -650,6 +673,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 68 47 39 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -662,6 +686,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 68 47 39 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -674,6 +699,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 68 47 39 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -698,6 +724,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 36 46 38 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -782,6 +809,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 40 51 49 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 48 49 47 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -794,6 +823,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 40 51 49 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 48 49 47 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -986,6 +1017,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 48 54 53 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -998,6 +1030,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 48 54 53 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1010,6 +1043,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 48 54 53 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1034,6 +1068,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 40 54 53 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1070,6 +1105,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 84 1 23 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1082,6 +1118,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 84 1 23 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1094,6 +1131,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 84 1 23 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1106,6 +1144,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 84 1 23 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1214,6 +1253,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 84 1 31 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1250,6 +1290,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 32 19 45 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1262,6 +1303,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 24 19 45 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 32 19 45 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1274,6 +1317,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 24 19 45 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 32 19 45 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1286,6 +1331,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 84 1 36 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1298,6 +1344,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 84 1 36 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1310,6 +1357,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 84 1 36 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1406,6 +1454,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 24 10 44 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1418,6 +1467,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 24 10 44 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1430,6 +1480,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 24 10 44 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1442,6 +1493,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 24 10 44 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1478,6 +1530,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 80 2 45 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 84 3 46 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1490,6 +1544,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 80 2 45 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 84 3 46 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1526,6 +1582,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 76 13 52 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1538,6 +1595,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 76 13 52 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1550,6 +1608,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 76 13 52 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1562,6 +1621,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 76 13 52 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1610,6 +1670,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 76 10 55 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1622,6 +1683,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 76 10 55 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1634,6 +1696,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 76 10 55 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1646,6 +1709,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 76 10 55 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1706,6 +1770,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 76 10 58 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1718,6 +1783,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 60 8 52 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 76 10 58 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1730,6 +1797,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 44 8 54 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 60 8 52 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 76 10 58 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1742,6 +1812,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 44 8 54 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 60 8 52 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 76 10 58 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2030,6 +2103,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 32 29 58 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2042,6 +2116,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 28 40 58 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 32 29 58 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 44 28 58 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2078,6 +2155,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 28 42 58 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2090,6 +2168,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 24 22 53 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2102,6 +2181,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 24 22 53 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2114,6 +2194,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 24 22 53 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2126,6 +2207,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 24 22 53 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2162,6 +2244,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 28 48 58 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2186,6 +2269,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 76 46 58 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2198,6 +2282,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 60 45 58 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2234,6 +2319,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+error: ordena_soldat invocat amb 60 47 58 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2406,9 +2492,9 @@ info:     end player 4
 start next
 end next
 info: end round 200
-info: player Null got score 20
-info: player Null got score 14
-info: player Demo got score 5025
-info: player jormaig got score 19
-info: player(s) Demo got top score
+info: player Null got score 17
+info: player Null got score 9
+info: player Demo got score 5026
+info: player jormaig got score 35009
+info: player(s) jormaig got top score
 info: game played
