@@ -1,0 +1,17 @@
+Action.cc
+Action.hh
+AIDemo.cc
+AINull.cc
+Board.cc
+Board.hh
+Game.cc
+Game.hh
+Main.cc
+Player.cc
+Player.hh
+Registry.cc
+Registry.hh
+Utils.cc
+Utils.hh
+Makefile
+AIjormaig.cc
