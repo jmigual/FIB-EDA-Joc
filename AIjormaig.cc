@@ -20,6 +20,10 @@ const int POST      = -3;   // Ens indica que hi ha un post
 const int MAX_FOC   =  2;   // Màxim de torns que tolerem un foc per un BFS
 const int DIRS      =  8;   // Direccions totals en les que es pot avançar
 
+// PERSONALITATS
+const int ATACANT = 1;
+const int EXPLORADOR = 2;
+
 const int X[8] = { 1, 1, 0, -1, -1, -1,  0,  1 };
 const int Y[8] = { 0, 1, 1,  1,  0, -1, -1, -1 };
 const int INV[8] = { 4, 5, 6, 7, 0, 1, 2, 3 };
@@ -64,12 +68,17 @@ struct PLAYER_NAME : public Player
         }
     };
     
+    
+    
     int player;
     
     // first -> direcció
     // second -> distància
     // Si és un post o una posició no vàlida tenim POST i NO_PASSAR
     VVPa dir;
+    
+    // Guarda les personalitats dels soldats
+    map<int, int> pers;
     
     void atacaVoltant(VE &soldats)
     {
