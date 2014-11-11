@@ -24,6 +24,9 @@ const int X[8] = { 1, 1, 0, -1, -1, -1,  0,  1 };
 const int Y[8] = { 0, 1, 1,  1,  0, -1, -1, -1 };
 const int INV[8] = { 4, 5, 6, 7, 0, 1, 2, 3 };
 
+typedef vector< P > VPa;
+typedef vector< VPa > VVPa;
+
 
 struct PLAYER_NAME : public Player
 {
@@ -42,8 +45,7 @@ struct PLAYER_NAME : public Player
     /**
      * Els atributs dels vostres jugadors es poden definir aquí.
      */
-    typedef vector< P > VPa;
-    typedef vector< VPa > VVPa;
+    
     
     struct find
     {
@@ -67,9 +69,9 @@ struct PLAYER_NAME : public Player
     // first -> direcció
     // second -> distància
     // Si és un post o una posició no vàlida tenim POST i NO_PASSAR
-    VVPa dir = VVPa(MAX, VPa(MAX, make_pair(NO_VIST, NO_VIST)));
+    VVPa dir;
     
-    /*void atacaVoltant(VE &soldats)
+    void atacaVoltant(VE &soldats)
     {
         for (int y : soldats)
         {
@@ -104,7 +106,7 @@ struct PLAYER_NAME : public Player
             }
         }
     }
-    */
+    
     void updatePosts()
     {
         queue< find > Q;
@@ -140,8 +142,11 @@ struct PLAYER_NAME : public Player
                 }
             }
         }
-        for (int i = 0;i < MAX; ++i) {
+        
+        for (int i = 0; i < MAX; ++i)
+        {
             for (int j = 0; j < MAX; ++j) cerr << dir[i][j].first << " ";
+            
             cerr << endl;
         }
         
@@ -157,8 +162,9 @@ struct PLAYER_NAME : public Player
         if (quin_torn() == 0)
         {
             player = qui_soc();
+            dir = VVPa(MAX, VPa(MAX, make_pair(NO_VIST, NO_VIST)));
             updatePosts();
-        }/*
+        }
         else if (quin_torn()%20 == 0)
         {
             dir = VVPa(MAX, VPa(MAX, make_pair(NO_VIST, NO_VIST)));
@@ -167,7 +173,7 @@ struct PLAYER_NAME : public Player
         
         VE s = soldats(player);
         atacaVoltant(s);
-        mouSoldats(s);*/
+        mouSoldats(s);
         
     }
     
