@@ -1,7 +1,7 @@
 info: loading game
 info: loaded game
-info: loading player Null
-info: loading player Null
+info: loading player Demo
+info: loading player Demo
 info: loading player Demo
 info: loading player jormaig
 info: players loaded
@@ -13,6 +13,69 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+     0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59
+ 0|N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  
+ 1|N  2  1  0  7  7  7  7  1  1  0  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  1  1  1  1  2  2  2  1  0  7  7  N  
+ 2|N  3  2  P  6  7  7  1  1  0  7  7  7  7  6  7  6  7  6  7  7  7  7  7  7  7  7  7  7  1  1  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  1  3  3  2  P  6  7  N  
+ 3|N  3  3  4  5  6  1  1  0  7  7  7  7  5  7  4  5  3  7  7  7  7  7  7  7  7  7  7  1  1  0  7  3  3  3  3  3  3  3  3  3  3  5  3  4  3  3  3  3  2  1  1  1  0  3  3  4  5  6  N  
+ 4|N  3  3  4  5  5  1  0  7  7  7  7  7  7  5  4  3  5  6  7  7  7  7  7  7  7  7  1  1  0  7  1  1  3  3  3  3  3  3  3  3  2  3  5  4  3  3  3  3  3  2  1  0  7  3  3  4  5  5  N  
+ 5|N  3  3  4  5  3  2  P  6  7  7  7  7  6  6  N  2  2  7  7  7  7  7  7  7  7  1  1  0  7  1  1  1  1  3  3  3  3  3  3  3  3  6  6  N  2  2  3  3  3  3  2  P  6  7  3  4  5  5  N  
+ 6|N  3  3  4  3  3  3  4  5  6  7  7  7  7  7  0  1  7  6  7  7  7  7  7  7  1  1  0  7  7  2  1  1  1  1  3  3  3  3  3  3  2  1  7  0  1  3  3  3  3  3  3  4  5  6  7  4  5  5  N  
+ 7|N  3  3  3  3  3  3  4  5  5  6  7  7  7  7  0  7  1  7  7  7  7  7  7  1  1  0  7  7  7  3  2  1  1  1  1  3  3  3  3  3  3  7  1  0  3  1  3  3  3  3  3  4  5  5  6  7  5  5  N  
+ 8|N  3  3  3  3  3  3  4  5  5  5  6  7  7  7  7  7  7  7  7  7  7  7  1  1  0  7  7  7  7  3  3  2  1  1  1  1  3  3  3  3  2  3  2  3  2  3  3  3  3  3  3  4  5  5  5  6  7  5  N  
+ 9|N  3  3  3  3  3  3  4  5  5  5  5  6  7  7  7  7  7  7  7  7  7  1  1  0  7  7  7  7  7  3  3  3  2  1  1  1  1  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  6  7  N  
+10|N  3  3  3  3  3  3  4  5  5  5  5  5  6  6  7  7  7  7  7  7  1  1  0  7  7  7  7  7  7  3  3  3  3  2  1  1  1  1  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  6  N  
+11|N  3  3  3  3  3  3  4  5  5  5  N  N  N  5  6  7  7  7  7  1  1  0  7  7  7  7  7  7  7  3  3  3  3  3  2  1  1  1  1  3  3  3  3  3  3  N  N  N  3  3  3  4  5  5  5  5  5  5  N  
+12|N  3  3  3  3  3  3  4  5  5  5  N  1  N  N  5  6  7  7  1  1  0  7  7  7  7  7  7  7  7  3  3  3  3  3  3  2  1  1  1  1  3  3  3  3  N  N  0  N  3  3  3  4  5  5  5  5  5  5  N  
+13|N  3  3  5  3  4  3  3  5  5  5  N  1  0  N  4  5  6  1  1  0  7  7  7  7  7  7  7  7  7  3  3  3  3  3  3  3  2  1  1  0  7  3  3  4  N  1  0  N  3  3  3  5  5  4  5  3  5  5  N  
+14|N  3  4  3  5  4  3  1  1  1  0  N  1  0  N  4  5  5  N  0  7  7  6  6  7  7  7  7  7  7  3  3  3  3  3  3  3  3  2  1  0  N  3  3  4  N  1  0  N  1  1  0  7  5  4  3  5  4  5  N  
+15|N  3  3  6  6  N  2  2  1  1  0  N  1  0  N  4  5  N  N  7  7  N  N  5  6  7  7  7  7  7  3  3  3  3  3  3  3  N  N  2  1  N  N  3  4  N  0  7  N  1  0  7  6  6  N  2  2  5  5  N  
+16|N  3  4  N  7  0  1  N  N  1  1  N  N  1  N  N  N  N  7  7  6  N  N  N  5  6  7  7  7  7  3  3  3  3  3  3  N  N  N  3  2  1  N  N  N  N  1  N  N  1  0  N  N  7  0  1  N  4  5  N  
+17|N  3  4  7  V 0  1  1  N  1  1  1  1  1  0  7  7  7  7  N  N  N  1  N  N  5  6  7  7  7  3  3  3  3  3  N  N  0  N  N  N  2  2  2  1  1  1  1  1  1  1  N  7  0  0  V 1  4  5  N  
+18|N  3  N  N  N  N  1  1  1  1  1  1  1  0  7  7  6  6  6  N  N  N  1  0  N  4  5  6  7  7  3  3  3  3  4  N  0  7  N  N  N  3  3  3  2  1  1  1  1  1  1  1  0  7  N  N  N  N  5  N  
+19|N  4  N  N  N  3  2  1  1  1  1  1  0  7  7  N  N  N  N  N  2  3  2  1  N  N  5  5  6  7  3  3  3  3  N  N  7  7  7  7  N  N  N  N  N  2  1  1  1  1  1  0  7  7  7  N  N  N  4  N  
+20|N  4  N  2  3  3  3  2  1  1  1  0  7  7  7  N  N  2  2  3  3  3  3  2  2  3  4  5  5  6  3  3  3  4  5  6  7  7  7  7  7  7  7  N  N  3  2  1  1  1  0  7  7  7  7  7  7  N  4  N  
+21|N  4  N  3  3  3  3  3  2  1  0  7  7  7  7  6  N  3  3  3  3  3  3  3  3  3  4  5  5  5  3  3  3  4  5  5  6  7  7  7  7  7  7  N  3  3  3  2  1  0  7  7  7  7  7  7  7  N  4  N  
+22|N  4  N  3  3  3  3  3  3  2  P  6  7  7  N  N  N  3  3  3  3  3  3  3  3  3  4  5  5  5  5  3  3  4  5  5  5  6  7  7  7  7  7  N  N  N  3  3  2  P  6  7  7  7  7  7  7  N  4  N  
+23|N  4  N  3  3  3  3  3  3  3  4  5  6  7  N  2  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  3  4  5  5  5  5  6  7  7  7  7  7  7  N  3  3  3  4  5  6  7  7  7  7  6  N  4  N  
+24|N  4  N  N  N  3  3  3  3  3  4  5  5  6  N  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  5  4  5  5  5  5  5  6  7  7  7  7  7  N  3  3  3  4  5  5  6  7  6  N  N  N  4  N  
+25|N  4  5  6  N  N  N  3  3  3  4  5  5  N  N  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  5  5  5  5  5  5  5  5  6  7  7  7  7  N  N  3  3  4  5  5  5  N  N  N  2  3  4  N  
+26|N  4  5  5  6  7  N  N  N  N  4  5  5  N  N  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  5  5  5  5  5  5  5  5  5  6  7  7  7  N  N  3  3  4  N  N  N  N  2  3  3  3  4  N  
+27|N  4  5  5  5  6  N  N  7  N  N  5  5  5  N  N  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  5  5  5  5  5  5  5  5  5  5  6  7  N  N  3  3  3  N  N  1  N  N  3  3  3  3  4  N  
+28|N  4  5  5  5  5  6  7  7  7  N  N  5  5  5  N  3  3  N  N  3  N  N  N  1  1  1  1  1  1  1  1  1  1  1  0  N  N  N  5  N  N  5  6  N  3  3  3  N  N  3  2  2  3  3  3  3  3  4  N  
+29|N  4  5  5  5  5  5  6  7  7  7  N  4  5  5  N  N  N  N  N  N  N  V N  1  1  1  1  1  1  1  1  1  1  1  0  N  V N  N  N  N  N  N  N  3  3  4  N  3  3  3  3  3  3  3  3  3  4  N  
+30|N  1  1  1  1  0  7  5  6  7  7  N  1  1  0  N  N  N  N  N  N  N  V N  1  1  1  1  1  1  1  1  1  1  1  0  N  V N  N  N  N  N  N  N  1  1  0  N  3  3  3  3  1  1  1  1  1  0  N  
+31|N  1  1  1  0  7  7  6  5  6  N  N  1  0  7  N  2  1  N  N  1  N  N  N  1  1  1  1  1  1  1  1  1  1  1  0  N  N  N  7  N  N  7  7  N  1  1  1  N  N  3  3  3  2  1  1  1  1  0  N  
+32|N  1  1  0  7  7  N  N  5  N  N  1  0  7  N  N  3  2  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  0  7  7  7  7  7  0  7  7  7  N  N  1  1  1  N  N  3  N  N  2  1  1  1  0  N  
+33|N  1  0  7  7  6  N  N  N  N  1  1  0  N  N  3  3  3  2  1  1  1  1  1  1  1  1  1  1  1  1  1  1  0  7  7  7  7  7  0  7  7  7  7  7  N  N  1  1  1  N  N  N  N  3  2  1  1  0  N  
+34|N  0  7  6  N  N  N  1  1  1  1  1  0  N  N  3  3  3  3  2  1  1  1  1  1  1  1  1  1  1  1  1  0  7  7  7  7  7  0  7  7  7  7  7  7  N  N  1  1  1  1  0  7  N  N  N  2  1  0  N  
+35|N  0  N  N  N  2  3  2  1  1  1  0  7  7  N  3  3  3  3  3  2  1  1  1  1  1  1  1  1  1  1  0  7  7  7  7  7  0  7  7  7  7  7  7  7  N  2  1  1  1  0  7  7  7  7  N  N  N  0  N  
+36|N  0  N  2  3  3  3  3  2  1  0  7  7  7  N  3  3  3  3  3  3  2  1  1  1  1  1  1  1  1  0  7  7  7  7  7  0  7  7  7  7  7  7  7  6  N  3  2  1  0  7  7  7  7  7  7  7  N  0  N  
+37|N  0  N  3  3  3  3  3  3  2  P  6  7  7  N  N  N  3  3  3  3  3  2  1  1  1  1  1  1  0  7  7  7  7  7  0  7  7  7  7  7  7  7  N  N  N  3  3  2  P  6  7  7  7  7  7  7  N  0  N  
+38|N  0  N  3  3  3  3  3  3  3  4  5  6  7  7  7  N  3  3  3  3  3  3  2  1  1  1  1  0  7  7  7  7  7  0  7  7  7  7  7  7  7  7  N  2  3  3  3  3  4  5  6  7  7  7  7  7  N  0  N  
+39|N  0  N  3  3  3  3  3  3  3  4  5  5  6  7  N  N  3  3  3  3  3  3  3  2  1  1  0  7  7  7  7  7  0  7  6  6  7  7  7  7  6  6  N  N  3  3  3  3  4  5  5  6  7  7  7  6  N  0  N  
+40|N  0  N  N  N  3  3  3  3  3  4  5  5  5  6  N  N  N  N  N  3  3  3  3  N  N  0  7  7  7  7  7  1  1  N  N  5  6  7  6  N  N  N  N  N  3  3  3  3  4  5  5  5  6  7  N  N  N  0  N  
+41|N  1  N  N  N  N  3  3  3  3  4  5  5  5  5  6  7  7  7  N  N  N  3  4  N  0  7  7  7  7  7  7  2  1  0  N  4  5  N  N  N  2  2  2  3  3  3  3  3  4  5  5  5  5  N  N  N  N  0  N  
+42|N  1  0  7  6  N  3  3  N  3  4  5  5  5  5  5  6  6  6  N  N  N  3  N  N  7  7  7  7  7  7  7  3  2  1  N  N  5  N  N  N  3  3  3  3  3  3  3  3  4  5  N  5  5  4  V 3  1  0  N  
+43|N  1  0  N  N  N  N  N  N  3  4  N  N  5  N  N  N  N  5  6  0  N  N  N  7  7  7  7  7  7  7  7  3  3  2  1  N  N  N  2  3  3  N  N  N  N  3  N  N  4  5  N  N  5  4  3  N  1  0  N  
+44|N  1  1  N  N  N  N  2  3  3  4  N  3  4  N  1  1  N  N  1  1  N  N  7  7  7  7  7  7  7  7  7  3  3  3  2  1  N  N  3  3  N  N  1  0  N  4  5  N  4  5  5  6  6  N  2  2  1  0  N  
+45|N  1  1  1  N  N  3  3  3  3  4  N  3  4  N  1  1  1  N  1  1  0  7  7  7  7  7  7  7  7  7  7  3  3  3  3  2  2  3  3  4  N  1  1  0  N  4  5  N  4  5  5  5  7  0  1  1  1  0  N  
+46|N  1  1  1  1  1  1  2  1  1  0  N  3  4  N  1  1  1  1  1  0  7  7  7  7  7  7  7  7  7  7  7  3  3  3  3  3  3  3  3  4  5  2  1  0  N  4  5  N  1  1  1  7  1  0  1  1  1  0  N  
+47|N  1  1  1  1  1  1  1  2  1  0  N  3  N  N  1  1  1  1  0  7  7  7  7  7  7  7  7  7  7  7  7  3  3  3  3  3  3  3  3  4  3  3  2  1  N  N  5  N  1  1  1  1  1  1  1  1  1  0  N  
+48|N  1  1  1  1  1  1  1  1  2  1  N  N  N  1  1  1  1  0  7  7  7  7  7  7  7  7  7  7  7  7  7  3  3  3  3  3  3  3  3  3  3  3  3  2  1  N  N  N  1  1  1  1  1  1  1  1  0  7  N  
+49|N  2  1  1  1  1  1  1  1  1  2  2  1  1  1  1  1  0  7  7  7  7  7  7  7  7  7  7  7  7  7  7  3  3  3  3  3  3  3  3  3  3  3  3  3  2  2  1  1  1  1  1  1  1  1  1  0  7  7  N  
+50|N  3  2  1  1  1  1  1  1  1  0  3  2  1  1  1  0  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  1  1  1  1  0  7  7  7  N  
+51|N  1  3  2  1  1  1  1  1  0  7  3  3  2  1  0  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  1  1  0  7  7  7  0  N  
+52|N  1  1  3  2  1  1  1  0  7  7  3  3  3  2  P  6  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  3  3  3  3  3  3  3  3  3  3  5  3  4  3  3  3  3  2  1  1  1  0  7  7  7  1  0  N  
+53|N  1  1  1  3  2  1  0  7  7  7  3  3  3  3  4  5  6  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  3  3  3  3  3  3  3  3  2  3  5  4  3  3  3  3  3  2  1  0  7  7  7  1  1  0  N  
+54|N  1  1  1  1  3  2  P  6  7  7  3  3  3  3  4  5  5  6  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  3  3  3  3  3  3  3  3  6  6  N  2  2  3  3  3  3  2  P  6  7  1  1  1  0  N  
+55|N  1  1  1  0  7  3  4  5  6  7  3  3  3  3  4  5  5  5  6  7  7  7  7  7  7  7  7  7  7  7  7  7  7  3  3  3  3  3  3  3  2  1  7  0  1  3  3  3  3  3  3  4  5  1  1  1  0  7  N  
+56|N  2  1  0  7  7  3  4  5  5  6  3  3  3  3  4  5  5  5  5  6  7  7  7  7  7  7  7  7  7  7  7  7  7  3  3  3  3  3  3  3  3  7  1  0  3  1  3  3  3  3  3  4  5  2  1  0  7  7  N  
+57|N  3  2  P  6  7  7  4  5  5  5  6  3  3  3  4  5  5  5  5  5  6  7  7  7  7  7  7  7  7  7  7  7  7  3  3  3  3  3  3  3  2  3  2  3  2  3  3  3  3  3  3  4  3  3  2  P  6  7  N  
+58|N  3  3  4  5  6  6  6  5  5  5  5  6  3  3  4  5  5  5  5  5  5  6  6  6  6  6  6  6  6  6  6  6  6  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  6  N  
+     0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59
+59|N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  
+FI
 info:     end player 4
 start next
 end next
@@ -25,6 +88,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -37,6 +101,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -49,6 +114,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -61,6 +127,10 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 40 53 32 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 48 39 32 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 52 30 24 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -73,7 +143,12 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 52 39 32 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 20 30 25 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 40 53 32 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 48 39 32 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 52 30 25 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 56 51 32 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -86,7 +161,10 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 52 39 32 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 36 37 32 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 40 53 32 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 56 51 32 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -99,6 +177,11 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 12 41 33 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 36 37 32 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 40 52 33 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 52 28 27 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -111,6 +194,10 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 12 41 33 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 20 28 27 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 56 50 33 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -123,6 +210,11 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 20 26 27 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 32 52 33 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 56 50 33 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 64 28 28 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -135,6 +227,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 32 52 33 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -147,6 +241,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -159,6 +254,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -171,6 +267,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 20 23 29 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 64 24 31 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -183,6 +282,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 24 46 35 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 80 24 11 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -195,6 +297,10 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 24 45 35 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 80 24 11 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 88 45 35 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -207,6 +313,10 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 28 38 34 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 80 23 11 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 84 23 11 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -219,7 +329,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 64 40 32 : mes d'una ordre en aquest torn
+FI
 info:     end player 4
 start next
 end next
@@ -232,7 +342,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 64 40 32 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 28 38 35 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -245,7 +356,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 20 40 32 : mes d'una ordre en aquest torn
+FI
 info:     end player 4
 start next
 end next
@@ -258,6 +369,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 20 26 23 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -270,6 +383,10 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 24 50 35 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 32 50 35 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 68 27 24 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -282,6 +399,10 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 24 48 36 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 32 49 36 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 88 49 34 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -294,6 +415,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 68 26 23 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -306,6 +429,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 32 52 37 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 90 41 22 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -318,6 +444,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 32 51 36 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 88 53 36 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -330,6 +459,10 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 24 51 35 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 32 51 38 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 88 53 36 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -342,6 +475,11 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 24 52 36 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 32 51 38 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 84 15 20 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 88 53 37 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -354,6 +492,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 84 15 20 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -366,6 +506,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -378,6 +519,69 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+     0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59
+ 0|N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  
+ 1|N  2  1  0  7  7  7  7  1  1  0  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  1  1  1  1  2  2  2  1  0  7  7  N  
+ 2|N  3  2  P  6  7  7  1  1  0  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  1  1  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  1  3  3  2  P  6  7  N  
+ 3|N  3  3  4  5  6  1  1  0  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  1  1  0  7  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  0  3  3  4  5  6  N  
+ 4|N  3  3  4  5  5  1  0  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  1  1  0  7  1  1  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  0  7  3  3  4  5  5  N  
+ 5|N  3  3  4  5  3  2  P  6  7  7  7  7  7  6  7  6  7  6  7  7  7  7  7  7  7  1  1  0  7  1  1  1  1  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  P  6  7  3  4  5  5  N  
+ 6|N  3  3  4  3  3  3  4  5  6  7  7  7  5  7  4  5  3  7  7  7  7  7  7  7  1  1  0  7  7  2  1  1  1  1  3  3  3  3  3  3  3  5  3  4  3  3  3  3  3  3  3  4  5  6  7  4  5  5  N  
+ 7|N  3  3  3  3  3  3  4  5  5  6  7  7  7  5  4  3  5  6  7  7  7  7  7  1  1  0  7  7  7  3  2  1  1  1  1  3  3  3  3  3  2  3  5  4  3  3  3  3  3  3  3  4  5  5  6  7  5  5  N  
+ 8|N  3  3  3  3  3  3  4  5  5  5  6  7  6  6  N  2  2  7  7  7  7  7  1  1  0  7  7  7  7  3  3  2  1  1  1  1  3  3  3  3  3  6  6  N  2  2  3  3  3  3  3  4  5  5  5  6  7  5  N  
+ 9|N  3  3  3  3  3  3  4  5  5  5  5  6  7  7  0  1  7  6  7  7  7  1  1  0  7  7  7  7  7  3  3  3  2  1  1  1  1  3  3  3  2  1  7  0  1  3  3  3  3  3  3  4  5  5  5  5  6  7  N  
+10|N  3  3  3  3  3  3  4  5  5  5  5  5  7  5  0  7  1  7  7  7  1  1  0  7  7  7  7  7  7  3  3  3  3  2  1  1  1  1  3  3  3  7  1  0  3  1  3  3  3  3  3  4  5  5  5  5  5  6  N  
+11|N  3  3  3  3  3  3  4  5  5  5  N  N  N  4  5  6  7  7  7  1  1  0  7  7  7  7  7  7  7  3  3  3  3  3  2  1  1  1  1  3  2  3  2  3  4  N  N  N  3  3  3  4  5  5  5  5  5  5  N  
+12|N  3  3  3  3  3  3  4  5  5  5  N  1  N  N  5  5  6  7  1  1  0  7  7  7  7  7  7  7  7  3  3  3  3  3  3  2  1  1  1  1  3  3  3  3  N  N  0  N  3  3  3  4  5  5  5  5  5  5  N  
+13|N  3  3  3  3  3  5  4  4  5  3  N  1  0  N  4  5  5  1  1  0  7  7  7  7  7  7  7  7  7  3  3  3  3  3  3  3  2  1  1  0  7  3  3  4  N  1  0  N  5  3  4  4  3  5  5  5  5  5  N  
+14|N  3  3  3  N  N  3  5  4  3  5  N  1  0  N  4  5  5  N  0  7  7  6  6  7  7  7  7  7  7  3  3  3  3  3  3  3  3  2  1  0  N  3  3  4  N  1  0  N  3  5  4  3  5  N  N  5  5  5  N  
+15|N  3  3  N  N  N  6  6  N  2  2  N  1  0  N  4  5  N  N  7  7  N  N  5  6  7  7  7  7  7  3  3  3  3  3  3  3  N  N  2  1  N  N  3  4  N  0  7  N  6  6  N  2  2  N  N  N  5  5  N  
+16|N  3  4  N  N  N  N  7  0  1  1  N  N  1  N  N  N  N  7  7  6  N  N  N  5  6  7  7  7  7  3  3  3  3  3  3  N  N  N  3  2  1  N  N  N  N  1  N  N  1  7  0  1  N  N  N  N  4  5  N  
+17|N  3  4  5  6  N  7  1  0  1  1  1  1  1  0  7  7  7  7  N  N  N  1  N  N  5  6  7  7  7  3  3  3  3  3  N  N  0  N  N  N  2  2  2  1  1  1  1  1  7  1  0  1  1  N  2  3  4  5  N  
+18|N  3  N  N  N  N  1  1  1  1  1  1  1  0  7  7  6  6  6  N  N  N  1  0  N  4  5  6  7  7  3  3  3  3  4  N  0  7  N  N  N  3  3  3  2  1  1  1  1  1  1  1  0  7  N  N  N  N  5  N  
+19|N  4  N  N  N  3  2  1  1  1  1  1  0  7  7  N  N  N  N  N  2  3  2  1  N  N  5  5  6  7  3  3  3  3  N  N  7  7  7  7  N  N  N  N  N  2  1  1  1  1  1  0  7  7  7  N  N  N  4  N  
+20|N  4  N  2  3  3  3  2  1  1  1  0  7  7  7  N  N  2  2  3  3  3  3  2  2  3  4  5  5  6  3  3  3  4  5  6  7  7  7  7  7  7  7  N  N  3  2  1  1  1  0  7  7  7  7  7  7  N  4  N  
+21|N  4  N  3  3  3  3  3  2  1  0  7  7  7  7  6  N  3  3  3  3  3  3  3  3  3  4  5  5  5  3  3  3  4  5  5  6  7  7  7  7  7  7  N  3  3  3  2  1  0  7  7  7  7  7  7  7  N  4  N  
+22|N  4  N  3  3  3  3  3  3  2  P  6  7  7  N  N  N  3  3  3  3  3  3  3  3  3  4  5  5  5  5  3  3  4  5  5  5  6  7  7  7  7  7  N  N  N  3  3  2  P  6  7  7  7  7  7  7  N  4  N  
+23|N  4  N  3  3  3  3  3  3  3  4  5  6  7  N  2  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  3  4  5  5  5  5  6  7  7  7  7  7  7  N  3  3  3  4  5  6  7  7  7  7  6  N  4  N  
+24|N  4  N  N  N  3  3  3  3  3  4  5  5  6  N  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  5  4  5  5  5  5  5  6  7  7  7  7  7  N  3  3  3  4  5  5  6  7  6  N  N  N  4  N  
+25|N  4  5  6  N  N  N  3  3  3  4  5  5  N  N  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  5  5  5  5  5  5  5  5  6  7  7  7  7  N  N  3  3  4  5  5  5  N  N  N  2  3  4  N  
+26|N  4  5  5  6  7  N  N  N  N  4  5  5  N  N  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  5  5  5  5  5  5  5  5  5  6  7  7  7  N  N  3  3  4  N  N  N  N  2  3  3  3  4  N  
+27|N  4  5  5  5  6  N  N  7  N  N  5  5  5  N  N  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  5  5  5  5  5  5  5  5  5  5  6  7  N  N  3  3  3  N  N  1  N  N  3  3  3  3  4  N  
+28|N  4  5  5  5  5  6  7  7  7  N  N  5  5  5  N  3  3  N  N  3  N  N  N  3  3  4  5  5  5  5  5  5  5  5  5  N  N  N  5  N  N  5  6  N  3  3  3  N  N  3  2  2  3  3  3  3  3  4  N  
+29|N  4  5  5  5  5  5  6  7  7  7  N  4  5  5  N  N  N  N  N  N  N  V N  3  3  4  5  5  5  5  5  5  5  5  5  N  V N  N  N  N  N  N  N  3  3  4  N  3  3  3  3  3  3  3  3  3  4  N  
+30|N  4  5  5  5  5  5  5  6  7  7  N  1  1  0  N  N  N  N  N  N  N  V N  1  1  1  1  1  1  1  1  1  1  1  0  N  V N  N  N  N  N  N  N  1  1  0  N  3  3  3  3  1  1  1  1  1  0  N  
+31|N  1  1  1  0  7  5  5  5  6  N  N  1  0  7  N  2  1  N  N  1  N  N  N  1  1  1  1  1  1  1  1  1  1  1  1  N  N  N  1  N  N  7  7  N  1  1  1  N  N  3  3  3  2  1  1  1  1  0  N  
+32|N  1  1  0  7  7  N  N  5  N  N  1  0  7  N  N  3  2  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  0  7  7  7  N  N  1  1  1  N  N  3  N  N  2  1  1  1  0  N  
+33|N  1  0  7  7  6  N  N  N  N  1  1  0  N  N  3  3  3  2  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  0  7  7  7  7  7  N  N  1  1  1  N  N  N  N  3  2  1  1  0  N  
+34|N  0  7  6  N  N  N  1  1  1  1  1  0  N  N  3  3  3  3  2  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  0  7  7  7  7  7  7  N  N  1  1  1  1  0  7  N  N  N  2  1  0  N  
+35|N  0  N  N  N  2  3  2  1  1  1  0  7  7  N  3  3  3  3  3  2  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  0  7  7  7  7  7  7  7  N  2  1  1  1  0  7  7  7  7  N  N  N  0  N  
+36|N  0  N  2  3  3  3  3  2  1  0  7  7  7  N  3  3  3  3  3  3  2  1  1  1  1  1  1  1  1  1  1  1  1  1  1  0  7  7  7  7  7  7  7  6  N  3  2  1  0  7  7  7  7  7  7  7  N  0  N  
+37|N  0  N  3  3  3  3  3  3  2  P  6  7  7  N  N  N  3  3  3  3  3  2  1  1  1  1  1  1  1  1  1  1  1  1  0  7  7  7  7  7  7  7  N  N  N  3  3  2  P  6  7  7  7  7  7  7  N  0  N  
+38|N  0  N  3  3  3  3  3  3  3  4  5  6  7  7  7  N  3  3  3  3  3  3  2  1  1  1  1  0  7  1  1  1  1  0  7  7  7  7  7  7  7  7  N  2  3  3  3  3  4  5  6  7  7  7  7  7  N  0  N  
+39|N  0  N  3  3  3  3  3  3  3  4  5  5  6  7  N  N  3  3  3  3  3  3  3  2  1  1  0  7  7  2  1  1  0  7  6  6  7  7  7  7  6  6  N  N  3  3  3  3  4  5  5  6  7  7  7  6  N  0  N  
+40|N  0  N  N  N  3  3  3  3  3  4  5  5  5  6  N  N  N  N  N  3  3  3  3  N  N  0  7  7  7  3  2  1  1  N  N  5  6  7  6  N  N  N  N  N  3  3  3  3  4  5  5  5  6  7  N  N  N  0  N  
+41|N  1  N  N  N  N  3  3  3  3  4  5  5  5  5  6  7  7  7  N  N  N  3  4  N  0  7  7  7  7  3  3  2  1  0  N  4  5  N  N  N  2  2  2  3  3  3  3  3  4  5  5  5  5  N  N  N  N  0  N  
+42|N  1  0  7  6  N  3  3  N  3  4  5  5  5  5  5  6  6  6  N  N  N  3  N  N  7  7  7  7  7  3  3  3  2  1  N  N  5  N  N  N  3  3  3  3  3  3  3  3  5  5  4  5  3  N  2  1  1  0  N  
+43|N  1  0  N  N  N  N  N  N  3  4  N  N  5  N  N  N  N  5  6  7  N  N  N  7  7  7  7  7  7  3  3  3  3  2  1  N  N  N  2  3  3  N  N  N  N  3  N  N  3  5  4  3  N  N  N  N  1  0  N  
+44|N  2  1  N  N  N  N  2  3  3  4  N  3  4  N  2  1  N  N  5  6  N  N  7  7  7  7  7  7  7  3  3  3  3  3  2  1  N  N  3  3  N  N  1  0  N  4  5  N  6  6  N  2  2  N  N  N  1  0  N  
+45|N  3  2  1  N  N  3  3  3  3  4  N  3  4  N  3  2  1  N  4  5  6  7  7  7  7  7  7  7  7  3  3  3  3  3  3  2  2  3  3  4  N  1  1  0  N  4  5  N  1  7  0  1  1  N  N  1  1  0  N  
+46|N  3  3  2  2  3  3  3  3  3  4  N  3  4  N  3  3  2  3  4  5  5  6  7  7  7  7  7  7  7  3  3  3  3  3  3  3  3  3  3  4  5  1  1  0  N  4  5  N  7  1  0  1  1  1  1  1  1  0  N  
+47|N  3  3  3  3  3  3  3  3  3  4  N  3  N  N  3  3  3  3  4  5  5  5  6  7  7  7  7  7  7  3  3  3  3  3  3  3  3  3  3  4  3  2  1  1  N  N  5  N  1  1  1  1  1  1  1  1  1  0  N  
+48|N  3  3  3  3  3  3  3  3  3  4  N  N  N  7  3  3  3  3  4  5  5  5  5  6  7  7  7  7  7  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  0  N  N  N  1  1  1  1  1  1  1  1  0  7  N  
+49|N  3  3  3  3  3  3  3  3  3  4  5  6  7  7  3  3  3  3  4  5  5  5  5  5  6  7  7  7  7  3  3  3  3  3  3  3  3  3  3  3  3  5  3  4  1  3  1  1  1  1  1  1  1  1  1  0  7  7  N  
+50|N  3  3  3  3  3  3  3  3  3  4  5  5  6  7  3  3  3  3  4  5  5  5  5  5  5  6  7  7  7  3  3  3  3  3  3  3  3  3  3  3  2  3  5  4  3  3  2  1  1  1  1  1  1  1  0  7  7  7  N  
+51|N  3  3  3  3  3  3  3  3  3  4  5  5  5  6  7  3  3  3  4  5  5  5  5  5  5  5  6  7  7  3  3  3  3  3  3  3  3  3  3  3  3  6  6  N  2  2  3  2  1  1  1  1  1  0  7  7  7  0  N  
+52|N  3  3  3  3  3  3  3  3  3  4  5  5  5  5  6  7  3  3  4  5  5  5  5  5  5  5  5  6  7  3  3  3  3  3  3  3  3  3  3  3  2  1  7  0  1  3  3  3  2  1  1  1  0  7  7  7  1  0  N  
+53|N  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  6  7  3  4  5  5  5  5  5  5  5  5  5  6  3  3  3  3  3  3  3  3  3  3  3  3  7  1  0  3  1  3  3  3  2  1  0  7  7  7  1  1  0  N  
+54|N  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  5  6  7  4  5  5  5  5  5  5  5  5  5  5  3  3  3  3  3  3  3  3  3  3  3  2  3  2  3  2  3  3  3  3  3  2  P  6  7  1  1  1  0  N  
+55|N  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  5  5  6  7  5  5  5  5  5  5  5  5  5  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  1  1  1  0  7  N  
+56|N  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  5  5  5  6  7  5  5  5  5  5  5  5  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  2  1  0  7  7  N  
+57|N  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  5  5  5  5  6  7  5  5  5  5  5  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  3  3  2  P  6  7  N  
+58|N  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  5  5  5  5  5  6  6  5  5  5  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  6  N  
+     0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59
+59|N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  
+FI
 info:     end player 4
 start next
 end next
@@ -390,6 +594,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -402,6 +607,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -414,7 +620,11 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 84 19 14 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 24 46 42 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 32 46 43 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 84 11 23 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 88 58 35 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -427,7 +637,10 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 84 19 14 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 24 46 42 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 80 10 23 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 84 10 23 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -440,7 +653,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 84 19 14 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 80 11 22 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -453,7 +667,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 84 19 14 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 97 36 37 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -466,6 +681,11 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 16 27 22 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 96 37 39 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 97 36 37 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 99 58 35 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -478,6 +698,12 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 16 27 22 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 92 37 39 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 96 37 39 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 97 38 37 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 98 36 36 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -490,7 +716,13 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 88 41 33 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 16 27 22 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 24 50 41 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 92 37 39 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 96 37 39 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 97 38 38 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 98 37 37 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -503,7 +735,10 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 88 41 33 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 24 50 41 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 90 27 22 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 99 55 38 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -516,6 +751,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 24 50 41 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 99 55 38 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -528,6 +766,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 100 56 39 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -540,6 +780,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 92 33 41 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 100 56 39 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -552,6 +795,10 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 92 32 41 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 98 32 41 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 100 56 39 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -564,8 +811,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 56 39 31 : mes d'una ordre en aquest torn
-error: ordena_soldat invocat amb 88 45 37 : mes d'una ordre en aquest torn
+FI
 info:     end player 4
 start next
 end next
@@ -578,8 +824,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 40 45 37 : mes d'una ordre en aquest torn
-error: ordena_soldat invocat amb 56 39 31 : mes d'una ordre en aquest torn
+FI
 info:     end player 4
 start next
 end next
@@ -592,8 +837,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 56 39 31 : mes d'una ordre en aquest torn
-error: ordena_soldat invocat amb 84 10 15 : mes d'una ordre en aquest torn
+FI
 info:     end player 4
 start next
 end next
@@ -606,8 +850,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 12 51 43 : mes d'una ordre en aquest torn
-error: ordena_soldat invocat amb 84 10 15 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 98 33 43 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -620,8 +864,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 12 51 43 : mes d'una ordre en aquest torn
-error: ordena_soldat invocat amb 84 10 15 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 98 33 43 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -634,8 +878,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 12 51 43 : mes d'una ordre en aquest torn
-error: ordena_soldat invocat amb 84 12 15 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 92 34 44 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -648,7 +892,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 12 51 43 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 104 48 43 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -661,6 +906,10 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 96 33 43 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 100 48 43 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 104 48 43 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -673,7 +922,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 68 47 39 : mes d'una ordre en aquest torn
+FI
 info:     end player 4
 start next
 end next
@@ -686,7 +935,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 68 47 39 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 97 33 43 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -699,7 +949,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 68 47 39 : mes d'una ordre en aquest torn
+FI
 info:     end player 4
 start next
 end next
@@ -712,6 +962,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -724,7 +975,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 36 46 38 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 60 16 18 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 100 53 41 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -737,6 +990,10 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 60 16 18 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 72 31 1 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 100 53 41 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -749,6 +1006,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 72 31 1 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -761,6 +1020,69 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+     0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59
+ 0|N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  
+ 1|N  2  1  0  7  7  7  7  1  1  0  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  1  1  1  1  2  2  2  1  0  7  7  N  
+ 2|N  3  2  P  6  7  7  1  1  0  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  1  1  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  1  3  3  2  P  6  7  N  
+ 3|N  3  3  4  5  6  1  1  0  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  1  1  1  1  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  0  3  3  4  5  6  N  
+ 4|N  3  3  4  5  5  1  0  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  2  1  1  1  1  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  0  7  3  3  4  5  5  N  
+ 5|N  3  3  4  5  3  2  P  6  7  7  7  7  7  6  7  6  7  6  7  7  7  7  7  7  7  7  7  3  2  1  1  1  1  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  P  6  7  3  4  5  5  N  
+ 6|N  3  3  4  3  3  3  4  5  6  7  7  7  5  7  4  5  3  7  7  7  7  7  7  7  7  7  7  3  3  2  1  1  1  1  3  3  3  3  3  3  3  5  3  4  3  3  3  3  3  3  3  4  5  6  7  4  5  5  N  
+ 7|N  3  3  3  3  3  3  4  5  5  6  7  7  7  5  4  3  5  6  7  7  7  7  7  7  7  7  7  3  3  3  2  1  1  1  1  3  3  3  3  3  2  3  5  4  3  3  3  3  3  3  3  4  5  5  6  7  5  5  N  
+ 8|N  3  3  3  3  3  3  4  5  5  5  6  7  6  6  N  2  2  7  7  7  7  7  7  7  7  7  7  3  3  3  3  2  1  1  1  1  3  3  3  3  3  6  6  N  2  2  3  3  3  3  3  4  5  5  5  6  7  5  N  
+ 9|N  3  3  3  3  3  3  4  5  5  5  5  6  7  7  0  1  7  6  7  7  7  7  7  7  7  7  7  3  3  3  3  3  2  1  1  1  1  3  3  3  2  1  7  0  1  3  3  3  3  3  3  4  5  5  5  5  6  7  N  
+10|N  3  3  3  3  3  3  4  5  5  5  5  5  7  5  0  7  1  7  7  7  7  7  7  7  7  7  7  3  3  3  3  3  3  2  1  1  1  1  3  3  3  7  1  0  3  1  3  3  3  3  3  4  5  5  5  5  5  6  N  
+11|N  3  3  3  3  3  3  4  5  5  5  N  N  N  4  5  6  7  7  7  7  7  7  7  7  7  7  7  3  3  3  3  3  3  3  2  1  1  1  1  3  2  3  2  3  4  N  N  N  3  3  3  4  5  5  5  5  5  5  N  
+12|N  3  3  3  3  3  3  4  5  5  5  N  1  N  N  5  5  6  7  7  7  7  7  7  7  7  7  7  3  3  3  3  3  3  3  3  2  1  1  1  1  3  3  3  3  N  N  0  N  3  3  3  4  5  5  5  5  5  5  N  
+13|N  3  3  3  3  3  5  4  4  5  3  N  1  0  N  4  5  5  6  6  7  7  7  7  7  7  7  7  3  3  3  3  3  3  3  3  3  2  1  1  0  7  3  3  4  N  1  0  N  5  3  4  4  3  5  5  5  5  5  N  
+14|N  3  3  3  N  N  3  5  4  3  5  N  1  0  N  4  5  5  N  5  6  7  6  6  7  7  7  7  3  3  3  3  3  3  3  3  3  3  2  1  0  N  3  3  4  N  1  0  N  3  5  4  3  5  N  N  5  5  5  N  
+15|N  3  3  N  N  N  6  6  N  2  2  N  1  0  N  4  5  N  N  4  5  N  N  5  6  7  7  7  3  3  3  3  3  3  3  3  3  N  N  2  1  N  N  3  4  N  0  7  N  6  6  N  2  2  N  N  N  5  5  N  
+16|N  3  4  N  N  N  N  7  0  1  1  N  N  1  N  N  N  N  3  4  5  N  N  N  5  6  7  7  3  3  3  3  3  3  3  3  N  N  N  3  2  1  N  N  N  N  1  N  N  1  7  0  1  N  N  N  N  4  5  N  
+17|N  3  4  5  6  N  7  1  0  3  1  2  3  2  2  2  2  3  3  N  N  N  1  N  N  5  6  7  3  3  3  3  3  3  3  N  N  0  N  N  N  2  2  2  1  1  1  1  1  7  1  0  1  1  N  2  3  4  5  N  
+18|N  3  N  N  N  N  3  2  3  2  3  3  3  3  3  3  3  3  4  N  N  N  1  0  N  4  5  6  3  3  3  3  3  3  4  N  0  7  N  N  N  3  3  3  2  1  1  1  1  1  1  1  0  7  N  N  N  N  5  N  
+19|N  4  N  N  N  3  3  3  3  3  3  3  3  3  3  N  N  N  N  N  2  3  2  1  N  N  5  5  3  3  3  3  3  3  N  N  7  7  7  7  N  N  N  N  N  2  1  1  1  1  1  0  7  7  7  N  N  N  4  N  
+20|N  4  N  2  3  3  3  3  3  3  3  3  3  3  4  N  N  2  2  3  3  3  3  2  2  3  4  5  3  3  3  3  3  4  5  6  7  7  7  7  7  7  7  N  N  3  2  1  1  1  0  7  7  7  7  7  7  N  4  N  
+21|N  4  N  3  3  3  3  3  3  3  3  3  3  3  4  5  N  3  3  3  3  3  3  3  3  3  4  3  3  3  3  3  3  4  5  5  6  7  7  7  7  7  7  N  3  3  3  2  1  0  7  7  7  7  7  7  7  N  4  N  
+22|N  4  N  3  3  3  3  3  3  3  3  3  3  3  N  N  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  6  7  7  7  7  7  N  N  N  3  3  2  P  6  7  7  7  7  7  7  N  4  N  
+23|N  4  N  3  3  3  3  3  3  3  3  3  3  4  N  2  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  6  7  7  7  7  7  7  N  3  3  3  4  5  6  7  7  7  7  6  N  4  N  
+24|N  4  N  N  N  3  3  3  3  3  3  3  3  4  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  6  7  7  7  7  7  N  3  3  3  4  5  5  6  7  6  N  N  N  4  N  
+25|N  4  5  6  N  N  N  3  3  3  3  3  3  N  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  5  6  7  7  7  7  N  N  3  3  4  5  5  5  N  N  N  2  3  4  N  
+26|N  4  5  5  6  7  N  N  N  N  3  3  4  N  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  5  5  6  7  7  7  N  N  3  3  4  N  N  N  N  2  3  3  3  4  N  
+27|N  4  5  5  5  6  N  N  7  N  N  3  4  5  N  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  5  5  5  6  7  N  N  3  3  3  N  N  1  N  N  3  3  3  3  4  N  
+28|N  4  5  5  5  5  6  7  7  7  N  N  4  5  5  N  3  3  N  N  3  N  N  N  3  3  3  3  3  3  3  3  3  4  5  5  N  N  N  5  N  N  5  6  N  3  3  3  N  N  3  2  2  3  3  3  3  3  4  N  
+29|N  4  5  5  5  5  5  6  7  7  7  N  4  5  5  N  N  N  N  N  N  N  V N  3  3  3  3  3  3  3  3  3  4  5  5  N  V N  N  N  N  N  N  N  3  3  4  N  3  3  3  3  3  3  3  3  3  4  N  
+30|N  4  5  5  5  5  5  5  6  7  7  N  4  5  5  N  N  N  N  N  N  N  V N  1  1  1  1  1  1  1  1  1  1  1  0  N  V N  N  N  N  N  N  N  1  1  0  N  3  3  3  3  1  1  1  1  1  0  N  
+31|N  4  5  5  5  5  5  5  5  6  N  N  4  5  5  N  2  1  N  N  1  N  N  N  1  1  1  1  1  1  1  1  1  1  1  1  N  N  N  1  N  N  7  7  N  1  1  1  N  N  3  3  3  2  1  1  1  1  0  N  
+32|N  4  5  5  5  5  N  N  5  N  N  3  4  5  N  N  3  2  2  3  2  2  2  2  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  0  7  7  7  N  N  1  1  1  N  N  3  N  N  2  1  1  1  0  N  
+33|N  4  5  5  5  5  N  N  N  N  3  3  4  N  N  3  3  3  3  3  3  3  3  3  2  1  1  1  1  1  1  1  1  1  1  1  1  1  1  0  7  7  7  7  7  N  N  1  1  1  N  N  N  N  3  2  1  1  0  N  
+34|N  4  5  5  N  N  N  2  2  3  3  3  4  N  N  3  3  3  3  3  3  3  3  3  3  2  1  1  1  1  1  1  1  1  1  1  1  1  0  7  7  7  7  7  7  N  N  1  1  1  1  0  7  N  N  N  2  1  0  N  
+35|N  4  N  N  N  2  3  3  3  3  3  3  4  5  N  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  1  1  1  1  1  1  1  0  7  7  7  7  7  7  7  N  2  1  1  1  0  7  7  7  7  N  N  N  0  N  
+36|N  4  N  2  3  3  3  3  3  3  3  3  4  5  N  3  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  1  1  1  1  1  0  7  7  7  7  7  7  7  6  N  3  2  1  0  7  7  7  7  7  7  7  N  0  N  
+37|N  4  N  3  3  3  3  3  3  3  3  3  4  5  N  N  N  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  1  1  1  0  7  7  7  7  7  7  7  N  N  N  3  3  2  P  6  7  7  7  7  7  7  N  0  N  
+38|N  4  N  3  3  3  3  3  3  3  3  3  1  1  0  7  N  3  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  1  0  7  7  7  7  7  7  7  7  N  2  3  3  3  3  4  5  6  7  7  7  7  7  N  0  N  
+39|N  4  N  3  3  3  3  3  3  3  3  3  2  1  0  N  N  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  1  0  7  6  6  7  7  7  7  6  6  N  N  3  3  3  3  4  5  5  6  7  7  7  6  N  0  N  
+40|N  4  N  N  N  3  3  3  3  3  3  3  3  2  1  N  N  N  N  N  3  3  3  3  N  N  3  3  3  3  3  2  1  1  N  N  5  6  7  6  N  N  N  N  N  3  3  3  3  4  5  5  5  6  7  N  N  N  0  N  
+41|N  4  N  N  N  N  3  3  3  3  3  3  3  3  2  2  2  1  0  N  N  N  3  4  N  3  3  3  3  3  3  3  2  1  0  N  4  5  N  N  N  2  2  2  3  3  3  3  3  4  5  5  5  5  N  N  N  N  0  N  
+42|N  4  5  6  6  N  3  3  N  3  3  3  3  3  3  3  3  2  1  N  N  N  3  N  N  3  3  3  3  3  3  3  3  2  1  N  N  5  N  N  N  3  3  3  3  3  3  3  3  5  5  4  5  3  N  2  1  1  0  N  
+43|N  4  5  N  N  N  N  N  N  3  3  N  N  3  N  N  N  N  2  1  0  N  N  N  3  3  3  3  3  3  3  3  3  3  2  1  N  N  N  2  3  3  N  N  N  N  3  N  N  3  5  4  3  N  N  N  N  1  0  N  
+44|N  4  5  N  N  N  N  2  3  3  4  N  3  4  N  2  1  N  N  2  1  N  N  3  3  3  3  3  3  3  3  3  3  3  3  2  1  N  N  3  3  N  N  7  7  N  4  5  N  6  6  N  2  2  N  N  N  1  0  N  
+45|N  4  5  5  N  N  3  3  3  3  4  N  3  4  N  3  2  1  N  3  2  2  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  2  3  3  4  N  7  7  7  N  4  5  N  1  7  0  1  1  N  N  1  1  0  N  
+46|N  4  5  5  5  6  3  3  1  1  0  N  3  4  N  3  3  2  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  6  7  7  N  4  5  N  7  1  0  1  1  1  1  1  1  0  N  
+47|N  4  5  5  5  5  3  3  2  1  0  N  3  N  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  6  7  N  N  5  N  1  1  1  1  1  1  1  1  1  0  N  
+48|N  4  5  5  5  5  3  3  3  2  1  N  N  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  6  6  N  N  N  1  1  1  1  1  1  1  1  0  7  N  
+49|N  4  5  5  5  3  3  3  3  3  2  2  2  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  N  4  N  3  1  1  1  1  1  1  1  1  1  0  7  7  N  
+50|N  4  5  5  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  1  1  0  7  N  5  4  3  N  2  1  1  1  1  1  1  1  0  7  7  7  N  
+51|N  4  5  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  0  N  6  6  N  2  2  3  2  1  1  1  1  1  0  7  7  7  0  N  
+52|N  4  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  N  N  7  0  1  N  3  3  2  1  1  1  0  7  7  7  1  0  N  
+53|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  7  N  0  N  1  3  3  3  2  1  0  7  7  7  1  1  0  N  
+54|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  2  2  2  2  3  3  3  3  3  2  P  6  7  1  1  1  0  N  
+55|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  1  1  1  0  7  N  
+56|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  2  1  0  7  7  N  
+57|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  3  3  2  P  6  7  N  
+58|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  6  N  
+     0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59
+59|N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  
+FI
 info:     end player 4
 start next
 end next
@@ -773,6 +1095,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 114 30 24 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -785,6 +1109,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 114 30 25 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 116 30 25 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -797,6 +1124,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 110 53 38 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -809,8 +1138,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 40 51 49 : mes d'una ordre en aquest torn
-error: ordena_soldat invocat amb 48 49 47 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 110 53 38 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -823,8 +1152,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 40 51 49 : mes d'una ordre en aquest torn
-error: ordena_soldat invocat amb 48 49 47 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 60 11 15 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 110 53 38 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -837,6 +1167,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 110 53 38 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -849,6 +1181,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -861,6 +1194,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -873,6 +1207,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -885,6 +1220,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -897,6 +1233,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -909,6 +1246,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 116 22 24 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -921,6 +1260,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 116 22 24 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -933,6 +1274,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -945,6 +1287,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -957,6 +1300,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 124 23 22 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -969,6 +1314,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -981,6 +1327,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -993,6 +1340,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -1005,6 +1353,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 124 24 27 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1017,7 +1367,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 48 54 53 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 124 24 27 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1030,7 +1381,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 48 54 53 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 97 26 28 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 124 24 27 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1043,7 +1396,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 48 54 53 : mes d'una ordre en aquest torn
+FI
 info:     end player 4
 start next
 end next
@@ -1056,6 +1409,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -1068,7 +1422,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 40 54 53 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 129 48 43 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1081,6 +1436,10 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 44 8 10 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 125 47 55 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 129 48 43 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1093,6 +1452,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 44 8 10 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 125 47 55 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1105,7 +1467,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 84 1 23 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 44 8 10 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 95 10 10 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1118,7 +1482,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 84 1 23 : mes d'una ordre en aquest torn
+FI
 info:     end player 4
 start next
 end next
@@ -1131,7 +1495,72 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 84 1 23 : mes d'una ordre en aquest torn
+     0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59
+ 0|N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  
+ 1|N  2  1  0  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  1  1  1  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  1  1  1  1  2  2  2  1  0  7  7  N  
+ 2|N  3  2  P  6  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  1  1  1  1  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  1  3  3  2  P  6  7  N  
+ 3|N  3  3  4  5  6  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  2  1  1  1  1  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  0  3  3  4  5  6  N  
+ 4|N  3  3  4  5  5  6  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  3  2  1  1  1  1  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  0  7  3  3  4  5  5  N  
+ 5|N  3  3  4  5  5  5  6  7  7  7  7  7  7  6  7  6  7  6  7  7  7  7  7  7  7  7  3  3  2  1  1  1  1  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  P  6  7  3  4  5  5  N  
+ 6|N  3  3  4  5  5  5  5  6  7  7  7  7  5  7  4  5  3  7  7  7  7  7  7  7  7  7  3  3  3  2  1  1  1  1  3  3  3  3  3  3  3  5  3  4  3  3  3  3  3  3  3  4  5  6  7  4  5  5  N  
+ 7|N  3  3  4  5  5  5  5  5  6  7  7  7  7  5  4  3  5  6  7  7  7  7  7  7  7  7  3  3  3  3  2  1  1  1  1  3  3  3  3  3  2  3  5  4  3  3  3  3  3  3  3  4  5  5  6  7  5  5  N  
+ 8|N  3  3  4  5  5  5  5  5  5  6  7  7  6  6  N  2  2  7  7  7  7  7  7  7  7  7  3  3  3  3  3  2  1  1  1  1  3  3  3  3  3  6  6  N  2  2  3  3  3  3  3  4  5  5  5  6  7  5  N  
+ 9|N  3  3  4  5  5  5  5  5  5  5  6  7  7  7  0  1  7  6  7  7  7  7  7  7  7  7  3  3  3  3  3  3  2  1  1  1  1  3  3  3  2  1  7  0  1  3  3  3  3  3  3  4  5  5  5  5  6  7  N  
+10|N  3  3  4  5  5  5  5  5  5  5  5  6  7  5  0  7  1  7  7  7  7  7  7  7  7  7  3  3  3  3  3  3  3  2  1  1  1  1  3  3  3  7  1  0  3  1  3  3  3  3  3  4  5  5  5  5  5  6  N  
+11|N  3  3  4  5  5  5  5  5  5  5  N  N  N  4  5  6  7  7  7  7  7  7  7  7  7  7  3  3  3  3  3  3  3  3  2  1  1  1  1  3  2  3  2  3  4  N  N  N  3  3  3  4  5  5  5  5  5  5  N  
+12|N  3  3  4  5  5  5  5  5  5  5  N  1  N  N  5  5  6  7  7  7  7  7  7  7  7  7  3  3  3  3  3  3  3  3  3  2  1  1  1  1  3  3  3  3  N  N  0  N  3  3  3  4  5  5  5  5  5  5  N  
+13|N  3  3  4  5  5  5  5  4  5  3  N  1  0  N  4  5  5  6  6  7  7  7  7  7  7  7  3  3  3  3  3  3  3  3  3  3  2  1  1  0  7  3  3  4  N  1  0  N  5  3  4  4  3  5  5  5  5  5  N  
+14|N  3  3  4  N  N  5  5  4  3  5  N  1  0  N  4  5  5  N  5  6  7  6  6  7  7  7  3  3  3  3  3  3  3  3  3  3  3  2  1  0  N  3  3  4  N  1  0  N  3  5  4  3  5  N  N  5  5  5  N  
+15|N  3  3  N  N  N  6  6  N  2  2  N  1  0  N  4  5  N  N  4  5  N  N  5  6  7  7  3  3  3  3  3  3  3  3  3  3  N  N  2  1  N  N  3  4  N  0  7  N  6  6  N  2  2  N  N  N  5  5  N  
+16|N  3  4  N  N  N  N  7  0  1  1  N  N  1  N  N  N  N  3  4  5  N  N  N  5  6  7  3  3  3  3  3  3  3  3  3  N  N  N  3  2  1  N  N  N  N  1  N  N  1  7  0  1  N  N  N  N  4  5  N  
+17|N  3  4  5  6  N  7  1  0  3  1  2  3  2  2  2  2  3  3  N  N  N  1  N  N  5  6  3  3  3  3  3  3  3  3  N  N  0  N  N  N  2  2  2  1  1  1  1  1  7  1  0  1  1  N  2  3  4  5  N  
+18|N  3  N  N  N  N  3  2  3  2  3  3  3  3  3  3  3  3  4  N  N  N  1  0  N  4  5  3  3  3  3  3  3  3  4  N  0  7  N  N  N  3  3  3  2  1  1  1  1  1  1  1  0  7  N  N  N  N  5  N  
+19|N  4  N  N  N  3  3  3  3  3  3  3  3  3  3  N  N  N  N  N  2  3  2  1  N  N  3  3  3  3  3  3  3  3  N  N  7  7  7  7  N  N  N  N  N  2  1  1  1  1  1  0  7  7  7  N  N  N  4  N  
+20|N  4  N  2  3  3  3  3  3  3  3  3  3  3  4  N  N  2  2  3  3  3  3  2  2  3  3  3  3  3  3  3  3  4  5  6  7  7  7  7  7  7  7  N  N  3  2  1  1  1  0  7  7  7  7  7  7  N  4  N  
+21|N  4  N  3  3  3  3  3  3  3  3  3  3  3  4  5  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  6  7  7  7  7  7  7  N  3  3  3  2  1  0  7  7  7  7  7  7  7  N  4  N  
+22|N  4  N  3  3  3  3  3  3  3  3  3  3  3  N  N  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  6  7  7  7  7  7  N  N  N  3  3  2  P  6  7  7  7  7  7  7  N  4  N  
+23|N  4  N  3  3  3  3  3  3  3  3  3  3  4  N  2  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  6  7  7  7  7  7  7  N  3  3  3  4  5  6  7  7  7  7  6  N  4  N  
+24|N  4  N  N  N  3  3  3  3  3  3  3  3  4  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  6  7  7  7  7  7  N  3  3  3  4  5  5  6  7  6  N  N  N  4  N  
+25|N  4  5  6  N  N  N  3  3  3  3  3  3  N  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  5  6  7  7  7  7  N  N  3  3  4  5  5  5  N  N  N  2  3  4  N  
+26|N  4  5  5  6  7  N  N  N  N  3  3  4  N  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  5  5  6  7  7  7  N  N  3  3  4  N  N  N  N  2  3  3  3  4  N  
+27|N  4  5  5  5  6  N  N  7  N  N  3  4  5  N  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  5  5  5  6  7  N  N  3  3  3  N  N  1  N  N  3  3  3  3  4  N  
+28|N  4  5  5  5  5  6  7  7  7  N  N  4  5  5  N  3  3  N  N  3  N  N  N  3  3  3  3  3  3  3  3  3  4  5  5  N  N  N  5  N  N  5  6  N  3  3  3  N  N  3  2  2  3  3  3  3  3  4  N  
+29|N  4  5  5  5  5  5  6  7  7  7  N  4  5  5  N  N  N  N  N  N  N  V N  3  3  3  3  3  3  3  3  3  4  5  5  N  V N  N  N  N  N  N  N  3  3  4  N  3  3  3  3  3  3  3  3  3  4  N  
+30|N  4  5  5  5  5  5  5  6  7  7  N  4  5  5  N  N  N  N  N  N  N  V N  1  1  1  1  1  1  1  1  1  1  1  0  N  V N  N  N  N  N  N  N  1  1  0  N  3  3  3  3  1  1  1  1  1  0  N  
+31|N  4  5  5  5  5  5  5  5  6  N  N  4  5  5  N  2  1  N  N  1  N  N  N  1  1  1  1  1  1  1  1  1  1  1  1  N  N  N  1  N  N  7  7  N  1  1  1  N  N  3  3  3  2  1  1  1  1  0  N  
+32|N  4  5  5  5  5  N  N  5  N  N  3  4  5  N  N  3  2  2  3  2  2  2  2  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  0  7  7  7  N  N  1  1  1  N  N  3  N  N  2  1  1  1  0  N  
+33|N  4  5  5  5  5  N  N  N  N  3  3  4  N  N  3  3  3  3  3  3  3  3  3  2  1  1  1  1  1  1  1  1  1  1  1  1  1  1  0  7  7  7  7  7  N  N  1  1  1  N  N  N  N  3  2  1  1  0  N  
+34|N  4  5  5  N  N  N  2  2  3  3  3  4  N  N  3  3  3  3  3  3  3  3  3  3  2  1  1  1  1  1  1  1  1  1  1  1  1  0  7  7  7  7  7  7  N  N  1  1  1  1  0  7  N  N  N  2  1  0  N  
+35|N  4  N  N  N  2  3  3  3  3  3  3  4  5  N  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  1  1  1  1  1  1  1  0  7  7  7  7  7  7  7  N  2  1  1  1  0  7  7  7  7  N  N  N  0  N  
+36|N  4  N  2  3  3  3  3  3  3  3  3  4  5  N  3  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  1  1  1  1  1  0  7  7  7  7  7  7  7  6  N  3  2  1  0  7  7  7  7  7  7  7  N  0  N  
+37|N  4  N  3  3  3  3  3  3  3  2  1  1  1  N  N  N  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  1  1  1  0  7  7  7  7  7  7  7  N  N  N  3  3  2  P  6  7  7  7  7  7  7  N  0  N  
+38|N  4  N  3  3  3  3  3  3  3  3  2  1  1  0  7  N  3  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  1  0  7  7  7  7  7  7  7  7  N  2  3  3  3  3  4  5  6  7  7  7  7  7  N  0  N  
+39|N  4  N  3  3  3  3  3  3  3  3  3  2  1  0  N  N  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  1  0  7  6  6  7  7  7  7  6  6  N  N  3  3  3  3  4  5  5  6  7  7  7  6  N  0  N  
+40|N  4  N  N  N  3  3  3  3  3  3  3  3  2  1  N  N  N  N  N  3  3  3  3  N  N  3  3  3  3  3  2  1  1  N  N  5  6  7  6  N  N  N  N  N  3  3  3  3  4  5  5  5  6  7  N  N  N  0  N  
+41|N  4  N  N  N  N  3  3  3  3  3  3  3  3  2  2  2  1  0  N  N  N  3  4  N  3  3  3  3  3  3  3  2  1  0  N  4  5  N  N  N  2  2  2  3  3  3  3  3  4  5  5  5  5  N  N  N  N  0  N  
+42|N  4  5  6  6  N  3  3  N  3  3  3  3  3  3  3  3  2  1  N  N  N  3  N  N  3  3  3  3  3  3  3  3  2  1  N  N  5  N  N  N  3  3  3  3  3  3  3  3  5  5  4  5  3  N  2  1  1  0  N  
+43|N  4  5  N  N  N  N  N  N  3  3  N  N  3  N  N  N  N  2  1  0  N  N  N  3  3  3  3  3  3  3  3  3  3  2  1  N  N  N  2  3  3  N  N  N  N  3  N  N  3  5  4  3  N  N  N  N  1  0  N  
+44|N  4  5  N  N  N  N  2  3  3  4  N  3  4  N  2  1  N  N  2  1  N  N  3  3  3  3  3  3  3  3  3  3  3  3  2  1  N  N  3  3  N  N  1  0  N  4  5  N  6  6  N  2  2  N  N  N  1  0  N  
+45|N  4  5  5  N  N  3  3  3  3  4  N  3  4  N  3  2  1  N  3  2  2  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  2  3  3  4  N  1  1  0  N  4  5  N  1  7  0  1  1  N  N  1  1  0  N  
+46|N  4  5  5  5  3  3  3  1  1  0  N  3  4  N  3  3  2  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  1  1  0  N  4  5  N  7  1  0  1  1  1  1  1  1  0  N  
+47|N  4  5  5  5  3  3  3  2  1  0  N  3  N  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  N  N  N  3  2  1  1  N  N  5  N  1  1  1  1  1  1  1  1  1  0  N  
+48|N  4  5  5  3  3  3  3  3  2  1  N  N  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  2  3  3  3  2  1  0  N  N  N  1  1  1  1  1  1  1  1  0  7  N  
+49|N  4  5  3  3  3  3  3  3  3  2  2  2  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  N  3  N  5  3  4  1  3  1  2  1  1  1  1  1  1  1  0  7  7  N  
+50|N  4  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  2  3  N  2  3  5  4  3  2  1  0  2  1  1  1  1  1  0  7  7  7  N  
+51|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  3  3  6  6  N  2  2  2  1  N  N  1  1  1  0  7  7  7  0  N  
+52|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  N  N  3  3  3  2  1  7  0  1  3  3  2  1  N  1  1  0  7  7  7  1  0  N  
+53|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  2  3  3  3  3  3  7  1  0  3  1  3  3  2  2  1  0  7  7  7  1  1  0  N  
+54|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  N  N  3  3  3  3  2  3  2  3  2  3  3  3  3  N  2  P  6  7  1  1  1  0  N  
+55|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  1  0  N  N  3  3  3  3  3  3  3  3  3  N  3  N  3  3  4  5  1  1  1  0  7  N  
+56|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  N  3  3  N  3  3  N  3  3  3  1  N  2  3  3  3  4  5  2  1  0  7  7  N  
+57|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  3  N  N  N  N  N  3  N  3  N  2  3  3  3  3  3  4  3  3  2  P  6  7  N  
+58|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  6  N  N  3  2  3  2  3  3  3  3  3  3  3  3  3  3  3  4  5  6  N  
+     0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59
+59|N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  
+FI
+error: ordena_soldat invocat amb 44 7 11 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 72 2 3 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 95 9 11 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1144,7 +1573,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 84 1 23 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 76 9 11 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 95 9 11 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1157,6 +1588,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 97 19 37 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1169,6 +1602,10 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 95 7 12 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 121 15 20 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 124 26 16 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1181,6 +1618,10 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 76 7 13 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 95 7 12 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 101 5 12 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1193,6 +1634,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 138 26 16 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1205,6 +1648,10 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 121 13 21 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 132 27 42 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 138 26 16 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1217,6 +1664,11 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 95 8 12 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 121 13 21 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 129 47 55 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 132 27 42 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1229,6 +1681,10 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 95 8 12 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 121 12 21 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 134 12 21 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1241,6 +1697,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 103 7 13 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 120 7 5 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1253,7 +1712,10 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 84 1 31 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 103 5 13 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 105 6 5 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 120 6 5 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1266,6 +1728,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 101 2 14 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 103 7 13 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1278,6 +1743,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 103 5 15 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1290,7 +1757,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 32 19 45 : mes d'una ordre en aquest torn
+FI
 info:     end player 4
 start next
 end next
@@ -1303,8 +1770,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 24 19 45 : mes d'una ordre en aquest torn
-error: ordena_soldat invocat amb 32 19 45 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 105 3 6 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1317,8 +1784,12 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 24 19 45 : mes d'una ordre en aquest torn
-error: ordena_soldat invocat amb 32 19 45 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 76 5 18 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 105 3 6 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 120 4 8 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 133 19 37 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 134 7 21 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1331,7 +1802,13 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 84 1 36 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 76 5 16 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 105 3 6 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 120 3 8 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 121 9 13 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 123 3 8 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 134 7 21 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1344,7 +1821,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 84 1 36 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 101 4 17 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 134 7 21 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1357,7 +1836,11 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 84 1 36 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 101 4 17 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 105 2 7 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 134 7 21 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 137 10 19 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1370,6 +1853,11 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 117 9 19 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 120 2 6 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 134 8 19 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 137 9 19 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1382,6 +1870,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 117 9 19 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 137 9 19 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1394,6 +1885,11 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 117 9 20 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 118 11 18 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 137 8 18 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 142 9 20 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1406,6 +1902,12 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 117 9 20 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 118 10 20 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 137 8 18 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 142 8 18 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 145 11 17 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1418,6 +1920,10 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 137 9 17 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 142 9 20 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 150 14 16 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1430,6 +1936,12 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 117 9 19 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 126 12 16 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 137 9 19 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 145 9 18 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 150 14 16 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1442,6 +1954,10 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 118 9 18 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 126 13 17 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 145 9 18 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1454,7 +1970,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 24 10 44 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 126 13 17 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 133 16 40 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1467,7 +1985,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 24 10 44 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 123 8 12 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 133 16 40 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1480,7 +2000,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 24 10 44 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 123 8 12 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1493,7 +2014,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 24 10 44 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 123 10 14 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 138 11 15 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1506,6 +2029,70 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+     0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59
+ 0|N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  
+ 1|N  2  1  0  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  1  1  1  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  1  1  1  1  2  2  2  1  0  7  7  N  
+ 2|N  3  2  P  6  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  1  1  1  1  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  1  3  3  2  P  6  7  N  
+ 3|N  3  3  4  5  6  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  2  1  1  1  1  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  0  3  3  4  5  6  N  
+ 4|N  3  3  4  5  5  6  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  7  3  2  1  1  1  1  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  0  7  3  3  4  5  5  N  
+ 5|N  3  3  4  5  5  5  6  7  7  7  7  7  7  6  6  6  6  6  7  7  7  7  7  7  7  7  3  3  2  1  1  1  1  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  P  6  7  3  4  5  5  N  
+ 6|N  3  3  4  5  5  5  5  6  7  7  7  7  5  N  4  N  3  5  6  7  7  7  7  7  7  7  3  3  3  2  1  1  1  1  3  3  3  3  3  3  3  5  3  4  3  3  3  3  3  3  3  4  5  6  7  4  5  5  N  
+ 7|N  3  3  4  5  5  5  5  5  6  7  7  N  N  5  4  3  N  4  5  6  7  7  7  7  7  7  3  3  3  3  2  1  1  1  1  3  3  3  3  3  2  3  5  4  3  3  3  3  3  3  3  4  5  5  6  7  5  5  N  
+ 8|N  3  3  4  5  5  5  5  5  5  6  7  7  6  6  N  2  2  4  5  5  6  7  7  7  7  7  3  3  3  3  3  2  1  1  1  1  3  3  3  3  3  6  6  N  2  2  3  3  3  3  3  4  5  5  5  6  7  5  N  
+ 9|N  3  3  4  5  5  5  5  5  5  5  6  7  N  7  0  1  N  4  5  5  5  6  7  7  7  7  3  3  3  3  3  3  2  1  1  1  1  3  3  3  2  1  7  0  1  3  3  3  3  3  3  4  5  5  5  5  6  7  N  
+10|N  3  3  4  5  5  5  5  5  5  5  5  6  7  N  0  N  1  4  5  5  5  5  6  7  7  7  3  3  3  3  3  3  3  2  1  1  1  1  3  3  3  7  1  0  3  1  3  3  3  3  3  4  5  5  5  5  5  6  N  
+11|N  3  3  4  5  5  5  5  5  5  5  N  N  N  2  2  2  3  4  5  5  5  5  5  6  7  7  3  3  3  3  3  3  3  3  2  1  1  1  1  3  2  3  2  3  4  N  N  N  3  3  3  4  5  5  5  5  5  5  N  
+12|N  3  3  4  5  5  5  5  5  5  5  N  1  N  N  3  3  3  4  5  5  5  5  5  5  6  7  3  3  3  3  3  3  3  3  3  2  1  1  1  1  3  3  3  3  N  N  0  N  3  3  3  4  5  5  5  5  5  5  N  
+13|N  3  3  4  5  5  5  5  4  5  3  N  1  0  N  3  3  3  4  5  5  5  5  5  5  5  6  3  3  3  3  3  3  3  3  3  3  2  1  1  0  7  3  3  4  N  1  0  N  5  3  4  4  3  5  5  5  5  5  N  
+14|N  3  3  4  N  N  5  5  4  3  5  N  1  0  N  3  3  3  N  5  5  5  5  5  5  5  5  3  3  3  3  3  3  3  3  3  3  3  2  1  0  N  3  3  4  N  1  0  N  3  5  4  3  5  N  N  5  5  5  N  
+15|N  3  3  N  N  N  6  6  N  2  2  N  1  0  N  3  3  N  N  4  5  N  N  5  5  5  3  3  3  3  3  3  3  3  3  3  3  N  N  2  1  N  N  3  4  N  0  7  N  6  6  N  2  2  N  N  N  5  5  N  
+16|N  3  4  N  N  N  N  7  0  1  1  N  N  1  N  N  N  N  3  4  5  N  N  N  5  3  3  3  3  3  3  3  3  3  3  3  N  N  N  3  2  1  N  N  N  N  1  N  N  1  7  0  1  N  N  N  N  4  5  N  
+17|N  3  4  5  6  N  7  1  0  3  1  2  3  2  2  2  2  3  3  N  N  N  1  N  N  3  3  3  3  3  3  3  3  3  3  N  N  0  N  N  N  2  2  2  1  1  1  1  1  7  1  0  1  1  N  2  3  4  5  N  
+18|N  3  N  N  N  N  3  2  3  2  3  3  3  3  3  3  3  3  4  N  N  N  1  0  N  3  3  3  3  3  3  3  3  3  4  N  0  7  N  N  N  3  3  3  2  1  1  1  1  1  1  1  0  7  N  N  N  N  5  N  
+19|N  4  N  N  N  3  3  3  3  3  3  3  3  3  3  N  N  N  N  N  2  3  2  1  N  N  3  3  3  3  3  3  3  3  N  N  7  7  7  7  N  N  N  N  N  2  1  1  1  1  1  0  7  7  7  N  N  N  4  N  
+20|N  4  N  2  3  3  3  3  3  3  3  3  3  3  4  N  N  2  2  3  3  3  3  2  2  3  3  3  3  3  3  3  3  4  5  6  7  7  7  7  7  7  7  N  N  3  2  1  1  1  0  7  7  7  7  7  7  N  4  N  
+21|N  4  N  3  3  3  3  3  3  3  3  3  3  3  4  5  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  6  7  7  7  7  7  7  N  3  3  3  2  1  0  7  7  7  7  7  7  7  N  4  N  
+22|N  4  N  3  3  3  3  3  3  3  3  3  3  3  N  N  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  6  7  7  7  7  7  N  N  N  3  3  2  P  6  7  7  7  7  7  7  N  4  N  
+23|N  4  N  3  3  3  3  3  3  3  3  3  3  4  N  2  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  6  7  7  7  7  7  7  N  3  3  3  4  5  6  7  7  7  7  6  N  4  N  
+24|N  4  N  N  N  3  3  3  3  3  3  3  3  4  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  6  7  7  7  7  7  N  3  3  3  4  5  5  6  7  6  N  N  N  4  N  
+25|N  4  5  6  N  N  N  3  3  3  3  3  3  N  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  5  6  7  7  7  7  N  N  3  3  4  5  5  5  N  N  N  2  3  4  N  
+26|N  4  5  5  6  7  N  N  N  N  3  3  4  N  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  5  5  6  7  7  7  N  N  3  3  4  N  N  N  N  2  3  3  3  4  N  
+27|N  4  5  5  5  6  N  N  7  N  N  3  4  5  N  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  5  5  5  6  7  N  N  3  3  3  N  N  1  N  N  3  3  3  3  4  N  
+28|N  4  5  5  5  5  6  7  7  7  N  N  4  5  5  N  3  3  N  N  3  N  N  N  3  3  3  3  3  3  3  3  3  4  5  5  N  N  N  5  N  N  5  6  N  3  3  3  N  N  3  2  2  3  3  3  3  3  4  N  
+29|N  4  5  5  5  5  5  6  7  7  7  N  4  5  5  N  N  N  N  N  N  N  V N  3  3  3  3  3  3  3  3  3  4  5  5  N  V N  N  N  N  N  N  N  3  3  4  N  3  3  3  3  3  3  3  3  3  4  N  
+30|N  4  5  5  5  5  5  5  6  7  7  N  4  5  5  N  N  N  N  N  N  N  V N  1  1  1  1  1  1  1  1  1  1  1  0  N  V N  N  N  N  N  N  N  1  1  0  N  3  3  3  3  1  1  1  1  1  0  N  
+31|N  4  5  5  5  5  5  5  5  6  N  N  4  5  5  N  2  1  N  N  1  N  N  N  1  1  1  1  1  1  1  1  1  1  1  1  N  N  N  1  N  N  7  7  N  1  1  1  N  N  3  3  3  2  1  1  1  1  0  N  
+32|N  4  5  5  5  5  N  N  5  N  N  3  4  5  N  N  3  2  2  3  2  2  2  2  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  0  7  7  7  N  N  1  1  1  N  N  3  N  N  2  1  1  1  0  N  
+33|N  4  5  5  5  5  N  N  N  N  1  1  0  N  N  3  3  3  3  3  3  3  3  3  2  1  1  1  1  1  1  1  1  1  1  1  1  1  1  0  7  7  7  7  7  N  N  1  1  1  N  N  N  N  3  2  1  1  0  N  
+34|N  4  5  5  N  N  N  2  1  1  1  1  1  N  N  3  3  3  3  3  3  3  3  3  3  2  1  1  1  1  1  1  1  1  1  1  1  1  0  7  7  7  7  7  7  N  N  1  1  1  1  0  7  N  N  N  2  1  0  N  
+35|N  4  N  N  N  2  3  3  2  1  1  1  1  0  N  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  1  1  1  1  1  1  1  0  7  7  7  7  7  7  7  N  2  1  1  1  0  7  7  7  7  N  N  N  0  N  
+36|N  4  N  2  3  3  3  3  3  2  1  1  1  0  N  3  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  1  1  1  1  1  0  7  7  7  7  7  7  7  6  N  3  2  1  0  7  7  7  7  7  7  7  N  0  N  
+37|N  4  N  3  3  3  3  3  3  3  2  1  1  1  N  N  N  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  1  1  1  0  7  7  7  7  7  7  7  N  N  N  3  3  2  P  6  7  7  7  7  7  7  N  0  N  
+38|N  4  N  3  3  3  3  3  3  3  3  2  1  1  0  7  N  3  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  1  0  7  7  7  7  7  7  7  7  N  2  3  3  3  3  4  5  6  7  7  7  7  7  N  0  N  
+39|N  4  N  3  3  3  3  3  3  3  3  3  2  1  0  N  N  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  1  0  7  6  6  7  7  7  7  6  6  N  N  3  3  3  3  4  5  5  6  7  7  7  6  N  0  N  
+40|N  4  N  N  N  3  3  3  3  3  3  3  3  2  1  N  N  N  N  N  3  3  3  3  N  N  3  3  3  3  3  2  1  1  N  N  5  6  7  6  N  N  N  N  N  3  3  3  3  4  5  5  5  6  7  N  N  N  0  N  
+41|N  4  N  N  N  N  3  3  3  3  3  3  3  3  2  2  2  1  0  N  N  N  3  4  N  3  3  3  3  3  3  3  2  1  0  N  4  5  N  N  N  2  2  2  3  3  3  3  3  4  5  5  5  5  N  N  N  N  0  N  
+42|N  4  5  6  6  N  3  3  N  3  3  3  3  3  3  3  3  2  1  N  N  N  3  N  N  3  3  3  3  3  3  3  3  2  1  N  N  5  N  N  N  3  3  3  3  3  3  3  3  5  5  4  5  3  N  2  1  1  0  N  
+43|N  4  5  N  N  N  N  N  N  3  3  N  N  3  N  N  N  N  2  1  0  N  N  N  3  3  3  3  3  3  3  3  3  3  2  1  N  N  N  2  3  3  N  N  N  N  3  N  N  3  5  4  3  N  N  N  N  1  0  N  
+44|N  4  5  N  N  N  N  2  3  3  4  N  3  4  N  2  1  N  N  2  1  N  N  3  3  3  3  3  3  3  3  3  3  3  3  2  1  N  N  3  3  N  N  1  0  N  4  5  N  6  6  N  2  2  N  N  N  1  0  N  
+45|N  4  5  5  N  N  3  3  3  3  4  N  3  4  N  3  2  1  N  3  2  2  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  2  3  3  4  N  1  1  0  N  4  5  N  1  7  0  1  1  N  N  1  1  0  N  
+46|N  4  5  5  5  3  3  3  1  1  0  N  3  4  N  3  3  2  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  1  1  0  N  4  5  N  7  0  0  3  1  0  7  1  1  0  N  
+47|N  4  5  5  5  3  3  3  2  1  0  N  3  N  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  N  N  3  3  3  3  3  3  4  3  2  1  1  N  N  5  N  1  1  N  N  N  0  N  N  0  7  N  
+48|N  4  5  5  3  3  3  3  3  2  1  N  N  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  1  N  N  3  3  3  3  3  3  3  3  3  2  1  0  N  N  N  1  1  1  N  1  0  N  N  7  7  N  
+49|N  4  5  3  3  3  3  3  3  3  2  2  2  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  N  3  3  3  3  3  3  3  3  5  3  4  1  3  1  1  1  1  1  1  1  1  N  7  6  6  N  
+50|N  4  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  N  3  3  3  3  3  3  3  3  2  3  5  4  3  3  2  1  1  1  1  1  1  0  7  N  N  0  N  
+51|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  3  3  3  3  3  3  3  3  3  3  6  6  N  2  2  3  2  1  1  1  1  0  7  7  7  1  0  N  
+52|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  7  0  1  3  3  3  2  1  1  0  7  6  6  1  1  0  N  
+53|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  7  1  0  3  1  3  3  3  2  1  0  N  N  1  1  1  0  N  
+54|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  3  2  3  2  3  3  3  3  3  2  P  N  N  1  1  1  0  N  
+55|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  6  1  1  0  7  N  
+56|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  N  N  N  0  7  7  N  
+57|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  N  2  2  P  6  7  N  
+58|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  3  3  3  4  5  6  N  
+     0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59
+59|N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  
+FI
+error: ordena_soldat invocat amb 133 18 42 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1518,6 +2105,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 157 51 39 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1530,8 +2119,10 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 80 2 45 : mes d'una ordre en aquest torn
-error: ordena_soldat invocat amb 84 3 46 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 131 18 42 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 155 51 39 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 159 49 39 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1544,8 +2135,10 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 80 2 45 : mes d'una ordre en aquest torn
-error: ordena_soldat invocat amb 84 3 46 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 131 18 42 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 155 51 41 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 160 50 39 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1558,6 +2151,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 160 50 38 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 164 48 38 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1570,6 +2166,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -1582,7 +2179,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 76 13 52 : mes d'una ordre en aquest torn
+FI
 info:     end player 4
 start next
 end next
@@ -1595,7 +2192,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 76 13 52 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 132 5 36 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1608,7 +2206,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 76 13 52 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 132 5 36 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1621,7 +2220,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 76 13 52 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 147 5 37 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1634,6 +2234,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 147 5 37 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 154 5 30 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1646,6 +2249,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 143 5 31 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 154 4 29 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1658,6 +2264,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -1670,7 +2277,10 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 76 10 55 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 141 5 32 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 143 5 32 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 154 3 32 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1683,7 +2293,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 76 10 55 : mes d'una ordre en aquest torn
+FI
 info:     end player 4
 start next
 end next
@@ -1696,7 +2306,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 76 10 55 : mes d'una ordre en aquest torn
+FI
 info:     end player 4
 start next
 end next
@@ -1709,7 +2319,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 76 10 55 : mes d'una ordre en aquest torn
+FI
 info:     end player 4
 start next
 end next
@@ -1722,6 +2332,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 166 11 15 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1734,6 +2346,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 166 11 15 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1746,6 +2360,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -1758,6 +2373,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 169 11 15 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1770,7 +2387,11 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 76 10 58 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 141 6 35 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 149 6 35 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 153 4 35 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 161 53 38 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1783,8 +2404,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 60 8 52 : mes d'una ordre en aquest torn
-error: ordena_soldat invocat amb 76 10 58 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 161 53 38 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 164 53 41 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1797,9 +2419,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 44 8 54 : mes d'una ordre en aquest torn
-error: ordena_soldat invocat amb 60 8 52 : mes d'una ordre en aquest torn
-error: ordena_soldat invocat amb 76 10 58 : mes d'una ordre en aquest torn
+FI
 info:     end player 4
 start next
 end next
@@ -1812,9 +2432,10 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 44 8 54 : mes d'una ordre en aquest torn
-error: ordena_soldat invocat amb 60 8 52 : mes d'una ordre en aquest torn
-error: ordena_soldat invocat amb 76 10 58 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 118 2 20 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 176 52 38 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 180 52 38 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1827,6 +2448,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 118 2 18 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1839,6 +2462,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 118 2 18 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1851,6 +2476,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -1863,6 +2489,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 165 11 15 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1875,6 +2503,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 165 11 15 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1887,6 +2517,70 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+     0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59
+ 0|N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  
+ 1|N  2  1  0  7  7  7  7  6  6  6  7  7  7  7  7  N  1  0  7  7  6  7  7  7  7  7  1  1  1  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  1  1  1  1  2  2  2  1  0  7  7  N  
+ 2|N  3  2  P  6  7  7  N  N  N  7  7  7  7  7  7  N  N  7  7  N  7  7  7  7  7  7  1  1  1  1  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  1  3  3  2  P  6  7  N  
+ 3|N  3  3  4  5  6  N  5  N  7  6  7  7  6  7  N  N  7  7  7  7  7  7  7  7  7  7  2  1  1  1  1  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  0  3  3  4  5  6  N  
+ 4|N  3  3  4  5  5  N  N  5  N  7  7  N  7  7  7  7  7  7  7  7  7  7  7  7  7  7  3  2  1  1  1  1  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  0  7  3  3  4  5  5  N  
+ 5|N  3  3  4  5  5  N  N  4  5  6  7  7  7  6  7  6  7  6  7  7  7  7  7  7  7  7  3  3  2  1  1  1  1  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  P  6  7  3  4  5  5  N  
+ 6|N  3  3  4  5  N  N  3  4  5  5  6  7  5  7  4  5  3  7  7  7  6  7  7  7  7  7  3  3  3  2  1  1  1  1  3  3  3  3  3  3  3  5  3  4  3  3  3  3  3  3  3  4  5  6  7  4  5  5  N  
+ 7|N  3  3  4  5  5  N  N  4  5  5  5  6  7  5  4  3  5  6  7  N  5  6  7  7  7  7  3  3  3  3  2  1  1  1  1  3  3  3  3  3  2  3  5  4  3  3  3  3  3  3  3  4  5  5  6  7  5  5  N  
+ 8|N  3  3  4  5  5  N  7  6  5  5  5  5  6  6  N  2  2  7  N  N  N  5  6  6  7  7  3  3  3  3  3  2  1  1  1  1  3  3  3  3  3  6  6  N  2  2  3  3  3  3  3  4  5  5  5  6  7  5  N  
+ 9|N  3  3  4  5  5  5  N  7  6  5  5  5  5  7  0  1  7  6  7  N  N  N  N  7  7  7  3  3  3  3  3  3  2  1  1  1  1  3  3  3  2  1  7  0  1  3  3  3  3  3  3  4  5  5  5  5  6  7  N  
+10|N  3  3  4  5  5  5  5  N  N  5  5  5  7  5  0  7  1  7  7  7  N  7  7  7  7  7  3  3  3  3  3  3  3  2  1  1  1  1  3  3  3  7  1  0  3  1  3  3  3  3  3  4  5  5  5  5  5  6  N  
+11|N  3  3  4  5  5  5  5  N  N  4  N  N  N  4  5  6  7  7  7  7  7  7  7  7  7  7  3  3  3  3  3  3  3  3  2  1  1  1  1  3  2  3  2  3  4  N  N  N  3  3  3  4  5  5  5  5  5  5  N  
+12|N  3  3  4  5  5  5  5  N  N  4  N  1  N  N  5  5  6  7  7  7  7  7  7  7  7  7  3  3  3  3  3  3  3  3  3  2  1  1  1  1  3  3  3  3  N  N  0  N  3  3  3  4  5  5  5  5  5  5  N  
+13|N  3  3  4  5  5  5  5  4  3  3  N  1  0  N  4  5  5  6  6  7  7  7  7  7  7  7  3  3  3  3  3  3  3  3  3  3  2  1  1  0  7  3  3  4  N  1  0  N  5  3  4  4  3  5  5  5  5  5  N  
+14|N  3  3  4  N  N  5  5  4  3  5  N  1  0  N  4  5  5  N  5  6  7  6  6  7  7  7  3  3  3  3  3  3  3  3  3  3  3  2  1  0  N  3  3  4  N  1  0  N  3  5  4  3  5  N  N  5  5  5  N  
+15|N  3  3  N  N  N  6  6  N  2  2  N  1  0  N  4  5  N  N  4  5  N  N  5  6  7  7  3  3  3  3  3  3  3  3  3  3  N  N  2  1  N  N  3  4  N  0  7  N  6  6  N  2  2  N  N  N  5  5  N  
+16|N  3  4  N  N  N  N  7  0  1  1  N  N  1  N  N  N  N  3  4  5  N  N  N  5  6  7  3  3  3  3  3  3  3  3  3  N  N  N  3  2  1  N  N  N  N  1  N  N  1  7  0  1  N  N  N  N  4  5  N  
+17|N  3  4  5  6  N  7  1  0  3  1  2  3  2  2  2  2  3  3  N  N  N  1  N  N  5  6  3  3  3  3  3  3  3  3  N  N  0  N  N  N  2  2  2  1  1  1  1  1  7  1  0  1  1  N  2  3  4  5  N  
+18|N  3  N  N  N  N  3  2  3  2  3  3  3  3  3  3  3  3  4  N  N  N  1  0  N  4  5  3  3  3  3  3  3  3  4  N  0  7  N  N  N  3  3  3  2  1  1  1  1  1  1  1  0  7  N  N  N  N  5  N  
+19|N  4  N  N  N  3  3  3  3  3  3  3  3  3  3  N  N  N  N  N  2  3  2  1  N  N  3  3  3  3  3  3  3  3  N  N  7  7  7  7  N  N  N  N  N  2  1  1  1  1  1  0  7  7  7  N  N  N  4  N  
+20|N  4  N  2  3  3  3  3  3  3  3  3  3  3  4  N  N  2  2  3  3  3  3  2  2  3  3  3  3  3  3  3  3  4  5  6  7  7  7  7  7  7  7  N  N  3  2  1  1  1  0  7  7  7  7  7  7  N  4  N  
+21|N  4  N  3  3  3  3  3  3  3  3  3  3  3  4  5  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  6  7  7  7  7  7  7  N  3  3  3  2  1  0  7  7  7  7  7  7  7  N  4  N  
+22|N  4  N  3  3  3  3  3  3  3  3  3  3  3  N  N  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  6  7  7  7  7  7  N  N  N  3  3  2  P  6  7  7  7  7  7  7  N  4  N  
+23|N  4  N  3  3  3  3  3  3  3  3  3  3  4  N  2  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  6  7  7  7  7  7  7  N  3  3  3  4  5  6  7  7  7  7  6  N  4  N  
+24|N  4  N  N  N  3  3  3  3  3  3  3  3  4  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  6  7  7  7  7  7  N  3  3  3  4  5  5  6  7  6  N  N  N  4  N  
+25|N  4  5  6  N  N  N  3  3  3  3  3  3  N  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  5  6  7  7  7  7  N  N  3  3  4  5  5  5  N  N  N  2  3  4  N  
+26|N  4  5  5  6  7  N  N  N  N  3  3  4  N  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  5  5  6  7  7  7  N  N  3  3  4  N  N  N  N  2  3  3  3  4  N  
+27|N  4  5  5  5  6  N  N  7  N  N  3  4  5  N  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  5  5  5  5  5  5  5  6  7  N  N  3  3  3  N  N  1  N  N  3  3  3  3  4  N  
+28|N  4  5  5  5  5  6  7  7  7  N  N  4  5  5  N  3  3  N  N  3  N  N  N  3  3  3  3  3  3  3  3  3  4  5  5  N  N  N  5  N  N  5  6  N  3  3  3  N  N  3  2  2  3  3  3  3  3  4  N  
+29|N  4  5  5  5  5  5  6  7  7  7  N  4  5  5  N  N  N  N  N  N  N  V N  3  3  3  3  3  3  3  3  3  4  5  5  N  V N  N  N  N  N  N  N  3  3  4  N  3  3  3  3  3  3  3  3  3  4  N  
+30|N  4  5  5  5  5  5  5  6  7  7  N  4  5  5  N  N  N  N  N  N  N  V N  1  1  1  1  1  1  1  1  1  1  1  0  N  V N  N  N  N  N  N  N  1  1  0  N  3  3  3  3  1  1  1  1  1  0  N  
+31|N  4  5  5  5  5  5  5  5  6  N  N  4  5  5  N  2  1  N  N  1  N  N  N  1  1  1  1  1  1  1  1  1  1  1  1  N  N  N  1  N  N  7  7  N  1  1  1  N  N  3  3  3  2  1  1  1  1  0  N  
+32|N  4  5  5  5  5  N  N  5  N  N  3  4  5  N  N  3  2  2  3  2  2  2  2  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  0  7  7  7  N  N  1  1  1  N  N  3  N  N  2  1  1  1  0  N  
+33|N  4  5  5  5  5  N  N  N  N  3  3  4  N  N  3  3  3  3  3  3  3  3  3  2  1  1  1  1  1  1  1  1  1  1  1  1  1  1  0  7  7  7  7  7  N  N  1  1  1  N  N  N  N  3  2  1  1  0  N  
+34|N  4  5  5  N  N  N  2  2  3  3  3  4  N  N  3  3  3  3  3  3  3  3  3  3  2  1  1  1  1  1  1  1  1  1  1  1  1  0  7  7  7  7  7  7  N  N  1  1  1  1  0  7  N  N  N  2  1  0  N  
+35|N  4  N  N  N  2  3  3  3  3  3  3  4  5  N  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  1  1  1  1  1  1  1  0  7  7  7  7  7  7  7  N  2  1  1  1  0  7  7  7  7  N  N  N  0  N  
+36|N  4  N  2  3  3  3  3  3  3  3  3  4  5  N  3  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  1  1  1  1  1  0  7  7  7  7  7  7  7  6  N  3  2  1  0  7  7  7  7  7  7  7  N  0  N  
+37|N  4  N  3  3  3  3  3  3  3  2  1  1  1  N  N  N  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  1  1  1  0  7  7  7  7  7  7  7  N  N  N  3  3  2  P  6  7  7  7  7  7  7  N  0  N  
+38|N  4  N  3  3  3  3  3  3  3  3  2  1  1  0  7  N  3  3  3  3  3  3  3  3  3  3  3  3  2  1  1  1  1  0  7  7  7  7  7  7  7  7  N  2  3  3  3  3  4  5  6  7  7  7  7  7  N  0  N  
+39|N  4  N  3  3  3  3  3  3  3  3  3  2  1  0  N  N  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  1  0  7  6  6  7  7  7  7  6  6  N  N  3  3  3  3  4  5  5  6  7  7  7  6  N  0  N  
+40|N  4  N  N  N  3  3  3  3  3  3  3  3  2  1  N  N  N  N  N  3  3  3  3  N  N  3  3  3  3  3  2  1  1  N  N  5  6  7  6  N  N  N  N  N  3  3  3  3  4  5  5  5  6  7  N  N  N  0  N  
+41|N  4  N  N  N  N  3  3  3  3  3  3  3  3  2  2  2  1  0  N  N  N  3  4  N  3  3  3  3  3  3  3  2  1  0  N  4  5  N  N  N  2  2  2  3  3  3  3  3  4  5  5  5  5  N  N  N  N  0  N  
+42|N  4  5  6  6  N  3  3  N  3  3  3  3  3  3  3  3  2  1  N  N  N  3  N  N  3  3  3  3  3  3  3  3  2  1  N  N  5  N  N  N  3  3  3  3  3  3  3  3  5  5  4  5  3  N  2  1  1  0  N  
+43|N  4  5  N  N  N  N  N  N  3  3  N  N  3  N  N  N  N  2  1  0  N  N  N  3  3  3  3  3  3  3  3  3  3  2  1  N  N  N  2  3  3  N  N  N  N  3  N  N  3  5  4  3  N  N  N  N  1  0  N  
+44|N  4  5  N  N  N  N  2  3  3  4  N  3  4  N  2  1  N  N  2  1  N  N  3  3  3  3  3  3  3  3  3  3  N  3  2  1  N  N  3  3  N  N  1  0  N  4  5  N  6  6  N  2  2  N  N  N  1  0  N  
+45|N  4  5  5  N  N  3  3  3  3  4  N  3  4  N  3  2  1  N  3  2  2  3  3  3  3  3  3  3  3  3  3  N  N  N  3  2  2  3  3  4  N  1  1  0  N  4  5  N  1  7  0  1  1  N  N  1  1  0  N  
+46|N  4  5  5  5  3  3  3  1  1  0  N  3  4  N  3  3  2  3  3  3  3  3  3  3  3  3  3  3  3  3  2  2  2  3  3  3  3  3  3  4  5  1  1  0  N  4  5  N  7  1  0  1  1  1  1  1  1  0  N  
+47|N  4  5  5  5  3  3  3  2  1  0  N  3  N  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  3  2  1  1  N  N  5  N  1  1  1  1  1  1  1  1  1  0  N  
+48|N  4  5  5  3  3  3  3  3  2  1  N  N  N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  0  N  N  N  1  1  1  1  1  1  1  1  0  7  N  
+49|N  4  5  3  3  3  3  3  3  3  2  2  2  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  5  3  4  1  3  1  1  1  1  1  1  1  1  1  0  7  7  N  
+50|N  4  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  3  5  4  3  3  2  1  1  1  1  1  1  1  0  7  7  N  N  
+51|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  6  6  N  2  2  3  2  1  1  1  1  1  0  7  7  7  N  N  
+52|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  1  7  0  1  3  3  3  2  1  1  1  0  7  7  7  1  0  N  
+53|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  7  1  0  3  1  3  3  3  2  1  0  7  7  7  1  1  0  N  
+54|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  2  3  2  3  2  3  3  3  3  3  2  P  6  7  N  N  1  0  N  
+55|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  1  1  1  0  7  N  
+56|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  2  1  0  7  7  N  
+57|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  3  3  2  P  6  7  N  
+58|N  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  3  4  5  6  N  
+     0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59
+59|N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  N  
+FI
+error: ordena_soldat invocat amb 141 1 45 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1899,6 +2593,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 141 1 45 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 149 1 45 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1911,6 +2608,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -1923,6 +2621,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -1935,6 +2634,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 149 1 48 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1947,6 +2648,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 149 1 48 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1959,6 +2662,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 149 1 48 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1971,6 +2676,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 149 1 48 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -1983,6 +2690,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -1995,6 +2703,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -2007,6 +2716,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -2019,6 +2729,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -2031,6 +2742,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 149 5 52 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2043,6 +2756,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -2055,6 +2769,10 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 141 5 52 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 155 42 57 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 175 36 54 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2067,6 +2785,11 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 141 5 52 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 143 5 46 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 155 42 57 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 175 36 54 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2079,6 +2802,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 143 5 46 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 153 5 52 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2091,6 +2817,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 143 5 46 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 153 5 52 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2103,7 +2832,11 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 32 29 58 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 143 5 44 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 159 49 45 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 175 36 56 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 184 42 57 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2116,9 +2849,10 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 28 40 58 : mes d'una ordre en aquest torn
-error: ordena_soldat invocat amb 32 29 58 : mes d'una ordre en aquest torn
-error: ordena_soldat invocat amb 44 28 58 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 153 4 53 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 159 49 45 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 196 2 18 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2131,6 +2865,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 153 4 53 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2143,6 +2879,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 153 4 53 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2155,7 +2893,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 28 42 58 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 201 13 17 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2168,7 +2907,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 24 22 53 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 201 13 17 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2181,7 +2921,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 24 22 53 : mes d'una ordre en aquest torn
+FI
 info:     end player 4
 start next
 end next
@@ -2194,7 +2934,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 24 22 53 : mes d'una ordre en aquest torn
+FI
 info:     end player 4
 start next
 end next
@@ -2207,7 +2947,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 24 22 53 : mes d'una ordre en aquest torn
+FI
 info:     end player 4
 start next
 end next
@@ -2220,6 +2960,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -2232,6 +2973,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -2244,7 +2986,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 28 48 58 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 206 14 15 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2257,6 +3000,69 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+     0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59
+ 0|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+ 1|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+ 2|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+ 3|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+ 4|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+ 5|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+ 6|V V V V V V V V V V V V V 5  V 4  V 3  V V V V V V V V V V V V V V V V V V V V V V V V 5  V 4  V 3  V V V V V V V V V V V V V 
+ 7|V V V V V V V V V V V V V V 5  4  3  V V V V V V V V V V V V V V V V V V V V V V V V V V 5  4  3  V V V V V V V V V V V V V V 
+ 8|V V V V V V V V V V V V V 6  6  N  2  2  V V V V V V V V V V V V V V V V V V V V V V V V 6  6  N  2  2  V V V V V V V V V V V V V 
+ 9|V V V V V V V V V V V V V V 7  0  1  V V V V V V V V V V V V V V V V V V V V V V V V V V 7  0  1  V V V V V V V V V V V V V V 
+10|V V V V V V V V V V V V V 7  V 0  V 1  V V V V V V V V V V V V V V V V V V V V V V V V 7  V 0  V 1  V V V V V V V V V V V V V 
+11|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+12|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+13|V V V V V V 5  V 4  V 3  V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 5  V 4  V 3  V V V V V V 
+14|V V V V V V V 5  4  3  V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 5  4  3  V V V V V V V 
+15|V V V V V V 6  6  N  2  2  V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 6  6  N  2  2  V V V V V V 
+16|V V V V V V V 7  0  1  V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 7  0  1  V V V V V V V 
+17|V V V V V V 7  V 0  V 1  V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 7  V 0  V 1  V V V V V V 
+18|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+19|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+20|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+21|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+22|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+23|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+24|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+25|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+26|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+27|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+28|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+29|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+30|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+31|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+32|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+33|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+34|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+35|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+36|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+37|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+38|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+39|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+40|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+41|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+42|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 5  V 4  V 3  V V V V V V 
+43|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 5  4  3  V V V V V V V 
+44|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 6  6  N  2  2  V V V V V V 
+45|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 7  0  1  V V V V V V V 
+46|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 7  V 0  V 1  V V V V V V 
+47|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+48|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+49|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 5  V 4  V 3  V V V V V V V V V V V V V 
+50|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 5  4  3  V V V V V V V V V V V V V V 
+51|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 6  6  N  2  2  V V V V V V V V V V V V V 
+52|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 7  0  1  V V V V V V V V V V V V V V 
+53|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 7  V 0  V 1  V V V V V V V V V V V V V 
+54|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+55|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+56|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+57|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+58|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+     0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59
+59|V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V V 
+FI
 info:     end player 4
 start next
 end next
@@ -2269,7 +3075,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 76 46 58 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 211 55 39 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2282,7 +3089,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 60 45 58 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 187 28 57 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 211 55 39 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2295,6 +3104,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 226 50 39 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2307,6 +3118,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 208 51 38 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 226 50 39 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2319,7 +3133,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
-error: ordena_soldat invocat amb 60 47 58 : mes d'una ordre en aquest torn
+FI
+error: ordena_soldat invocat amb 208 52 39 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 226 50 39 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2332,6 +3148,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 196 8 10 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2344,6 +3162,11 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 186 55 44 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 196 8 10 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 206 11 15 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 208 53 41 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2356,6 +3179,9 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 186 55 44 : mes d'una ordre en aquest torn
+error: ordena_soldat invocat amb 226 52 40 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2368,6 +3194,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -2380,6 +3207,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -2392,6 +3220,8 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
+error: ordena_soldat invocat amb 186 54 43 : mes d'una ordre en aquest torn
 info:     end player 4
 start next
 end next
@@ -2404,6 +3234,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -2416,6 +3247,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -2428,6 +3260,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -2440,6 +3273,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -2452,6 +3286,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -2464,6 +3299,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -2476,6 +3312,7 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
@@ -2488,13 +3325,14 @@ info:     end player 2
 info:     start player 3
 info:     end player 3
 info:     start player 4
+FI
 info:     end player 4
 start next
 end next
 info: end round 200
-info: player Null got score 17
-info: player Null got score 9
-info: player Demo got score 5026
-info: player jormaig got score 35009
+info: player Demo got score 1000
+info: player Demo got score 14
+info: player Demo got score 1
+info: player jormaig got score 37063
 info: player(s) jormaig got top score
 info: game played
