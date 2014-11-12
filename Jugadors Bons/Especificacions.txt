@@ -1,0 +1,30 @@
+To Do:
+ - Ajustar constants mitjançant mètode estadístic [hard]
+
+#####################
+# AIjormaig_v1.0.cc #
+#####################
+
+És el jugador bàsic, ha guanyat al jutge però encara pot ser molt més.
+
+Especificacions:
+SOLDATS
+- Moviment soldats 				=> SI
+- Busca ruta més segura			=> NO
+- Esquiva foc					=> SI
+- Esquiva helicòpters			=> NO
+- Protecció contra encallament	=> NO
+
+HELIS
+- Llançament paraques			=> SI
+- Napalm 						=> NO
+- Moviment helis				=> NO
+- Protecció de bases			=> NO
+- Anàlisi densitat d'enemics	=> NO
+
+================================================================================
+#####################
+# AIjormaig_v1.1.cc #
+#####################
+
+Jugador amb soldats completats
