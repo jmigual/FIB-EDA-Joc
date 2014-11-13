@@ -1,5 +1,6 @@
 To Do:
  - Ajustar constants mitjançant mètode estadístic [hard]
+ - Contar napalm per evitar helicòpters
 
 #####################
 # AIjormaig_v1.0.cc #

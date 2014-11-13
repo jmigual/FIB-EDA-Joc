@@ -19,8 +19,9 @@ const int NO_VIST   = -2;   // Pel BFS, per marcar les caselles no vistes
 const int POST      = -3;   // Ens indica que hi ha un post
 const int VOLTANT   = -4;
 
-const int MAX_FOC   =  1;   // Màxim de torns que tolerem un foc per un BFS
+const int MAX_FOC   =  0;   // Màxim de torns que tolerem un foc per un BFS
 const int DIRS      =  8;   // Direccions totals en les que es pot avançar
+const int DIRS2     = 16;
 
 const int CALCUL_EXPL =  1; // Nombre de torns entre calcul de BFS exploradors
 const int MIN_VIDA    =
@@ -32,9 +33,21 @@ const int EXPLORADOR    = 2;
 const double PROPORCIO_1  = 0.9;
 const double PROPORCIO_2  = 0.3;
 
-const int X[8] = { 1, 1, 0, -1, -1, -1,  0,  1 };
-const int Y[8] = { 0, 1, 1,  1,  0, -1, -1, -1 };
-const int INV[8] = { 4, 5, 6, 7, 0, 1, 2, 3 };
+// Arrays de direcció per una casella adjacent
+//                   0  1  2   3   4   5   6   7
+const int X[8]   = { 1, 1, 0, -1, -1, -1,  0,  1 };
+const int Y[8]   = { 0, 1, 1,  1,  0, -1, -1, -1 };
+const int INV[8] = { 4, 5, 6,  7,  0,  1,  2,  3 };
+//                   0  1  2   3   4   5   6   7
+
+// Arrays de dirrecció per dues caselles adjacents,
+//                     0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15
+const int X2[16]   = { 2, 2, 2, 1, 0,-1,-2,-2,-2,-2,-2,-1, 0, 1, 2, 2};
+const int Y2[16]   = { 0, 1, 2, 2, 2, 2, 2, 1, 0,-1,-2,-2,-2,-2,-2,-1};
+const int INV2[16] = { 8, 9,10,11,12,13,14,15, 0, 1, 2, 3, 4, 5, 6, 7};
+//                     0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15
+
+
 
 
 struct PLAYER_NAME : public Player {
@@ -92,6 +105,32 @@ struct PLAYER_NAME : public Player {
     // Guarda les personalitats dels soldats
     MEE pers;
     
+    // REDEFINICIONS DE LES FUNCIONS PRINCIPALS
+    
+    // Sobrecarrega Board::quin_soldat(int x, int y) per poder utilitzar una
+    // Posició 'p'
+    inline int quin_soldat(Posicio &p) const
+    {
+        return Board::quin_soldat(p.x, p.y);
+    }
+    
+    inline int quin_soldat(int x,int y) const
+    {
+        return Board::quin_soldat(x, y);
+    }
+    
+    // Sobrecarrega Board::que(int x, int y) per poder utilitzar una posicó 'p'
+    inline int que(Posicio &p) const
+    {
+        return Board::que(p.x, p.y);
+    }
+    
+    inline int que(int x, int y)
+    {
+        return Board::que(x, y);
+    }
+    
+    // FUNCIONS DE LA CLASSE
     
     // Pre: cap
     // Post: retorna TRUE si a la posició p no hi ha cap condició que impedeixi
@@ -99,11 +138,13 @@ struct PLAYER_NAME : public Player {
     bool passar(Posicio &p)
     {
         // Obtenim el tipus d'element
-        int que = Board::que(p.x, p.y);
+        int q = que(p.x, p.y);
         
-        return que != MUNTANYA and que != AIGUA and
-               temps_foc(p.x, p.y) < MAX_FOC;
+        return q != MUNTANYA and q != AIGUA and
+               temps_foc(p.x, p.y) <= MAX_FOC;
     }
+    
+    
     
     
     // Pre: cap
@@ -124,7 +165,11 @@ struct PLAYER_NAME : public Player {
             bool found = false;
             // Comprovem les 8 direccions
             for (int i = 0; i < DIRS and not found; ++i) {
-                int sol = quin_soldat(s.pos.x + X[i], s.pos.y + Y[i]);
+                // Calculem posició
+                Posicio q(s.pos.x + X[i], s.pos.y + Y[i]);
+                
+                // Obtenim dades del soldat
+                int sol = quin_soldat(q);
                 Info dSol;
                 // Si trobem un soldat al nostre voltant l'ataquem
                 if (sol and (dSol = dades(sol)).equip != player) {
@@ -177,11 +222,12 @@ struct PLAYER_NAME : public Player {
                 
                     // Mirem per totes les direccions del voltant
                     for (int j = 0; j < DIRS and not found; ++j) {
-                        int x = h.pos.x + i*X[j];
-                        int y = h.pos.y + i*Y[j];
+                        Posicio q(h.pos.x + i*X[j], h.pos.y + i*Y[j]);
                         
-                        if (que(x, y) != AIGUA and quin_soldat(x, y) == 0) {
-                            ordena_paracaigudista(x, y);
+                        // Mirem si es compleixen les condicions per llençar un
+                        // soldat i el tirem
+                        if (que(q.x, q.y) != AIGUA and quin_soldat(q) == 0) {
+                            ordena_paracaigudista(q.x, q.y);
                             found = true;
                         }
                     }
@@ -218,7 +264,7 @@ struct PLAYER_NAME : public Player {
             }
         }
         
-        
+        // Comencem a buscar KILLS
         while (not Q.empty()) {
             // Traiem i eliminem el primer element
             PEP p = Q.front();
@@ -231,35 +277,53 @@ struct PLAYER_NAME : public Player {
                 if (not passar(p.second)) {
                     atac[p.second.x][p.second.y] = NO_PASSAR;
                 }
-                else {
-                    if (p.first == POST) atac[p.second.x][p.second.y] = POST;
-                    else atac[p.second.x][p.second.y] = p.first;
+                else if (p.first == POST) {
+                    atac[p.second.x][p.second.y] = POST;
                     
-                    // Mirem que si a la casella actual hi ha un soldat
-                    // nostre no llencem el BFS perquè cap soldat intenti
-                    // venir allà on som i es quedi bloquejat
-                    int sol = quin_soldat(p.second.x, p.second.y);
-                    if (sol == 0) {
-                        // Comprovem totes les direccions
-                        for (int i = 0; i < DIRS; ++i) {
-                            // Calculem la posició
-                            Posicio q(p.second.x + X[i], p.second.y + Y[i]);
-                            Q.push(PEP(INV[i], q));
-                        }
-                    }
-                    else if (dades(sol).equip != player) {
-                        // Comprovem totes les posicions
-                        for (int i = 0; i < DIRS; ++i) {
-                            // Calculem la posició
-                            Posicio q(p.second.x + X[i], p.second.y + Y[i]);
-                            Q.push(PEP(INV[i], q));
-                        }
+                    // Mirem per distància 1 a tot el voltant per evitar
+                    // passar per allà on ja hi ha soldats nostres
+                    for (int i = 0; i < DIRS; ++i) {
+                        // Calculem la posicio
+                        Posicio q(p.second.x + X[i], p.second.y + Y[i]);
+                        
+                        // Obtenim el soldat a la posició 'q'
+                        int sol = quin_soldat(q);
+                        if (sol == 0) Q.push(PEP(VOLTANT, q));
+                        else if (dades(sol).equip != player)
+                            Q.push(PEP(VOLTANT, q));
+                            
                     }
                 }
+                else if (p.first == VOLTANT) {
+                    atac[p.second.x][p.second.y] = VOLTANT;
+                    
+                    // Mirem al voltant si hi ha un dels nostres per no
+                    // passar el BFS per allà
+                    for (int i = 0; i < DIRS; ++i) {
+                        // Calculem la posició
+                        Posicio q(p.second.x + X[i], p.second.y + Y[i]);
+                        
+                        // Obtenim el soldat a la posició 'q' i si n'hi ha
+                        // algun que és nostre no llencem la funció
+                        int sol = quin_soldat(q);
+                        if (sol == 0) Q.push(PEP(INV[i], q));
+                        else if (dades(sol).equip != player)
+                            Q.push(PEP(INV[i], q));
+                    }
+                }
+                else {
+                    atac[p.second.x][p.second.y] = p.first;
+                    for (int i = 0; i < DIRS; ++i) {
+                        Posicio q(p.second.x + X[i], p.second.y + Y[i]);
+                        Q.push(PEP(INV[i], q));
+                    }
+                }
+                
             }
         }
         
         // Funció per dibuixar els vectors de moviment
+        /*
         if (quin_torn()%30 == 0)
             for (int i = 0; i < MAX; ++i) {
                 if (i == 0) {
@@ -276,7 +340,8 @@ struct PLAYER_NAME : public Player {
                     if (atac[i][j] >= 0) cerr << atac[i][j] << "  ";
                     else if (atac[i][j] == NO_PASSAR) cerr << "N  ";
                     else if (atac[i][j] == POST) cerr << "P  ";
-                    else cerr << "V  ";
+                    else if (atac[i][j] == VOLTANT) cerr << "V  ";
+                    else cerr << ".  ";
                 }
                 cerr << endl;
                 if (i == MAX - 1) {
@@ -288,6 +353,7 @@ struct PLAYER_NAME : public Player {
                     cerr << endl;
                 }
             }
+            /* */
     }
     
     void updatePosts()
@@ -323,7 +389,7 @@ struct PLAYER_NAME : public Player {
             }
         }
         
-        // Comencem a buscar
+        // Comencem a buscar POSTS
         while (not Q.empty()) {
             // Obtenim el primer element
             find p = Q.front();
@@ -334,8 +400,7 @@ struct PLAYER_NAME : public Player {
                 int que = Board::que(p.pos.x, p.pos.y);
                 
                 // Comprovem que no sigui un obstacle
-                if (que == MUNTANYA or que == AIGUA or
-                        temps_foc(p.pos.x, p.pos.y) >= MAX_FOC) {
+                if (not passar(p.pos)) {
                     dir[p.pos.x][p.pos.y] = P(NO_PASSAR, NO_PASSAR);
                 }
                 else {
@@ -343,7 +408,7 @@ struct PLAYER_NAME : public Player {
                     if (p.dir == POST) dir[p.pos.x][p.pos.y] = P(POST, 0);
                     else dir[p.pos.x][p.pos.y] = P(p.dir, p.dist);
                     
-                    int sol = quin_soldat(p.pos.x, p.pos.y);
+                    int sol = quin_soldat(p.pos);
                     if (sol == 0) {
                         // Per cada casella al voltant afegim un BFS
                         for (int i = 0; i < DIRS; ++i) {
@@ -365,6 +430,7 @@ struct PLAYER_NAME : public Player {
         }
         
         // Funció per pintar el tauler que ens ajuda a buscar
+        /*
         cerr << "EXPLORADORS" << endl;
         if (quin_torn()%30 == 0)
             for (int i = 0; i < MAX; ++i) {
@@ -382,7 +448,7 @@ struct PLAYER_NAME : public Player {
                     if (dir[i][j].first >= 0) cerr << dir[i][j].first << "  ";
                     else if (dir[i][j].first == NO_PASSAR) cerr << "N  ";
                     else if (dir[i][j].first == POST) cerr << "P  ";
-                    else cerr << "V  ";
+                    else cerr << ".  ";
                 }
                 cerr << endl;
                 if (i == MAX - 1) {
