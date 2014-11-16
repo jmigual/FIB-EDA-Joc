@@ -14,24 +14,29 @@ using namespace std;
 /**
  * Podeu declarar constants aquí
  */
+
+//#define DEBUG
+
 const int NO_PASSAR = -1;   // Ens indica que no hem de passar
 const int NO_VIST   = -2;   // Pel BFS, per marcar les caselles no vistes
 const int POST      = -3;   // Ens indica que hi ha un post
-const int VOLTANT   = -4;
 
 const int MAX_FOC   =  0;   // Màxim de torns que tolerem un foc per un BFS
 const int DIRS      =  8;   // Direccions totals en les que es pot avançar
 const int DIRS2     = 16;
 
-const int CALCUL_EXPL =  1; // Nombre de torns entre calcul de BFS exploradors
-const int MIN_VIDA    =
-    30; // Nombre de punts de vida a partir del canvi de rol
-
 // PERSONALITATS
-const int ATACANT       = 1;
-const int EXPLORADOR    = 2;
-const double PROPORCIO_1  = 0.9;
-const double PROPORCIO_2  = 0.3;
+const int ATACANT           = 1;    // Identificador dels atacants
+const int EXPLORADOR        = 2;    // Identificador dels exploradors
+
+// VARIABLES PRINCIPALS
+
+const double PROPORCIO_1    = 0.9;  // Proporció de personlaitats inicial
+const double PROPORCIO_2    = 0.3;  // Proporcio de personalits després de canvi
+const int T_R_CANVI         = 50;   // Torns restants pel canvi de personalitat
+const int MAX_NAPALM        = 15;   // Torns maxims fins al següent napalm
+const int MIN_VIDA          = 30;   // Nombre de punts de vida a partir del
+//                                     canvi de rol
 
 // Arrays de direcció per una casella adjacent
 //                   0  1  2   3   4   5   6   7
@@ -71,7 +76,6 @@ struct PLAYER_NAME : public Player {
     typedef vector< VPa > VVPa;
     typedef map<int, int> MEE;
     typedef MEE::iterator MI;
-    typedef pair<int, Posicio> PEP;
     
     // Struct que ens ajuda a buscar en un BFS que guarda distància i direcció
     struct find {
@@ -158,13 +162,12 @@ struct PLAYER_NAME : public Player {
             if (per == pers.end())
                 pers[a] = (probabilitat(PROPORCIO_1) ? ATACANT : EXPLORADOR);
             int person = pers[a];
-            
+            bool atacat = false;
             
             // Primer comprovem si podem atacar a algú al voltant
             Info s = dades(a);
-            bool found = false;
             // Comprovem les 8 direccions
-            for (int i = 0; i < DIRS and not found; ++i) {
+            for (int i = 0; i < DIRS and not atacat; ++i) {
                 // Calculem posició
                 Posicio q(s.pos.x + X[i], s.pos.y + Y[i]);
                 
@@ -173,16 +176,17 @@ struct PLAYER_NAME : public Player {
                 Info dSol;
                 // Si trobem un soldat al nostre voltant l'ataquem
                 if (sol and (dSol = dades(sol)).equip != player) {
-                    found = true;
+                    atacat = true;
                     ordena_soldat(a, dSol.pos.x, dSol.pos.y);
                 }
             }
             
-            // Reassignació del rol en funció de la vida, enviem kamikaze
+            // Reassignació del rol en funció de la vida, enviem kamikaze a
+            // explorar
             if (s.vida < MIN_VIDA) pers[a] = EXPLORADOR;
             
             // En funció de la personalitat fem una cosa o una altra
-            if (person == ATACANT) {
+            if (not atacat and person == ATACANT) {
                 if (atac[s.pos.x][s.pos.y] >= 0) {
                     int x = s.pos.x;
                     int y = s.pos.y;
@@ -192,7 +196,7 @@ struct PLAYER_NAME : public Player {
                     ordena_soldat(a, s.pos.x, s.pos.y);
                 }
             }
-            else {
+            else if (not atacat) {
                 // Si no ens trobem en una casella on ens haguem de quedar
                 // ens movem
                 if (dir[s.pos.x][s.pos.y].first >= 0) {
@@ -218,7 +222,7 @@ struct PLAYER_NAME : public Player {
                 
                 // Anem de 0 a 2 pels 3 nivells de profunditat als que pot
                 // accedir l'helicòpter
-                for (int i = 0; i < 3 and not found; ++i) {
+                for (int i = 0; i < 2 and not found; ++i) {
                 
                     // Mirem per totes les direccions del voltant
                     for (int j = 0; j < DIRS and not found; ++j) {
@@ -230,6 +234,13 @@ struct PLAYER_NAME : public Player {
                             ordena_paracaigudista(q.x, q.y);
                             found = true;
                         }
+                    }
+                }
+                for (int i = 0; i < DIRS and not found; ++i) {
+                    Posicio q(h.pos.x + X2[i], h.pos.y + Y2[i]);
+                    if (que(q) != AIGUA and quin_soldat(q) == 0) {
+                        ordena_paracaigudista(q.x, q.y);
+                        found = true;
                     }
                 }
             }
@@ -245,20 +256,24 @@ struct PLAYER_NAME : public Player {
         atac = VVE(MAX, VE(MAX, NO_VIST));
         
         // Cua on guardem totes les dades a buscar
-        queue< PEP > Q;
+        queue< P2 > Q;
         for (int i = 1; i <= 4; ++i) {
             if (i != player) {
                 VE V = soldats(i);
-                for (int a : V) Q.push(PEP(POST, dades(a).pos));
+                for (int a : V) Q.push(P2(POST, dades(a).pos));
                 
                 // Part per evitar els helicopters
                 VE H = helis(i);
                 for (int a : H) {
                     Info h = dades(a);
-                    atac[h.pos.x][h.pos.y] = NO_PASSAR;
-                    for (int j = 0; j < DIRS; ++j) {
-                        atac[h.pos.x + X[j]][h.pos.y + Y[j]] = j;
-                        atac[h.pos.x + 2*X[j]][h.pos.y + 2*Y[j]] = j;
+                    if (h.napalm < MAX_NAPALM) {
+                        atac[h.pos.x][h.pos.y] = NO_PASSAR;
+                        for (int j = 0; j < DIRS; ++j) {
+                            atac[h.pos.x + X[j]][h.pos.y + Y[j]] = j;
+                        }
+                        for (int j = 0; j < DIRS2; ++j) {
+                            atac[h.pos.x + X2[j]][h.pos.y + Y2[j]] = j/2;
+                        }
                     }
                 }
             }
@@ -267,7 +282,7 @@ struct PLAYER_NAME : public Player {
         // Comencem a buscar KILLS
         while (not Q.empty()) {
             // Traiem i eliminem el primer element
-            PEP p = Q.front();
+            P2 p = Q.front();
             Q.pop();
             
             // Comprovem si ja hem visitat l'element
@@ -288,42 +303,25 @@ struct PLAYER_NAME : public Player {
                         
                         // Obtenim el soldat a la posició 'q'
                         int sol = quin_soldat(q);
-                        if (sol == 0) Q.push(PEP(VOLTANT, q));
+                        if (sol == 0) Q.push(P2(INV[i], q));
                         else if (dades(sol).equip != player)
-                            Q.push(PEP(VOLTANT, q));
+                            Q.push(P2(INV[i], q));
                             
-                    }
-                }
-                else if (p.first == VOLTANT) {
-                    atac[p.second.x][p.second.y] = VOLTANT;
-                    
-                    // Mirem al voltant si hi ha un dels nostres per no
-                    // passar el BFS per allà
-                    for (int i = 0; i < DIRS; ++i) {
-                        // Calculem la posició
-                        Posicio q(p.second.x + X[i], p.second.y + Y[i]);
-                        
-                        // Obtenim el soldat a la posició 'q' i si n'hi ha
-                        // algun que és nostre no llencem la funció
-                        int sol = quin_soldat(q);
-                        if (sol == 0) Q.push(PEP(INV[i], q));
-                        else if (dades(sol).equip != player)
-                            Q.push(PEP(INV[i], q));
                     }
                 }
                 else {
                     atac[p.second.x][p.second.y] = p.first;
                     for (int i = 0; i < DIRS; ++i) {
                         Posicio q(p.second.x + X[i], p.second.y + Y[i]);
-                        Q.push(PEP(INV[i], q));
+                        Q.push(P2(INV[i], q));
                     }
                 }
                 
             }
         }
         
+#ifdef DEBUG
         // Funció per dibuixar els vectors de moviment
-        /*
         if (quin_torn()%30 == 0)
             for (int i = 0; i < MAX; ++i) {
                 if (i == 0) {
@@ -340,7 +338,6 @@ struct PLAYER_NAME : public Player {
                     if (atac[i][j] >= 0) cerr << atac[i][j] << "  ";
                     else if (atac[i][j] == NO_PASSAR) cerr << "N  ";
                     else if (atac[i][j] == POST) cerr << "P  ";
-                    else if (atac[i][j] == VOLTANT) cerr << "V  ";
                     else cerr << ".  ";
                 }
                 cerr << endl;
@@ -353,7 +350,7 @@ struct PLAYER_NAME : public Player {
                     cerr << endl;
                 }
             }
-            /* */
+#endif
     }
     
     void updatePosts()
@@ -373,17 +370,21 @@ struct PLAYER_NAME : public Player {
                 VE H = helis(i);
                 for (int a : H) {
                     Info h = dades(a);
-                    // La posició on hi ha un helicopter al centre està
-                    // prohibida
-                    dir[h.pos.x][h.pos.y] = P(NO_PASSAR, NO_PASSAR);
-                    
-                    for (int j = 0; j < DIRS; ++j) {
-                        // Afegim un vector que apunta en direcció sortint de
-                        // l'helicopter per no passar-hi mai allà i així evitar
-                        // problemes, la distància és 10 perquè així segur que
-                        // mai passem per allà.
-                        dir[h.pos.x + X[j]][h.pos.y + Y[j]] = P(j, 10);
-                        dir[h.pos.x + 2*X[j]][h.pos.y + 2*Y[j]] = P(j, 10);
+                    if (h.napalm < MAX_NAPALM) {
+                        // La posició on hi ha un helicopter al centre està
+                        // prohibida
+                        dir[h.pos.x][h.pos.y] = P(NO_PASSAR, NO_PASSAR);
+                        
+                        for (int j = 0; j < DIRS; ++j) {
+                            // Afegim un vector que apunta en direcció sortint
+                            // de l'helicopter per no passar-hi mai allà i així
+                            // evitar problemes, la distància és 10 perquè així
+                            // segur que mai passem per allà.
+                            dir[h.pos.x + X[j]][h.pos.y + Y[j]] = P(j, 10);
+                        }
+                        for (int j = 0; j < DIRS2; ++j) {
+                            dir[h.pos.x + X2[j]][h.pos.y + Y2[j]] = P(j/2, 10);
+                        }
                     }
                 }
             }
@@ -429,8 +430,8 @@ struct PLAYER_NAME : public Player {
             }
         }
         
+#ifdef DEBUG
         // Funció per pintar el tauler que ens ajuda a buscar
-        /*
         cerr << "EXPLORADORS" << endl;
         if (quin_torn()%30 == 0)
             for (int i = 0; i < MAX; ++i) {
@@ -460,7 +461,7 @@ struct PLAYER_NAME : public Player {
                     cerr << endl;
                 }
             }
-        /* */
+#endif
     }
     
     /**
@@ -470,13 +471,11 @@ struct PLAYER_NAME : public Player {
      */
     virtual void play ()
     {
-    
-    
         // Valors per torns especifics
         if (quin_torn() == 0) {
             player = qui_soc();
         }
-        else if (torns_restants() == 50) {
+        else if (torns_restants() == T_R_CANVI) {
         
             // Canviem totes les proporcions quan queden menys de 50 torns,
             // aquí se suposa que haurem aconseguit suficients soldats com per
@@ -496,8 +495,6 @@ struct PLAYER_NAME : public Player {
         VE s = soldats(player);
         jugaSoldats(s);
     }
-    
-    
 };
 
 
@@ -505,4 +502,3 @@ struct PLAYER_NAME : public Player {
  * No toqueu aquesta línia.
  */
 RegisterPlayer(PLAYER_NAME);
-
