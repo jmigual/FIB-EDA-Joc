@@ -15,6 +15,7 @@ using namespace std;
  * Podeu declarar constants aquí
  */
 
+// Ens permet ometre missatges
 //#define DEBUG
 
 const int NO_PASSAR = -1;   // Ens indica que no hem de passar
@@ -31,9 +32,9 @@ const int EXPLORADOR        = 2;    // Identificador dels exploradors
 
 // VARIABLES PRINCIPALS
 
-const double PROPORCIO_1    = 0.9;  // Proporció de personlaitats inicial
-const double PROPORCIO_2    = 0.3;  // Proporcio de personalits després de canvi
-const int T_R_CANVI         = 50;   // Torns restants pel canvi de personalitat
+const double PROP_1    = 0.5;  // Proporció de personlaitats inicial
+const double PROP_2    = 0.3;  // Proporcio de personalits després de canvi
+const int T_R_CANVI         = 40;   // Torns restants pel canvi de personalitat
 const int MAX_NAPALM        = 15;   // Torns maxims fins al següent napalm
 const int MIN_VIDA          = 30;   // Nombre de punts de vida a partir del
 //                                     canvi de rol
@@ -109,6 +110,9 @@ struct PLAYER_NAME : public Player {
     // Guarda les personalitats dels soldats
     MEE pers;
     
+    // Ens indica si hem conquerit tots els posts
+    bool totsConq;
+    
     // REDEFINICIONS DE LES FUNCIONS PRINCIPALS
     
     // Sobrecarrega Board::quin_soldat(int x, int y) per poder utilitzar una
@@ -153,16 +157,25 @@ struct PLAYER_NAME : public Player {
     
     // Pre: cap
     // Post: mou els soldats per tal d'atacar o explorar amb una proporcio
-    // PROPORCIO_1
+    // PROP_1 o PROP_2 en funció del torn que sigui
     void jugaSoldats(VE &soldats)
     {
         for (int a: soldats) {
             // Assignem o comprovem la personalitat
             MI per = pers.find(a);
-            if (per == pers.end())
-                pers[a] = (probabilitat(PROPORCIO_1) ? ATACANT : EXPLORADOR);
-            int person = pers[a];
+            if (per == pers.end()) {
+                if (torns_restants() <= T_R_CANVI)
+                    pers[a] = (probabilitat(PROP_2) ? ATACANT : EXPLORADOR);
+                else pers[a] = (probabilitat(PROP_1) ? ATACANT : EXPLORADOR);
+            }
+            
+            // Guardem la personalitat
+            int person = per->second;
+            // Ens dirà si ja ha atact per no fer crides inútils
             bool atacat = false;
+            
+            // Si hem conquerit totes les bases canviem el rol a un més agressiu
+            if (totsConq) person = ATACANT;
             
             // Primer comprovem si podem atacar a algú al voltant
             Info s = dades(a);
@@ -186,6 +199,7 @@ struct PLAYER_NAME : public Player {
             if (s.vida < MIN_VIDA) pers[a] = EXPLORADOR;
             
             // En funció de la personalitat fem una cosa o una altra
+            // Personalitat atacant, intenta matar a tants soldats com pot
             if (not atacat and person == ATACANT) {
                 if (atac[s.pos.x][s.pos.y] >= 0) {
                     int x = s.pos.x;
@@ -196,6 +210,7 @@ struct PLAYER_NAME : public Player {
                     ordena_soldat(a, s.pos.x, s.pos.y);
                 }
             }
+            // Personalitat explorador, intenta conquerir tants posts com pot
             else if (not atacat) {
                 // Si no ens trobem en una casella on ens haguem de quedar
                 // ens movem
@@ -357,15 +372,7 @@ struct PLAYER_NAME : public Player {
     {
         dir = VVPa(MAX, VPa(MAX, make_pair(NO_VIST, NO_VIST)));
         
-        // Cua on anirem guardant totes les dades a buscar
-        queue< find > Q;
-        VP2 Pos = posts();
-        
-        // Afegim tots els posts que no són del nostre equip a la cua per
-        // buscar com arrivar-hi
-        for (Post y : Pos) if (y.equip != player) Q.push(find(POST, 0, y.pos));
-        
-        for (int i = 1; i < 4; ++i) {
+        for (int i = 1; i <= 4; ++i) {
             if (i != player) {
                 VE H = helis(i);
                 for (int a : H) {
@@ -380,16 +387,29 @@ struct PLAYER_NAME : public Player {
                             // de l'helicopter per no passar-hi mai allà i així
                             // evitar problemes, la distància és 10 perquè així
                             // segur que mai passem per allà.
-                            dir[h.pos.x + X[j]][h.pos.y + Y[j]] = P(j, 10);
+                            dir[h.pos.x + X[j]][h.pos.y + Y[j]] =
+                                P(j, NO_PASSAR);
                         }
                         for (int j = 0; j < DIRS2; ++j) {
-                            dir[h.pos.x + X2[j]][h.pos.y + Y2[j]] = P(j/2, 10);
+                            dir[h.pos.x + X2[j]][h.pos.y + Y2[j]] =
+                                P(j/2, NO_PASSAR);
                         }
                     }
                 }
             }
         }
         
+        // Cua on anirem guardant totes les dades a buscar
+        queue< find > Q;
+        // Vector dels post proporcionat pel joc
+        VP2 Pos = posts();
+        
+        // Afegim tots els posts que no són del nostre equip a la cua per
+        // buscar com arrivar-hi
+        for (Post y : Pos) if (y.equip != player) Q.push(find(POST, 0, y.pos));
+        
+        // És true si hi ha un camí fins a algún soldat des del post
+        bool cami = false;
         // Comencem a buscar POSTS
         while (not Q.empty()) {
             // Obtenim el primer element
@@ -398,8 +418,7 @@ struct PLAYER_NAME : public Player {
             
             // Si no hem visitat la casella llavors hem de buscar-ne les dades
             if (dir[p.pos.x][p.pos.y].first == NO_VIST) {
-                int que = Board::que(p.pos.x, p.pos.y);
-                
+            
                 // Comprovem que no sigui un obstacle
                 if (not passar(p.pos)) {
                     dir[p.pos.x][p.pos.y] = P(NO_PASSAR, NO_PASSAR);
@@ -426,9 +445,11 @@ struct PLAYER_NAME : public Player {
                             Q.push(find(INV[i], p.dist + 1, q));
                         }
                     }
+                    else cami = true;
                 }
             }
         }
+        totsConq = not cami;
         
 #ifdef DEBUG
         // Funció per pintar el tauler que ens ajuda a buscar
@@ -446,9 +467,12 @@ struct PLAYER_NAME : public Player {
                 if (i < 10) cerr << " " << i << "|";
                 else cerr << i << "|";
                 for (int j = 0; j < MAX; ++j) {
-                    if (dir[i][j].first >= 0) cerr << dir[i][j].first << "  ";
+                    if (dir[i][j].first >= 0 and
+                            dir[i][j].second >= 0) cerr << dir[i][j].first << "  ";
                     else if (dir[i][j].first == NO_PASSAR) cerr << "N  ";
                     else if (dir[i][j].first == POST) cerr << "P  ";
+                    else if (dir[i][j].first == NO_VIST) cerr << "V  ";
+                    else if (dir[i][j].second == NO_PASSAR) cerr << "N  ";
                     else cerr << ".  ";
                 }
                 cerr << endl;
@@ -474,6 +498,7 @@ struct PLAYER_NAME : public Player {
         // Valors per torns especifics
         if (quin_torn() == 0) {
             player = qui_soc();
+            totsConq = false;
         }
         else if (torns_restants() == T_R_CANVI) {
         
@@ -481,7 +506,7 @@ struct PLAYER_NAME : public Player {
             // aquí se suposa que haurem aconseguit suficients soldats com per
             // anar a full
             for (pair<const int, int> &a : pers)
-                a.second = (probabilitat(PROPORCIO_2) ? ATACANT : EXPLORADOR);
+                a.second = (probabilitat(PROP_2) ? ATACANT : EXPLORADOR);
         }
         
         // Actualitzem les matrius per buscar camins
