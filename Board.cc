@@ -808,7 +808,7 @@ bool Board::ok(void) const {
       auto it = dada.find(id);
       if (it == dada.end()) {
 	error("soldat no registrat");
-	return true;
+	return false;
       }
       int equip = it->second.equip;
       if (e != equip) {
@@ -820,7 +820,7 @@ bool Board::ok(void) const {
       auto it = dada.find(id);
       if (it == dada.end()) {
 	error("helicòpter no registrat");
-	return true;
+	return false;
       }
       int equip = it->second.equip;
       if (e != equip) {
@@ -828,6 +828,19 @@ bool Board::ok(void) const {
 	return false;
       }
     }
+  }
+
+  int n_soldats_o_paracas = 0;
+  for (int e = 1; e <= 4; ++e) {
+    n_soldats_o_paracas += soldat[e].size();
+    for (auto id : heli[e]) {
+      auto it = dada.find(id);
+      n_soldats_o_paracas += it->second.paraca.size();
+    }
+  }
+  if (n_soldats_o_paracas != 4 * NUM_SOLDATS) {
+    error("el nombre de soldats + paracaigudistes no quadra");
+    return false;
   }
 
   return true;

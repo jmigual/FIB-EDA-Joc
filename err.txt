@@ -1,8 +1,8 @@
 info: loading game
 info: loaded game
-info: loading player IRONMAN
 info: loading player jormaig
-info: loading player IRONMAN
+info: loading player jormaig
+info: loading player jormaig
 info: loading player jormaig
 info: players loaded
 info: start round 1
@@ -2405,9 +2405,9 @@ info:     end player 4
 start next
 end next
 info: end round 200
-info: player IRONMAN got score 10016
-info: player jormaig got score 5020
-info: player IRONMAN got score 5004
-info: player jormaig got score 16038
+info: player jormaig got score 16045
+info: player jormaig got score 4002
+info: player jormaig got score 16030
+info: player jormaig got score 4000
 info: player(s) jormaig got top score
 info: game played

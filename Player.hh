@@ -194,7 +194,7 @@ inline bool Player::prous_paracaigudistes(int equip, int x, int y) {
       return cnt <= int(dada[heli_id].paraca.size());
     }
   }   
-  return true;
+  return false;
 }
 
 #endif
