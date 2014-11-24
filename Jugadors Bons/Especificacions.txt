@@ -24,6 +24,7 @@ HELIS
 - Anàlisi densitat d'enemics	=> NO
 
 ========================================================================
+
 #####################
 # AIjormaig_v1.1.cc #
 #####################
@@ -46,4 +47,27 @@ HELIS
 - Anàlisi densitat d'enemics	=> NO
 
 ========================================================================
+
+#####################
+# AIjormaig_v1.2.cc #
+#####################
+
+Jugador amb els soldats completats i millorades les constants per
+obtenir millors resultats
+
+Especificacions:
+SOLDATS
+- Moviments soldats				=> SI
+- Busca ruta més segura			=> NO
+- Esquiva foc					=> SI
+- Esquiva helicòpters			=> 50%
+- Protecció contra encallament 	=> SI
+
+HELIS
+- Llançament paraques			=> SI
+- Napalm						=> NO
+- Moviment helis				=> NO
+- Protecció de bases			=> NO
+- Anàlisi densitat d'enemics	=> NO
+
 
