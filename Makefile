@@ -8,7 +8,7 @@
 EXTRA_OBJS =
 
 # Config
-OPTIMIZE = 2 # Optimization level (0 to 3)
+OPTIMIZE = 3 # Optimization level (0 to 3)
 DEBUG    = 0 # Compile for debugging (0 or 1)
 PROFILE  = 0 # Compile for profile (0 or 1)
 32BITS   = 0 # Produce 32 bits objects on 64 bits systems (0 or 1)
