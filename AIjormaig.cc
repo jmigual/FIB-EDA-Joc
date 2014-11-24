@@ -32,7 +32,7 @@ const int EXPLORADOR        = 2;    // Identificador dels exploradors
 
 // VARIABLES PRINCIPALS
 
-const double PROP_1    = 0.5;  // Proporció de personlaitats inicial
+const double PROP_1    = 0.7;  // Proporció de personlaitats inicial
 const double PROP_2    = 0.3;  // Proporcio de personalits després de canvi
 const int T_R_CANVI         = 40;   // Torns restants pel canvi de personalitat
 const int MAX_NAPALM        = 15;   // Torns maxims fins al següent napalm
