@@ -41,6 +41,7 @@
 *.so
 *.dll
 *.dylib
+./*.o
 
 # Qt-es
 
