@@ -171,12 +171,12 @@ struct PLAYER_NAME : public Player {
         
         // Afegim els objectius
         for (int j = 0; j < 7; ++j) {
-            if (passar(p0.x, p0.y + j)) Q.push(P2(POST, Posicio(0, j)));
-            if (passar(p0.x + 6, p0.y + j)) Q.push(P2(POST, Posicio(6, j)));
+            Q.push(P2(POST, Posicio(0, j)));
+            Q.push(P2(POST, Posicio(6, j)));
         }
         for (int j = 1; j <= 5; ++j) {
-            if (passar(p0.x + j, p0.y)) Q.push(P2(POST, Posicio(j, 0)));
-            if (passar(p0.x + j, p0.y + 6)) Q.push(P2(POST, Posicio(j, 6)));
+            Q.push(P2(POST, Posicio(j, 0)));
+            Q.push(P2(POST, Posicio(j, 6)));
         }
         
         while(not Q.empty()) {
@@ -242,8 +242,7 @@ struct PLAYER_NAME : public Player {
                 for (int j = 0; j < MAX; ++j) {
                     if (M[i][j].first >= 0) cerr << M[i][j].first << "  ";
                     else if (M[i][j].first == NO_PASSAR) cerr << "N  ";
-                    else if (M[i][j].first == NO_VIST) cerr << ".  ";
-                    else cerr << "V  ";
+                    else cerr << ".  ";
                 }
                 cerr << endl;
                 if (i == MAX - 1) {
@@ -453,7 +452,7 @@ struct PLAYER_NAME : public Player {
                     if (M[i][j].first >= 0) cerr << M[i][j].first << "  ";
                     else if (M[i][j].first == NO_PASSAR) cerr << "N  ";
                     else if (M[i][j].first == type) cerr << "P  ";
-                    else cerr << "V  ";
+                    else cerr << ".  ";
                 }
                 cerr << endl;
                 if (i == MAX - 1) {
