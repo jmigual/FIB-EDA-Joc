@@ -16,7 +16,7 @@ using namespace std;
  */
 
 // Ens permet ometre missatges
-#define DDEBUG
+//#define DDEBUG
 
 const int NO_PASSAR = -1;   // Ens indica que no hem de passar
 const int NO_VIST   = -2;   // Pel BFS, per marcar les caselles no vistes
@@ -33,10 +33,10 @@ const int EXPLORADOR        = 2;    // Identificador dels exploradors
 
 // VARIABLES PRINCIPALS
 
-const double PROP_1    = 0.7;  // Proporció de personlaitats inicial
+const double PROP_1    = 0.5;  // Proporció de personlaitats inicial
 const double PROP_2    = 0.3;  // Proporcio de personalits després de canvi
 const int T_R_CANVI         = 40;   // Torns restants pel canvi de personalitat
-const int MAX_NAPALM        = 15;   // Torns maxims fins al següent napalm
+const int MAX_NAPALM        = 10;   // Torns maxims fins al següent napalm
 const int MIN_VIDA          = 30;   // Nombre de punts de vida a partir del
 //                                     canvi de rol
 
@@ -225,6 +225,7 @@ struct PLAYER_NAME : public Player {
                 }
             }
         }
+        
 #ifdef DDEBUG
         if (quin_torn()%30 == 0) {
             cerr << "HELIS" << endl;
@@ -299,7 +300,7 @@ struct PLAYER_NAME : public Player {
             
             // Reassignació del rol en funció de la vida, enviem kamikaze a
             // explorar
-            if (s.vida < MIN_VIDA) pers[a] = EXPLORADOR;
+            if (s.vida < MIN_VIDA) pers[a] = ATACANT;
             
             // En funció de la personalitat fem una cosa o una altra
             // Personalitat atacant, intenta matar a tants soldats com pot
@@ -412,11 +413,13 @@ struct PLAYER_NAME : public Player {
                     for (int i = 0; i < DIRS; ++i) {
                         // Calculem la posicio
                         Posicio q(p.pos.x + X[i], p.pos.y + Y[i]);
-                        
-                        // Obtenim el soldat a la posició 'q' 
-                        int sol = quin_soldat(q);
-                        if (sol == 0 or dades(sol).equip != player) 
-                            Q.push(find(INV[i], p.dist + 1, q));
+                        if (type == POST) Q.push(find(INV[i], p.dist + 1, q));
+                        else {
+                            // Obtenim el soldat a la posició 'q' 
+                            int sol = quin_soldat(q);
+                            if (sol == 0 or dades(sol).equip != player) 
+                                Q.push(find(INV[i], p.dist + 1, q));
+                        }
                     }
                 }
                 // Si no és cap de les altres dues coses és una casella normal
@@ -433,6 +436,7 @@ struct PLAYER_NAME : public Player {
                 }
             }
         }
+        
 #ifdef DDEBUG        
         if (quin_torn()%30 == 0) {
             if (type == POST) cerr << "EXPLORADORS" << endl;
