@@ -151,7 +151,7 @@ struct PLAYER_NAME : public Player {
     // Pre: cap
     // Post: retorna TRUE si a la posició p no hi ha cap condició que impedeixi
     // passar-hi
-    bool passar(Posicio &p)
+    bool passar(const Posicio &p)
     {
         // Obtenim el tipus d'element
         int q = que(p.x, p.y);
@@ -161,7 +161,7 @@ struct PLAYER_NAME : public Player {
     }
     inline bool passar(int x, int y)
     {
-        return passar(Posicio(x, y));
+        return PLAYER_NAME::passar(Posicio(x, y));
     }
     
     void cEvitaHelis(VVPa &M, const Posicio &p0)
@@ -174,7 +174,7 @@ struct PLAYER_NAME : public Player {
             if (passar(p0.x, p0.y + j)) Q.push(P2(POST, Posicio(0, j)));
             if (passar(p0.x + 6, p0.y + j)) Q.push(P2(POST, Posicio(6, j)));
             
-            V[0, j] = V[6][j] = true;
+            V[0][j] = V[6][j] = true;
         }
         for (int j = 1; j <= 5; ++j) {
             if (passar(p0.x + j, p0.y)) Q.push(P2(POST, Posicio(j, 0)));
@@ -200,7 +200,7 @@ struct PLAYER_NAME : public Player {
                         Posicio pos(p.second.x + X[i], p.second.y + Y[i]);
                         if (pos.x >= 0 and pos.x < 7 and 
                             pos.y >= 0 and pos.y < 7) {
-                            Q.push(INV[i], pos);
+                            Q.push(P2(INV[i], pos));
                         }
                     }
                 }
@@ -209,7 +209,7 @@ struct PLAYER_NAME : public Player {
                     M[pn.x][pn.y] = P(p.first, NO_PASSAR);
                     for (int i = 0; i < DIRS; ++i) {
                         Posicio pos(p.second.x + X[i], p.second.y + Y[i]);
-                        Q.push(INV[i], pos);
+                        Q.push(P2(INV[i], pos));
                     }
                 }
             }
@@ -225,7 +225,7 @@ struct PLAYER_NAME : public Player {
             for (int h : H) {
                 Info I = dades(h);
                 if (I.napalm < MAX_NAPALM)
-                    cEvitaHelis(m, Posicio(I.pos.x - 3, I.pos.y - 3));
+                    cEvitaHelis(M, Posicio(I.pos.x - 3, I.pos.y - 3));
             }
         }
     }
@@ -276,11 +276,11 @@ struct PLAYER_NAME : public Player {
             // En funció de la personalitat fem una cosa o una altra
             // Personalitat atacant, intenta matar a tants soldats com pot
             if (not atacat and person == ATACANT) {
-                if (atac[s.pos.x][s.pos.y] >= 0) {
+                if (atac[s.pos.x][s.pos.y].first >= 0) {
                     int x = s.pos.x;
                     int y = s.pos.y;
-                    s.pos.x += X[atac[x][y]];
-                    s.pos.y += Y[atac[x][y]];
+                    s.pos.x += X[atac[x][y].first];
+                    s.pos.y += Y[atac[x][y].first];
                     
                     ordena_soldat(a, s.pos.x, s.pos.y);
                 }
@@ -346,6 +346,7 @@ struct PLAYER_NAME : public Player {
         
         // En funció del tipus afegim uns valors o uns altres
         if (type == POST) {
+            VP2 Pos = posts();
             for (Post y : Pos) if (y.equip != player) 
                 Q.push(find(POST, 0, y.pos));
         }
