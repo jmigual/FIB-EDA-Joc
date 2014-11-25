@@ -16,7 +16,7 @@ using namespace std;
  */
 
 // Ens permet ometre missatges
-//#define DEBUG
+#define DDEBUG
 
 const int NO_PASSAR = -1;   // Ens indica que no hem de passar
 const int NO_VIST   = -2;   // Pel BFS, per marcar les caselles no vistes
@@ -173,14 +173,10 @@ struct PLAYER_NAME : public Player {
         for (int j = 0; j < 7; ++j) {
             if (passar(p0.x, p0.y + j)) Q.push(P2(POST, Posicio(0, j)));
             if (passar(p0.x + 6, p0.y + j)) Q.push(P2(POST, Posicio(6, j)));
-            
-            V[0][j] = V[6][j] = true;
         }
         for (int j = 1; j <= 5; ++j) {
             if (passar(p0.x + j, p0.y)) Q.push(P2(POST, Posicio(j, 0)));
             if (passar(p0.x + j, p0.y + 6)) Q.push(P2(POST, Posicio(j, 6)));
-            
-            V[j][0] = V[j][6] = true;
         }
         
         while(not Q.empty()) {
@@ -224,10 +220,43 @@ struct PLAYER_NAME : public Player {
             VE H = helis(i);
             for (int h : H) {
                 Info I = dades(h);
-                if (I.napalm < MAX_NAPALM)
+                if (I.napalm < MAX_NAPALM) {
                     cEvitaHelis(M, Posicio(I.pos.x - 3, I.pos.y - 3));
+                }
             }
         }
+#ifdef DDEBUG
+        if (quin_torn()%30 == 0) {
+            cerr << "HELIS" << endl;
+            for (int i = 0; i < MAX; ++i) {
+                if (i == 0) {
+                    cerr << " ";
+                    for (int j = 0; j < MAX; ++j) {
+                        if (j < 10) cerr << "  " << j;
+                        else cerr << " " << j;
+                    }
+                    cerr << endl;
+                }
+                if (i < 10) cerr << " " << i << "|";
+                else cerr << i << "|";
+                for (int j = 0; j < MAX; ++j) {
+                    if (M[i][j].first >= 0) cerr << M[i][j].first << "  ";
+                    else if (M[i][j].first == NO_PASSAR) cerr << "N  ";
+                    else if (M[i][j].first == NO_VIST) cerr << ".  ";
+                    else cerr << "V  ";
+                }
+                cerr << endl;
+                if (i == MAX - 1) {
+                    cerr << " ";
+                    for (int j = 0; j < MAX; ++j) {
+                        if (j < 10) cerr << "  " << j;
+                        else cerr << " " << j;
+                    }
+                    cerr << endl;
+                }
+            }
+        }
+#endif
     }
     
     // Pre: cap
@@ -405,6 +434,39 @@ struct PLAYER_NAME : public Player {
                 }
             }
         }
+#ifdef DDEBUG        
+        if (quin_torn()%30 == 0) {
+            if (type == POST) cerr << "EXPLORADORS" << endl;
+            else cerr << "ATACANTS" << endl;
+            for (int i = 0; i < MAX; ++i) {
+                if (i == 0) {
+                    cerr << " ";
+                    for (int j = 0; j < MAX; ++j) {
+                        if (j < 10) cerr << "  " << j;
+                        else cerr << " " << j;
+                    }
+                    cerr << endl;
+                }
+                if (i < 10) cerr << " " << i << "|";
+                else cerr << i << "|";
+                for (int j = 0; j < MAX; ++j) {
+                    if (M[i][j].first >= 0) cerr << M[i][j].first << "  ";
+                    else if (M[i][j].first == NO_PASSAR) cerr << "N  ";
+                    else if (M[i][j].first == type) cerr << "P  ";
+                    else cerr << "V  ";
+                }
+                cerr << endl;
+                if (i == MAX - 1) {
+                    cerr << " ";
+                    for (int j = 0; j < MAX; ++j) {
+                        if (j < 10) cerr << "  " << j;
+                        else cerr << " " << j;
+                    }
+                    cerr << endl;
+                }
+            }
+        }
+#endif
     }
     
     /**
