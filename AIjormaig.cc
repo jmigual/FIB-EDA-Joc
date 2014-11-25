@@ -76,6 +76,8 @@ struct PLAYER_NAME : public Player {
     typedef vector< VPa > VVPa;
     typedef map<int, int> MEE;
     typedef MEE::iterator MI;
+    typedef vector< bool> VB;
+    typedef vector< VB > VVB;
     
     // Struct que ens ajuda a buscar en un BFS que guarda distància i direcció
     struct find {
@@ -157,6 +159,62 @@ struct PLAYER_NAME : public Player {
         return q != MUNTANYA and q != AIGUA and
                 temps_foc(p.x, p.y) <= MAX_FOC;
     }
+    inline bool passar(int x, int y)
+    {
+        return passar(Posicio(x, y));
+    }
+    
+    void cEvitaHelis(VVPa &M, const Posicio &p0)
+    {
+        queue< P2 > Q;
+        VVB V(7, VB(7, false));
+        
+        // Afegim els objectius
+        for (int j = 0; j < 7; ++j) {
+            if (passar(p0.x, p0.y + j)) Q.push(P2(POST, Posicio(0, j)));
+            if (passar(p0.x + 6, p0.y + j)) Q.push(P2(POST, Posicio(6, j)));
+            
+            V[0, j] = V[6][j] = true;
+        }
+        for (int j = 1; j <= 5; ++j) {
+            if (passar(p0.x + j, p0.y)) Q.push(P2(POST, Posicio(j, 0)));
+            if (passar(p0.x + j, p0.y + 6)) Q.push(P2(POST, Posicio(j, 6)));
+            
+            V[j][0] = V[j][6] = true;
+        }
+        
+        while(not Q.empty()) {
+            // Obtenim el primer element
+            P2 p = Q.front();
+            Q.pop();
+            
+            if (not V[p.second.x][p.second.y]) {
+                V[p.second.x][p.second.y] = true;
+                Posicio pn(p0.x + p.second.x, p0.y + p.second.y);
+                
+                // Primer mirem si es pot passar per la posició actual
+                if (not passar(pn)) M[pn.x][pn.y] = P(NO_PASSAR, NO_PASSAR);
+                // Si es pot passar comprovem que sigui una casella del voltant
+                else if (p.first == POST) {
+                    for (int i = 0; i < DIRS; ++i) {
+                        Posicio pos(p.second.x + X[i], p.second.y + Y[i]);
+                        if (pos.x >= 0 and pos.x < 7 and 
+                            pos.y >= 0 and pos.y < 7) {
+                            Q.push(INV[i], pos);
+                        }
+                    }
+                }
+                // NO és una casella del voltant
+                else {
+                    M[pn.x][pn.y] = P(p.first, NO_PASSAR);
+                    for (int i = 0; i < DIRS; ++i) {
+                        Posicio pos(p.second.x + X[i], p.second.y + Y[i]);
+                        Q.push(INV[i], pos);
+                    }
+                }
+            }
+        }
+    }
     
     void evitaHelis(VVPa &M)
     {
@@ -166,50 +224,9 @@ struct PLAYER_NAME : public Player {
             VE H = helis(i);
             for (int h : H) {
                 Info I = dades(h);
-                if (I.napalm < MAX_NAPALM) {
-                    
-                    // Ens permetrà mirar les dues rectes horitzontals a 
-                    // distància 3 de l'helicòpter.
-                    for (int j = -3; j <= 3; ++j) {
-                        // Calculem la posició i comprovem que no hi hagi cap
-                        // obstacle
-                        Posicio p(I.pos.x + 3, I.pos.y + j);
-                        int s = quin_heli(p);
-                        if (passar(p) and (s == 0 or s == player)) {
-                            Q.push(P2(POST, p));
-                            
-                        }
-                        
-                        p.x = I.pos.x - 3;
-                        s = quin_heli(p);
-                        if (passar(p) and (s == 0 or s == player)) 
-                            Q.push(P2(POST, p));
-                    }
-                    
-                    // Ens permetràr mirar les dues rectes verticals a distància
-                    // 3 de l'helicòpter excloent les posicions ja mirades.
-                    for (int j = -2; j <= 2; ++j) {
-                        Posicio p(I.pos.x + j, I.pos.y - 3);
-                        int s = quin_heli(p);
-                        if (passar(p) and (s == 0 or s == player)) 
-                            Q.push(P2(POST, p));
-                        
-                        p.y = I.pos.y + 3;
-                        s = quin_heli(p);
-                        if (passar(p) and (s == 0 or s == player)) 
-                            Q.push(P2(POST, p));
-                    }
-                }
+                if (I.napalm < MAX_NAPALM)
+                    cEvitaHelis(m, Posicio(I.pos.x - 3, I.pos.y - 3));
             }
-        }
-        
-        // Comencem a calcular les millors posicions per anar fora de l'abast
-        // de l'helicopter
-        while (not Q.empty()) {
-            P2 p = Q.front();
-            Q.pop();
-            
-            if (M[p.second])
         }
     }
     
@@ -346,6 +363,7 @@ struct PLAYER_NAME : public Player {
         evitaHelis(M);
         
         while (not Q.empty()) {
+            // Obtenim el primer
             find p = Q.front();
             Q.pop();
             
@@ -387,235 +405,6 @@ struct PLAYER_NAME : public Player {
             }
         }
     }
-    /*
-    // Pre: cap
-    // Post: calcula les direccions cap on s'ha d'anar per trobar un soldat
-    // enemic
-    void updateKill()
-    {
-        // Reiniciem la matriu d'atac
-        atac = VVPa(MAX, VPa(MAX, P(NO_VIST, NO_VIST)));
-        
-        // Cua on guardem totes les dades a buscar
-        queue< find > Q;
-        for (int i = 1; i <= 4; ++i) {
-            if (i != player) {
-                VE V = soldats(i);
-                for (int a : V) Q.push(find(POST, 0, dades(a).pos));
-                
-                evitaHelis(atac);
-                VE H = helis(i);
-                for (int a : H) {
-                    Info h = dades(a);
-                    if (h.napalm < MAX_NAPALM) {
-                        atac[h.pos.x][h.pos.y] = NO_PASSAR;
-                        for (int j = 0; j < DIRS; ++j) {
-                            atac[h.pos.x + X[j]][h.pos.y + Y[j]] = j;
-                        }
-                        for (int j = 0; j < DIRS2; ++j) {
-                            atac[h.pos.x + X2[j]][h.pos.y + Y2[j]] = j/2;
-                        }
-                    }
-                }
-            }
-        }
-        
-        // Comencem a buscar KILLS
-        while (not Q.empty()) {
-            // Traiem i eliminem el primer element
-            find p = Q.front();
-            Q.pop();
-            
-            // Comprovem si ja hem visitat l'element
-            if (atac[p.pos.x][p.pos.y].first == NO_VIST) {
-                
-                // Busquem que no sigui un obstacle
-                if (not passar(p.pos)) {
-                    atac[p.pos.y][p.pos.y] = P(NO_PASSAR, NO_PASSAR);
-                }
-                else if (p.dir == POST) {
-                    atac[p.pos.x][p.pos.y].first = POST;
-                    
-                    // Mirem per distància 1 a tot el voltant per evitar
-                    // passar per allà on ja hi ha soldats nostres
-                    for (int i = 0; i < DIRS; ++i) {
-                        // Calculem la posicio
-                        Posicio q(p.pos.x + X[i], p.pos.y + Y[i]);
-                        
-                        // Obtenim el soldat a la posició 'q' si és un soldat
-                        // nostre ja no l'afegim a la cua per no passar-hi
-                        int sol = quin_soldat(q);
-                        if (sol == 0) Q.push(find(INV[i], p.dist + 1, q));
-                        else if (dades(sol).equip != player)
-                            Q.push(P2(INV[i], q));
-                    }
-                }
-                else {
-                    atac[p.pos.x][p.pos.y] = p.first;
-                    for (int i = 0; i < DIRS; ++i) {
-                        Posicio q(p.pos.x + X[i], p.pos.y + Y[i]);
-                        Q.push(P2(INV[i], q));
-                    }
-                }
-                
-            }
-        }
-        
-#ifdef DEBUG
-        // Funció per dibuixar els vectors de moviment
-        if (quin_torn()%30 == 0)
-            for (int i = 0; i < MAX; ++i) {
-                if (i == 0) {
-                    cerr << " ";
-                    for (int j = 0; j < MAX; ++j) {
-                        if (j < 10) cerr << "  " << j;
-                        else cerr << " " << j;
-                    }
-                    cerr << endl;
-                }
-                if (i < 10) cerr << " " << i << "|";
-                else cerr << i << "|";
-                for (int j = 0; j < MAX; ++j) {
-                    if (atac[i][j] >= 0) cerr << atac[i][j] << "  ";
-                    else if (atac[i][j] == NO_PASSAR) cerr << "N  ";
-                    else if (atac[i][j] == POST) cerr << "P  ";
-                    else cerr << ".  ";
-                }
-                cerr << endl;
-                if (i == MAX - 1) {
-                    cerr << " ";
-                    for (int j = 0; j < MAX; ++j) {
-                        if (j < 10) cerr << "  " << j;
-                        else cerr << " " << j;
-                    }
-                    cerr << endl;
-                }
-            }
-#endif
-    }
-    
-    void updatePosts()
-    {
-        dir = VVPa(MAX, VPa(MAX, P(NO_VIST, NO_VIST)));
-        evitaHelis(dir);
-
-        for (int i = 1; i <= 4; ++i) {
-            if (i != player) {
-                // Afegim els helicopters per evitar-los
-                VE H = helis(i);
-                for (int a : H) {
-                    Info h = dades(a);
-                    if (h.napalm < MAX_NAPALM) {
-                        // La posició on hi ha un helicopter al centre està
-                        // prohibida
-                        dir[h.pos.x][h.pos.y] = P(NO_PASSAR, NO_PASSAR);
-                        
-                        for (int j = 0; j < DIRS; ++j) {
-                            // Afegim un vector que apunta en direcció sortint
-                            // de l'helicopter per no passar-hi mai allà i així
-                            // evitar problemes, la distància és 10 perquè així
-                            // segur que mai passem per allà.
-                            dir[h.pos.x + X[j]][h.pos.y + Y[j]] =
-                                P(j, NO_PASSAR);
-                        }
-                        for (int j = 0; j < DIRS2; ++j) {
-                            dir[h.pos.x + X2[j]][h.pos.y + Y2[j]] =
-                                P(j/2, NO_PASSAR);
-                        }
-                    }
-                }
-            }
-        }
-        
-        // Cua on anirem guardant totes les dades a buscar
-        queue< find > Q;
-        // Vector dels post proporcionat pel joc
-        VP2 Pos = posts();
-        
-        // Afegim tots els posts que no són del nostre equip a la cua per
-        // buscar com arrivar-hi
-        for (Post y : Pos) if (y.equip != player) Q.push(find(POST, 0, y.pos));
-        
-        // És true si hi ha un camí fins a algún soldat des del post
-        bool cami = false;
-        // Comencem a buscar POSTS
-        while (not Q.empty()) {
-            // Obtenim el primer element
-            find p = Q.front();
-            Q.pop();
-            
-            // Si no hem visitat la casella llavors hem de buscar-ne les dades
-            if (dir[p.pos.x][p.pos.y].first == NO_VIST) {
-                
-                // Comprovem que no sigui un obstacle
-                if (not passar(p.pos)) {
-                    dir[p.pos.x][p.pos.y] = P(NO_PASSAR, NO_PASSAR);
-                }
-                else {
-                    // Aquí ja només pot ser POST, BOSC o GESPA
-                    if (p.dir == POST) dir[p.pos.x][p.pos.y] = P(POST, 0);
-                    else dir[p.pos.x][p.pos.y] = P(p.dir, p.dist);
-                    
-                    int sol = quin_soldat(p.pos);
-                    if (sol == 0) {
-                        // Per cada casella al voltant afegim un BFS
-                        for (int i = 0; i < DIRS; ++i) {
-                            // Calculem la posicio
-                            Posicio q(p.pos.x + X[i], p.pos.y + Y[i]);
-                            Q.push(find(INV[i], p.dist + 1, q));
-                        }
-                    }
-                    else if (dades(sol).equip != player) {
-                        // Per cada casella al voltant afegim un BFS
-                        for (int i = 0; i < DIRS; ++i) {
-                            // Calculem la posicio
-                            Posicio q(p.pos.x + X[i], p.pos.y + Y[i]);
-                            Q.push(find(INV[i], p.dist + 1, q));
-                        }
-                    }
-                    else cami = true;
-                }
-            }
-        }
-        totsConq = not cami;
-        
-#ifdef DEBUG
-        // Funció per pintar el tauler que ens ajuda a buscar
-        cerr << "EXPLORADORS" << endl;
-        if (quin_torn()%30 == 0)
-            for (int i = 0; i < MAX; ++i) {
-                if (i == 0) {
-                    cerr << " ";
-                    for (int j = 0; j < MAX; ++j) {
-                        if (j < 10) cerr << "  " << j;
-                        else cerr << " " << j;
-                    }
-                    cerr << endl;
-                }
-                if (i < 10) cerr << " " << i << "|";
-                else cerr << i << "|";
-                for (int j = 0; j < MAX; ++j) {
-                    if (dir[i][j].first >= 0 and
-                            dir[i][j].second >= 0) cerr << dir[i][j].first << "  ";
-                    else if (dir[i][j].first == NO_PASSAR) cerr << "N  ";
-                    else if (dir[i][j].first == POST) cerr << "P  ";
-                    else if (dir[i][j].first == NO_VIST) cerr << "V  ";
-                    else if (dir[i][j].second == NO_PASSAR) cerr << "N  ";
-                    else cerr << ".  ";
-                }
-                cerr << endl;
-                if (i == MAX - 1) {
-                    cerr << " ";
-                    for (int j = 0; j < MAX; ++j) {
-                        if (j < 10) cerr << "  " << j;
-                        else cerr << " " << j;
-                    }
-                    cerr << endl;
-                }
-            }
-#endif
-    }
-    */
     
     /**
      * Mètode play.
