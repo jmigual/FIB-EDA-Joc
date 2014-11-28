@@ -16,7 +16,7 @@ using namespace std;
  */
 
 // Ens permet ometre missatges
-//#define DDEBUG
+#define DDEBUG
 
 const int NO_PASSAR = -1;   // Ens indica que no hem de passar
 const int NO_VIST   = -2;   // Pel BFS, per marcar les caselles no vistes
@@ -113,7 +113,7 @@ struct PLAYER_NAME : public Player {
     bool totsConq;
     
     // Per veure les posicions accessibles des d'un helicòpter
-    VVB posHelis;
+    VVB pH;
     
     // REDEFINICIONS DE LES FUNCIONS PRINCIPALS
     
@@ -172,14 +172,25 @@ struct PLAYER_NAME : public Player {
     // ser accessibles per un helicòpter
     void precalculaH()
     {
-        posHelis = VVB(MAX, VB(MAX));
+        pH = VVB(MAX, VB(MAX, true));
+        for (int i = 0; i < MAX - 1; ++i) {
+            pH[0][i] = pH[i][MAX - 1] = false;
+            pH[MAX - 1][MAX - 1 - i] = pH[MAX - 1 - i][0] = false;
+        }
         for (int i = 2; i < MAX - 2; ++i) {
             for (int j = 2; j < MAX - 2; ++i) {
-                int s = que(i, j);
+                if (que(i, j) == MUNTANYA) {
+                    for (int k = 0; k < DIRS; ++k) {
+                        pH[i + X[k]][j + Y[k]] = false;
+                        pH[i + X2[k]][j + Y2[k]] = false;
+                    }
+                }
             }
         }
     }
     
+    // Pre: p0 conté una posició vàlida del mapa
+    // Post: Calcula un bfs petit per sortir de sota l'àrea d'un helicòpter
     void cEvitaHelis(VVPa &M, const Posicio &p0)
     {
         queue< P2 > Q;
