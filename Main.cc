@@ -94,8 +94,8 @@ int main (int argc, char** argv) {
     names.push_back(argv[optind++]);
   }
 
-  if (seed < 0) seed = 0; // time(0);    
-  // srand(seed);
+  if (seed < 0) seed = time(0);    
+  srand(seed);
 
   istream* is = ifile ? new ifstream(ifile) : &cin ;
   ostream* os = ofile ? new ofstream(ofile) : &cout;
