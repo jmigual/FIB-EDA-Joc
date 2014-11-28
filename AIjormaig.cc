@@ -112,6 +112,9 @@ struct PLAYER_NAME : public Player {
     // Ens indica si hem conquerit tots els posts
     bool totsConq;
     
+    // Per veure les posicions accessibles des d'un helicòpter
+    VVB posHelis;
+    
     // REDEFINICIONS DE LES FUNCIONS PRINCIPALS
     
     // Sobrecarrega Board::quin_heli(int x, int y) per poder utilitzar una
@@ -162,6 +165,11 @@ struct PLAYER_NAME : public Player {
     inline bool passar(int x, int y)
     {
         return PLAYER_NAME::passar(Posicio(x, y));
+    }
+    
+    void precalculaH()
+    {
+        
     }
     
     void cEvitaHelis(VVPa &M, const Posicio &p0)
@@ -487,6 +495,7 @@ struct PLAYER_NAME : public Player {
     {
         // Valors per torns especifics
         if (quin_torn() == 0) {
+            precalculaH();
             player = qui_soc();
             totsConq = false;
         }
