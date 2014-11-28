@@ -167,9 +167,17 @@ struct PLAYER_NAME : public Player {
         return PLAYER_NAME::passar(Posicio(x, y));
     }
     
+    // Pre: cap
+    // Post: calcula totes les posicions que en algun moment de la partida poden
+    // ser accessibles per un helicòpter
     void precalculaH()
     {
-        
+        posHelis = VVB(MAX, VB(MAX));
+        for (int i = 2; i < MAX - 2; ++i) {
+            for (int j = 2; j < MAX - 2; ++i) {
+                int s = que(i, j);
+            }
+        }
     }
     
     void cEvitaHelis(VVPa &M, const Posicio &p0)

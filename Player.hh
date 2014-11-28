@@ -137,7 +137,7 @@ inline bool Player::comprova_ordena_helicopter(int id, int instruccio, int equip
 
 inline bool Player::comprova_ordena_paracaigudista(int equip, int x, int y) {
   return  prous_paracaigudistes(equip, x, y) and
-    not ((int)ordres3.size() > MAX_BAIXEN
+    not ((int)ordres3.size() >= MAX_BAIXEN
 	 or x < 0 or x >= MAX or y < 0 or y >= MAX);
 }
 

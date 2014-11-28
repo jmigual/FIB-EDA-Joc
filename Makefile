@@ -5,11 +5,11 @@
 #DUMMY_OBJ = AIDummy-Linux64bits.o
 
 # Add here any extra .o player files you want to link to the executable
-EXTRA_OBJS = AIIRONMAN.o
+EXTRA_OBJS =
 
 # Config
-OPTIMIZE = 3 # Optimization level (0 to 3)
-DEBUG    = 1 # Compile for debugging (0 or 1)
+OPTIMIZE = 2 # Optimization level (0 to 3)
+DEBUG    = 0 # Compile for debugging (0 or 1)
 PROFILE  = 0 # Compile for profile (0 or 1)
 32BITS   = 0 # Produce 32 bits objects on 64 bits systems (0 or 1)
 
@@ -28,7 +28,7 @@ ifeq ($(strip $(PROFILE)),1)
 	PROFILEFLAGS=-pg
 endif
 ifeq ($(strip $(DEBUG)),1)
-	DEBUGFLAGS=-DDEBUG -g #-rdynamic
+	DEBUGFLAGS=-DDEBUG -g -rdynamic
 endif
 ifeq ($(strip $(32BITS)),1)
 	ARCHFLAGS=-m32 -L/usr/lib32
