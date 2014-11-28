@@ -58,8 +58,8 @@ const int INV2[16] = { 8, 9,10,11,12,13,14,15, 0, 1, 2, 3, 4, 5, 6, 7};
 
 
 struct PLAYER_NAME : public Player {
-    
-    
+
+
     /**
      * Factory: retorna una nova instància d'aquesta classe.
      * No toqueu aquesta funció.
@@ -119,6 +119,17 @@ struct PLAYER_NAME : public Player {
     
     // REDEFINICIONS DE LES FUNCIONS PRINCIPALS
     
+    // Sobrecarrega Board::de_qui_post(int x, int y) per poder utilitzar una
+    // posició 'p'
+    inline int de_qui_post(int x, int y) const
+    {
+        return Board::de_qui_post(x, y);
+    }
+    inline int de_qui_post(const Posicio &p) const
+    {
+        return Board::de_qui_post(p.x, p.y);
+    }
+    
     // Sobrecarrega Board::quin_heli(int x, int y) per poder utilitzar una
     // posició 'p'
     inline int quin_heli(const Posicio &p) const
@@ -162,7 +173,7 @@ struct PLAYER_NAME : public Player {
         int q = que(p.x, p.y);
         
         return q != MUNTANYA and q != AIGUA and
-                temps_foc(p.x, p.y) <= MAX_FOC;
+               temps_foc(p.x, p.y) <= MAX_FOC;
     }
     inline bool passar(int x, int y)
     {
@@ -216,7 +227,7 @@ struct PLAYER_NAME : public Player {
             Q.push(P2(POST, Posicio(j, 6)));
         }
         
-        while(not Q.empty()) {
+        while (not Q.empty()) {
             // Obtenim el primer element
             P2 p = Q.front();
             Q.pop();
@@ -231,8 +242,8 @@ struct PLAYER_NAME : public Player {
                 else if (p.first == POST) {
                     for (int i = 0; i < DIRS; ++i) {
                         Posicio pos(p.second.x + X[i], p.second.y + Y[i]);
-                        if (pos.x >= 0 and pos.x < 7 and 
-                            pos.y >= 0 and pos.y < 7) {
+                        if (pos.x >= 0 and pos.x < 7 and
+                                pos.y >= 0 and pos.y < 7) {
                             Q.push(P2(INV[i], pos));
                         }
                     }
@@ -254,15 +265,15 @@ struct PLAYER_NAME : public Player {
         queue< P2 > Q;
         // Hem de mirar tots els helicòpters del tauler per evitar-los tots
         for (int i = 1; i <= 4; ++i) if (player != i) {
-            VE H = helis(i);
-            for (int h : H) {
-                Info I = dades(h);
-                if (I.napalm < MAX_NAPALM) {
-                    cEvitaHelis(M, Posicio(I.pos.x - 3, I.pos.y - 3));
+                VE H = helis(i);
+                for (int h : H) {
+                    Info I = dades(h);
+                    if (I.napalm < MAX_NAPALM) {
+                        cEvitaHelis(M, Posicio(I.pos.x - 3, I.pos.y - 3));
+                    }
                 }
             }
-        }
-        
+            
 #ifdef DDEBUG
         if (quin_torn()%30 == 0) {
             cerr << "HELIS" << endl;
@@ -294,20 +305,32 @@ struct PLAYER_NAME : public Player {
             }
         }
 #endif
+        
+        
     }
     
-    bool solAtaca(const Info &s) 
+    bool solAtaca(const Info &s)
     {
         // ID del soldat a atacar
         int solM = 0;
         // Càlcul de la vida d'atac (VIDA - PROMIG_TERRENY). Abs(solMc) ha de
         // ser mínim
-        int solMc;
+        int solMc = 1000;
+        Posicio post(100, 100);
+        bool postT = false;
         
         // Comprovem les 8 direccions
         for (int i = 0; i < DIRS; ++i) {
             // Calculem posició
             Posicio q(s.pos.x + X[i], s.pos.y + Y[i]);
+            
+            // Si hi ha un post al voltant l'intentem capturar però només si no
+            // hem atacat
+            int po = de_qui_post(q);
+            if (po != 0 and po != player) {
+                post = q;
+                postT = true;
+            }
             
             // Obtenim dades del soldat
             int sol = quin_soldat(q);
@@ -330,7 +353,11 @@ struct PLAYER_NAME : public Player {
         }
         if (solM) {
             Info sM = dades(solM);
-            ordena_soldat(a, sM.pos.x, sM.pos.y);
+            ordena_soldat(s.id, sM.pos.x, sM.pos.y);
+            return true;
+        }
+        if (postT) {
+            ordena_soldat(s.id, post.x, post.y);
             return true;
         }
         return false;
@@ -350,23 +377,23 @@ struct PLAYER_NAME : public Player {
                 else pers[a] = (probabilitat(PROP_1) ? ATACANT : EXPLORADOR);
             }
             
-            // Guardem la personalitat
-            int person = per->second;
-            
-            
-            // Si hem conquerit totes les bases canviem el rol a un més agressiu
-            if (totsConq) person = ATACANT;
-            
             // Obtenim les dades del soldat per passar a la funció ataca
             Info s = dades(a);
-            // Ens dirà si ja ha atact per no fer crides inútils. Crida a la
-            // funció que mira al voltant i ataca
-            bool atacat = solAtaca(s);
-            
             
             // Reassignació del rol en funció de la vida, enviem kamikaze a
             // explorar
             if (s.vida < MIN_VIDA) pers[a] = ATACANT;
+            
+            // Guardem la personalitat
+            int person = per->second;
+            
+            // Si hem conquerit totes les bases canviem el rol a un més agressiu
+            if (totsConq or dir[s.pos.x][s.pos.y].first < 0) person = ATACANT;
+            
+            // Ens dirà si ja ha atact per no fer crides inútils. Crida a la
+            // funció que mira al voltant i ataca també mira si hi ha post al
+            // voltant i els conquereix per si de cas
+            bool atacat = solAtaca(s);
             
             // En funció de la personalitat fem una cosa o una altra
             // Personalitat atacant, intenta matar a tants soldats com pot
@@ -408,7 +435,7 @@ struct PLAYER_NAME : public Player {
                 // Anem de 0 a 2 pels 3 nivells de profunditat als que pot
                 // accedir l'helicòpter
                 for (int i = 0; i < 2 and not found; ++i) {
-                    
+                
                     // Mirem per totes les direccions del voltant
                     for (int j = 0; j < DIRS and not found; ++j) {
                         Posicio q(h.pos.x + i*X[j], h.pos.y + i*Y[j]);
@@ -432,18 +459,23 @@ struct PLAYER_NAME : public Player {
         }
     }
     
-    void updateBFS(int type, VVPa &M) {
+    void updateBFS(int type, VVPa &M)
+    {
         // Reiniciem la matriu del BFS
         M = VVPa(MAX, VPa(MAX, P(NO_VIST, NO_VIST)));
-        
-        // Cua on guardem totes les dades a buscar
-        queue< find > Q;
+        evitaHelis(M);      // Cridem la funció que evita els helicòpters
+        queue< find > Q;    // Cua on guardem totes les dades a buscar
         
         // En funció del tipus afegim uns valors o uns altres
         if (type == POST) {
             VP2 Pos = posts();
-            for (Post y : Pos) if (y.equip != player) 
-                Q.push(find(POST, 0, y.pos));
+            totsConq = true;
+            for (Post y : Pos)
+                if (y.equip != player and
+                        M[y.pos.x][y.pos.y].second != NO_PASSAR) {
+                    Q.push(find(POST, 0, y.pos));
+                    totsConq = false;
+                }
         }
         else if (type == ENEM) {
             for (int i = 1; i <= 4; ++i) {
@@ -455,8 +487,7 @@ struct PLAYER_NAME : public Player {
         }
         else cerr << "ERROR: Tipus mal escollit" << endl;
         
-        // Cridem la funció que evita els helicòpters
-        evitaHelis(M);
+        
         
         while (not Q.empty()) {
             // Obtenim el primer
@@ -466,9 +497,9 @@ struct PLAYER_NAME : public Player {
             // Es mira la primera posició de la cua ('p') i es comproven els
             // diferents casos
             if (M[p.pos.x][p.pos.y].first == NO_VIST) {
-                
+            
                 // Mirem que no hi hagi cap obstacle
-                if (not passar(p.pos)) 
+                if (not passar(p.pos))
                     M[p.pos.x][p.pos.y] = P(NO_PASSAR, NO_PASSAR);
                 // Es comprova també si és un objectiu a trobar
                 else if (p.dir == type) {
@@ -481,9 +512,9 @@ struct PLAYER_NAME : public Player {
                         Posicio q(p.pos.x + X[i], p.pos.y + Y[i]);
                         if (type == POST) Q.push(find(INV[i], p.dist + 1, q));
                         else {
-                            // Obtenim el soldat a la posició 'q' 
+                            // Obtenim el soldat a la posició 'q'
                             int sol = quin_soldat(q);
-                            if (sol == 0 or dades(sol).equip != player) 
+                            if (sol == 0 or dades(sol).equip != player)
                                 Q.push(find(INV[i], p.dist + 1, q));
                         }
                     }
@@ -503,7 +534,7 @@ struct PLAYER_NAME : public Player {
             }
         }
         
-#ifdef DDEBUG        
+#ifdef DDEBUG
         if (quin_torn()%30 == 0) {
             if (type == POST) cerr << "EXPLORADORS" << endl;
             else cerr << "ATACANTS" << endl;
@@ -552,7 +583,7 @@ struct PLAYER_NAME : public Player {
             totsConq = false;
         }
         else if (torns_restants() == T_R_CANVI) {
-            
+        
             // Canviem totes les proporcions quan queden menys de 50 torns,
             // aquí se suposa que haurem aconseguit suficients soldats com per
             // anar a full
