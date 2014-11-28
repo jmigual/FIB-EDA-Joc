@@ -25,20 +25,22 @@ const int ENEM      = -4;   // Ens indica que hi ha un soldat enemic
 
 const int MAX_FOC   =  0;   // Màxim de torns que tolerem un foc per un BFS
 const int DIRS      =  8;   // Direccions totals en les que es pot avançar
-const int DIRS2     = 16;
+const int DIRS2     = 16;   // Direccions totals en les que es pot avançar 2
 
-// PERSONALITATS
+// ROLS
 const int ATACANT           = 1;    // Identificador dels atacants
 const int EXPLORADOR        = 2;    // Identificador dels exploradors
 
-// VARIABLES PRINCIPALS
-
-const double PROP_1    = 0.8;  // Proporció de personlaitats inicial
-const double PROP_2    = 0.3;  // Proporcio de personalits després de canvi
+// VARIABLES CANVIS ROL
+const double PROP_1         = 0.8;  // Proporció de personlaitats inicial
+const double PROP_2         = 0.3;  // Proporcio de personalits després de canvi
 const int T_R_CANVI         = 40;   // Torns restants pel canvi de personalitat
-const int MAX_NAPALM        = 5;   // Torns maxims fins al següent napalm
-const int MIN_VIDA          = 30;   // Nombre de punts de vida a partir del
-//                                     canvi de rol
+const int MAX_NAPALM        = 5;    // Torns maxims fins al següent napalm
+const int MIN_VIDA          = 30;   // Nombre de punts de vida canvi rol
+
+// VARIABLES PROMIG ATAC
+const int BOSC_M        = 30;
+const int GESPA_M       = 75;
 
 // Arrays de direcció per una casella adjacent
 //                   0  1  2   3   4   5   6   7
@@ -174,11 +176,11 @@ struct PLAYER_NAME : public Player {
     {
         pH = VVB(MAX, VB(MAX, true));
         for (int i = 0; i < MAX - 1; ++i) {
-            pH[0][i] = pH[i][MAX - 1] = false;
-            pH[MAX - 1][MAX - 1 - i] = pH[MAX - 1 - i][0] = false;
+            pH[0][i] = pH[MAX - 1][i] = pH[i][0] = pH[i][MAX - 1] = false;
+            pH[1][i] = pH[MAX - 2][i] = pH[i][1] = pH[i][MAX - 2] = false;
         }
         for (int i = 2; i < MAX - 2; ++i) {
-            for (int j = 2; j < MAX - 2; ++i) {
+            for (int j = 2; j < MAX - 2; ++j) {
                 if (que(i, j) == MUNTANYA) {
                     for (int k = 0; k < DIRS; ++k) {
                         pH[i + X[k]][j + Y[k]] = false;
@@ -187,6 +189,14 @@ struct PLAYER_NAME : public Player {
                 }
             }
         }
+        
+#ifdef DDEBUG
+        for (int i = 0; i < MAX; ++i) {
+            for (int j = 0; j < MAX; ++j) cerr << (pH[i][j]?'.':'#');
+            cerr << endl;
+        }
+#endif
+        
     }
     
     // Pre: p0 conté una posició vàlida del mapa
@@ -286,6 +296,46 @@ struct PLAYER_NAME : public Player {
 #endif
     }
     
+    bool solAtaca(const Info &s) 
+    {
+        // ID del soldat a atacar
+        int solM = 0;
+        // Càlcul de la vida d'atac (VIDA - PROMIG_TERRENY). Abs(solMc) ha de
+        // ser mínim
+        int solMc;
+        
+        // Comprovem les 8 direccions
+        for (int i = 0; i < DIRS; ++i) {
+            // Calculem posició
+            Posicio q(s.pos.x + X[i], s.pos.y + Y[i]);
+            
+            // Obtenim dades del soldat
+            int sol = quin_soldat(q);
+            Info dSol;
+            // Si trobem un soldat al nostre voltant el guardem per mirar-ne la
+            // vida
+            if (sol and (dSol = dades(sol)).equip != player) {
+                int aux;
+                if (que(q) == BOSC) aux = dSol.vida - BOSC_M;
+                else aux = dSol.vida - GESPA_M;
+                if (solM == 0) {
+                    solM = sol;
+                    solMc = aux;
+                }
+                else if (abs(solMc) > abs(aux)) {
+                    solM = sol;
+                    solMc = aux;
+                }
+            }
+        }
+        if (solM) {
+            Info sM = dades(solM);
+            ordena_soldat(a, sM.pos.x, sM.pos.y);
+            return true;
+        }
+        return false;
+    }
+    
     // Pre: cap
     // Post: mou els soldats per tal d'atacar o explorar amb una proporcio
     // PROP_1 o PROP_2 en funció del torn que sigui
@@ -302,34 +352,17 @@ struct PLAYER_NAME : public Player {
             
             // Guardem la personalitat
             int person = per->second;
-            // Ens dirà si ja ha atact per no fer crides inútils
-            bool atacat = false;
+            
             
             // Si hem conquerit totes les bases canviem el rol a un més agressiu
             if (totsConq) person = ATACANT;
             
-            // Primer comprovem si podem atacar a algú al voltant
+            // Obtenim les dades del soldat per passar a la funció ataca
             Info s = dades(a);
-            // Comprovem les 8 direccions
-            int solM = 0;
-            for (int i = 0; i < DIRS; ++i) {
-                // Calculem posició
-                Posicio q(s.pos.x + X[i], s.pos.y + Y[i]);
-                
-                // Obtenim dades del soldat
-                int sol = quin_soldat(q);
-                Info dSol;
-                // Si trobem un soldat al nostre voltant l'ataquem
-                if (sol and (dSol = dades(sol)).equip != player) {
-                    atacat = true;
-                    if (solM == 0) solM = sol;
-                    else if (dades(solM).vida > dSol.vida) solM = sol;
-                }
-            }
-            if (solM) {
-                Info sM = dades(solM);
-                ordena_soldat(a, sM.pos.x, sM.pos.y);
-            }
+            // Ens dirà si ja ha atact per no fer crides inútils. Crida a la
+            // funció que mira al voltant i ataca
+            bool atacat = solAtaca(s);
+            
             
             // Reassignació del rol en funció de la vida, enviem kamikaze a
             // explorar
