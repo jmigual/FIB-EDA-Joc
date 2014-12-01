@@ -115,7 +115,7 @@ struct PLAYER_NAME : public Player {
         find2(int dir, int dir0, int dist, const Posicio &pos) :
             dir(dir), dir0(dir0), dist(dist), pos(pos) {}
             
-        bool operator<(const find2 &f) const { return this->dist < f.dist; }
+        bool operator<(const find2 &f) const { return this->dist > f.dist; }
     };
     
     // TYPEDEF necessaris per al codi
@@ -541,7 +541,8 @@ struct PLAYER_NAME : public Player {
             find2 f = Q.top();
             Q.pop();
             
-            //cerr << "dist: " << f.dist << " dir: " << f.dir0 << endl;
+            //cerr << "dist: " << f.dist << " dir0: " << f.dir0 << " dir: ";
+            //cerr << f.dir << endl;
             
             if (dens[f.pos.x][f.pos.y] < 0) {
                 dens[f.pos.x][f.pos.y] = heliAtac(f.pos);
@@ -601,7 +602,7 @@ struct PLAYER_NAME : public Player {
                 }
             }
         }
-        return CONTRA_RELLOTGE;
+        return uniforme(1, 5);
     }
     
     // Pre: H és l'identificador d'un helicòpter de l'equip
