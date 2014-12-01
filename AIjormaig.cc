@@ -74,14 +74,6 @@ struct PLAYER_NAME : public Player {
     /**
      * Els atributs dels vostres jugadors es poden definir aquí.
      */
-    // TYPEDEF necessaris per al codi
-    typedef pair<short, short> PS;
-    typedef vector< PS > VPa;
-    typedef vector< VPa > VVPa;
-    typedef map<int, short> MES;
-    typedef MES::iterator MI;
-    typedef vector< bool> VB;
-    typedef vector< VB > VVB;
     
     // Struct que ens ajuda a buscar en un BFS que guarda distància i direcció
     struct find {
@@ -96,14 +88,14 @@ struct PLAYER_NAME : public Player {
             dir(dir), dist(dist), pos(pos) {}
     };
     
-    struct heli {
-        // Direccio
-        int dir;
-        // Distància
-        int dist;
-        // Avanç
-        
-    };
+    // TYPEDEF necessaris per al codi
+    typedef pair<short, short> PS;
+    typedef vector< PS > VPa;
+    typedef vector< VPa > VVPa;
+    typedef map<int, short> MES;
+    typedef MES::iterator MI;
+    typedef vector< bool> VB;
+    typedef vector< VB > VVB;
     
     // Número de jugador, es guarda a la primera ronda
     int player;
@@ -119,17 +111,14 @@ struct PLAYER_NAME : public Player {
     // second -> distància
     VVPa atac;
     
-    // Guarda informació dels camis a seguir pels helicòpters
+    VVH heli;   // Guarda informació dels camis a seguir pels helicòpters
+    VVB pH;     // Per veure les posicions accessibles des d'un helicòpter
+    
+    MES pers;   // Guarda les personalitats dels soldats
+    
+    bool totsConq;  // Ens indica si hem conquerit tots els posts
     
     
-    // Guarda les personalitats dels soldats
-    MES pers;
-    
-    // Ens indica si hem conquerit tots els posts
-    bool totsConq;
-    
-    // Per veure les posicions accessibles des d'un helicòpter
-    VVB pH;
     
     // REDEFINICIONS DE LES FUNCIONS PRINCIPALS
     
@@ -440,7 +429,7 @@ struct PLAYER_NAME : public Player {
     // Post: Mira si l'helicòpter té lloc per tirar els paracaigudistes
     void tiraParacaigudes(VE &helis)
     {
-        for (int a : helis) {
+        for(int a : helis) {
             Info h = dades(a);
             if (h.paraca.size()) {
                 // Per defecte no hem trobat cap lloc on tirar-ne un
@@ -453,20 +442,25 @@ struct PLAYER_NAME : public Player {
                     // Mirem per totes les direccions del voltant
                     for (int j = 0; j < DIRS and not found; ++j) {
                         Posicio q(h.pos.x + i*X[j], h.pos.y + i*Y[j]);
-                        
-                        // Mirem si es compleixen les condicions per llençar un
-                        // soldat i el tirem
-                        if (que(q.x, q.y) != AIGUA and quin_soldat(q) == 0) {
-                            ordena_paracaigudista(q.x, q.y);
-                            found = true;
+                        if (dir[q.x][q.y] >= 0) {
+                            // Mirem si es compleixen les condicions per llençar
+                            // un soldat i el tirem
+                            if (que(q.x, q.y) != AIGUA and 
+                                    quin_soldat(q) == 0) 
+                            {
+                                ordena_paracaigudista(q.x, q.y);
+                                found = true;
+                            }
                         }
                     }
                 }
                 for (int i = 0; i < DIRS and not found; ++i) {
                     Posicio q(h.pos.x + X2[i], h.pos.y + Y2[i]);
-                    if (que(q) != AIGUA and quin_soldat(q) == 0) {
-                        ordena_paracaigudista(q.x, q.y);
-                        found = true;
+                    if (dir[q.x][q.y] >= 0) {
+                        if (que(q) != AIGUA and quin_soldat(q) == 0) {
+                            ordena_paracaigudista(q.x, q.y);
+                            found = true;
+                        }
                     }
                 }
             }
@@ -603,11 +597,6 @@ struct PLAYER_NAME : public Player {
         }
 #endif
     }
-    
-    void updateHELI() 
-    {
-        
-    }
 
     /**
      * Mètode play.
@@ -634,7 +623,6 @@ struct PLAYER_NAME : public Player {
         // Actualitzem les matrius per buscar camins
         updateBFS(POST, dir);
         updateBFS(ENEM, atac);
-        updateHELI();
         
         // Donem les ordres dels paracaigudes
         VE h = helis(player);
