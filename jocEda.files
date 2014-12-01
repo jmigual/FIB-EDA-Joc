@@ -1,6 +1,12 @@
+Jugadors Acabats/AIjormaig_v1_0.cc
+Jugadors Acabats/AIjormaig_v1_1.cc
+Jugadors Acabats/AIjormaig_v1_2.cc
+Jugadors Acabats/AIjormaig_v1_3.cc
+Jugadors Acabats/AIjormaig_v1_4.cc
 Action.cc
 Action.hh
 AIDemo.cc
+AIjormaig.cc
 AINull.cc
 Board.cc
 Board.hh
@@ -13,5 +19,8 @@ Registry.cc
 Registry.hh
 Utils.cc
 Utils.hh
-Makefile
-AIjormaig.cc
+.gitignore
+Jugadors Acabats/AIjormaig_v1_5.cc
+Jugadors Acabats/AIjormaig_v1_6.cc
+Jugadors Acabats/Especificacions.txt
+Jugadors Acabats/AIjormaig_v1_7.cc

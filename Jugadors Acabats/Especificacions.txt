@@ -1,55 +1,55 @@
 To Do:
- - Ajustar constants mitjan�ant m�tode estad�stic [hard](done)
- - Contar napalm per evitar helic�pters [easy](done)
+ - Ajustar constants mitjançant mètode estadístic [hard](done)
+ - Contar napalm per evitar helicòpters [easy](done)
 
 #####################
-# AIjormaig_v1.0.cc #
+# AIjormaig_v1_0.cc #
 #####################
 
-�s el jugador b�sic, ha guanyat al jutge per� encara pot ser molt m�s.
+És el jugador bàsic, ha guanyat al jutge però encara pot ser molt més.
 
 Especificacions:
 SOLDATS
-- Moviment soldats 				=> SI
-- Busca ruta m�s segura			=> NO
-- Esquiva foc					=> SI
-- Esquiva helic�pters			=> NO
-- Protecci� contra encallament	=> NO
+- Moviment soldats 		=> SI
+- Busca ruta més segura		=> NO
+- Esquiva foc			=> SI
+- Esquiva helicòpters		=> NO
+- Protecció contra encallament	=> NO
 
 HELIS
-- Llan�ament paraques			=> SI
-- Napalm 						=> NO
-- Moviment helis				=> NO
-- Protecci� de bases			=> NO
-- An�lisi densitat d'enemics	=> NO
+- Llançament paraques		=> SI
+- Napalm 			=> NO
+- Moviment helis		=> NO
+- Protecció de bases		=> NO
+- Anàlisi densitat d'enemics	=> NO
 
 ========================================================================
 
 #####################
-# AIjormaig_v1.1.cc #
+# AIjormaig_v1_1.cc #
 #####################
 
-Jugador amb soldats completats per� amb les constants encara no ajustades
+Jugador amb soldats completats però amb les constants encara no ajustades
 
 Especificacions:
 SOLDATS
-- Moviments soldats				=> SI
-- Busca ruta m�s segura			=> NO
-- Esquiva foc					=> SI
-- Esquiva helic�pters			=> 50%
-- Protecci� contra encallament 	=> SI
+- Moviments soldats		=> SI
+- Busca ruta més segura		=> NO
+- Esquiva foc			=> SI
+- Esquiva helicòpters		=> 50%
+- Protecció contra encallament 	=> SI
 
 HELIS
-- Llan�ament paraques			=> SI
-- Napalm						=> NO
-- Moviment helis				=> NO
-- Protecci� de bases			=> NO
-- An�lisi densitat d'enemics	=> NO
+- Llançament paraques		=> SI
+- Napalm			=> NO
+- Moviment helis		=> NO
+- Protecció de bases		=> NO
+- Anàlisi densitat d'enemics	=> NO
 
 ========================================================================
 
 #####################
-# AIjormaig_v1.2.cc #
+# AIjormaig_v1_2.cc #
 #####################
 
 Jugador amb els soldats completats i millorades les constants per
@@ -57,41 +57,145 @@ obtenir millors resultats
 
 Especificacions:
 SOLDATS
-- Moviments soldats				=> SI
-- Busca ruta m�s segura			=> NO
-- Esquiva foc					=> SI
-- Esquiva helic�pters			=> 100%
-- Protecci� contra encallament 	=> SI
+- Moviments soldats		=> SI
+- Busca ruta més segura		=> NO
+- Esquiva foc			=> SI
+- Esquiva helicòpters		=> 90%
+- Protecció contra encallament 	=> SI
 
 HELIS
-- Llan�ament paraques			=> SI
-- Napalm						=> NO
-- Moviment helis				=> NO
-- Protecci� de bases			=> NO
-- An�lisi densitat d'enemics	=> NO
+- Llançament paraques		=> SI
+- Napalm			=> NO
+- Moviment helis		=> NO
+- Protecció de bases		=> NO
+- Anàlisi densitat d'enemics	=> NO
 
 ========================================================================
 
 #####################
-# AIjormaig_v1.2.cc #
+# AIjormaig_v1_3.cc #
 #####################
 
-Jugador amb els soldats completats i millorades les constants per
-obtenir millors resultats
+Jugador amb els soldats completats. Afegit precàlcul de les posicions a les que
+pot arribar l'helicòpter
 
 Especificacions:
 SOLDATS
-- Moviments soldats				=> SI
-- Busca ruta m�s segura			=> NO
-- Esquiva foc					=> SI
-- Esquiva helic�pters			=> 100%
-- Protecci� contra encallament 	=> SI
-- Atac enemic mort m�s probable	=> SI
+- Moviments soldats		=> SI
+- Busca ruta més segura		=> NO
+- Esquiva foc			=> SI
+- Esquiva helicòpters		=> 90%
+- Protecció contra encallament 	=> SI
+- Atac enemic mort més probable	=> SI
 
 HELIS
-- Llan�ament paraques			=> SI
-- Napalm						=> NO
-- Moviment helis				=> NO
-- Protecci� de bases			=> NO
-- An�lisi densitat d'enemics	=> NO
-- Prec�lcul posicions			=> SI
+- Llançament paraques		=> SI
+- Napalm			=> NO
+- Moviment helis		=> NO
+- Protecció de bases		=> NO
+- Anàlisi densitat d'enemics	=> NO
+- Precàlcul posicions		=> SI
+
+========================================================================
+
+#####################
+# AIjormaig_v1_4.cc #
+#####################
+
+Jugador amb els soldats completats. Millorat lloc per on es passa i com es tiren
+els paracaigudistes
+
+Especificacions:
+SOLDATS
+- Moviments soldats		=> SI
+- Busca ruta més segura		=> SI (50%)
+- Esquiva foc			=> SI
+- Esquiva helicòpters		=> 90%
+- Protecció contra encallament 	=> SI
+- Atac enemic mort més probable	=> SI
+
+HELIS
+- Llançament paraques		=> SI
+- Napalm			=> NO
+- Moviment helis		=> NO
+- Protecció de bases		=> NO
+- Anàlisi densitat d'enemics	=> NO
+- Precàlcul posicions		=> SI
+
+========================================================================
+
+#####################
+# AIjormaig_v1_5.cc #
+#####################
+
+Afegit comentari de debug que gastava CPU
+
+Especificacions:
+SOLDATS
+- Moviments soldats		=> SI
+- Busca ruta més segura		=> SI (50%)
+- Esquiva foc			=> SI
+- Esquiva helicòpters		=> 90%
+- Protecció contra encallament 	=> SI
+- Atac enemic mort més probable	=> SI
+
+HELIS
+- Llançament paraques		=> SI
+- Napalm			=> NO
+- Moviment helis		=> NO
+- Protecció de bases		=> NO
+- Anàlisi densitat d'enemics	=> NO
+- Precàlcul posicions		=> SI
+
+========================================================================
+
+#####################
+# AIjormaig_v1_6.cc #
+#####################
+
+Afegida millora al llançar els paracaigudes
+
+Especificacions:
+SOLDATS
+- Moviments soldats		=> SI
+- Busca ruta més segura		=> SI (50%)
+- Esquiva foc			=> SI
+- Esquiva helicòpters		=> 90%
+- Protecció contra encallament 	=> SI
+- Atac enemic mort més probable	=> SI (50%)
+
+HELIS
+- Llançament paraques		=> SI
+- Millora llançament paraques   => SI
+- Napalm			=> NO
+- Moviment helis		=> NO
+- Protecció de bases		=> NO
+- Anàlisi densitat d'enemics	=> NO
+- Precàlcul posicions		=> SI
+
+========================================================================
+
+#####################
+# AIjormaig_v1_7.cc #
+#####################
+
+Afegida millora a l'hora d'atacar a un soldat enemic, ara es mira que primer
+se'l pugui matar i si no, deixar ferit al que es pot fer més mal
+
+Especificacions:
+SOLDATS
+- Moviments soldats		=> SI
+- Busca ruta més segura		=> SI (50%)
+- Esquiva foc			=> SI
+- Esquiva helicòpters		=> 90%
+- Protecció contra encallament 	=> SI
+- Atac enemic mort més probable	=> SI (100%)
+
+HELIS
+- Llançament paraques		=> SI
+- Millora llançament paraques   => SI
+- Napalm			=> NO
+- Moviment helis		=> NO
+- Protecció de bases		=> NO
+- Anàlisi densitat d'enemics	=> NO
+- Precàlcul posicions		=> SI
