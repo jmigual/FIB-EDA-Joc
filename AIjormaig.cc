@@ -576,14 +576,19 @@ struct PLAYER_NAME : public Player {
     }
     
     // Pre: 'h' és l'identificador d'un helicòpter de l'equip
-    // Post: Mira quina és la millor opció per l'helicòpter
+    // Post: Mira quina és la millor opció per l'helicòpter fent un Dijkstra
     int calculaH(const Info &h, VVE &dens, VVE &hi)
     {
+        
         // Primer de tot busquem si es pot tirar NAPALM
         if (dens[h.pos.x][h.pos.y] < 0) {
             dens[h.pos.x][h.pos.y] = heliAtac(h.pos);
         }
         if (dens[h.pos.x][h.pos.y] >= 3 and h.napalm == 0) return NAPALM;
+        
+        if(de_qui_post(h.pos) == player and 
+                valor_post(h.pos.x, h.pos.y) == VALOR_ALT)
+            return 0;
         
         // A partir d'aquí sabem que s'ha de moure l'helicòpter
         
@@ -623,8 +628,7 @@ struct PLAYER_NAME : public Player {
                 dens[f0.pos.x][f0.pos.y] = heliAtac(f0.pos);
             }
             int post = de_qui_post(f0.pos);
-            if ((dens[f0.pos.x][f0.pos.y] >= 3 and f0.dist < 40) or 
-                    (post != 0 and post != player)) {
+            if (post != 0 and valor_post(f0.pos.x, f0.pos.y) == VALOR_ALT) {
                 if (f0.dir0 == h.orientacio) {
                     return (f0.ava)? AVANCA2 : AVANCA1;
                 }
@@ -666,15 +670,15 @@ struct PLAYER_NAME : public Player {
     
     // Pre: H és l'identificador d'un helicòpter de l'equip
     // Post: L'helicòpter mira si pot tirar paracaigudes i si pot els tira
-    void tiraParaques(Info &h)
+    int tiraParaques(Info &h)
     {
-        if (h.paraca.size()) {
+        unsigned short tirats = 0;
+        if (h.paraca.size() >= 1) {
             // Per defecte no hem trobat cap lloc on tirar-ne un
-            unsigned short tirats = 0;
             
             // Anem de 0 a 2 pels 3 nivells de profunditat als que pot
             // accedir l'helicòpter
-            for (int i = 0; i < 2 and tirats < MAX_BAIXEN and
+            for (int i = 0; i < 2 and tirats <= MAX_BAIXEN and
                     tirats < h.paraca.size(); ++i) {
                     
                 // Mirem per totes les direccions del voltant
@@ -692,7 +696,7 @@ struct PLAYER_NAME : public Player {
                     }
                 }
             }
-            for (int i = 0; i < DIRS and tirats < MAX_BAIXEN and
+            for (int i = 0; i < DIRS and tirats <= MAX_BAIXEN and
                     tirats < h.paraca.size(); ++i) {
                 Posicio q(h.pos.x + X2[i], h.pos.y + Y2[i]);
                 if (pA[q.x][q.y]) {
@@ -703,6 +707,36 @@ struct PLAYER_NAME : public Player {
                 }
             }
         }
+        else if (h.paraca.size() and h.paraca[0] < 3) {
+            bool found = false;
+            for (int i = 0; i < 2 and not found; ++i) {
+                    
+                // Mirem per totes les direccions del voltant
+                for (int j = 0; j < DIRS and not found; ++j) {
+                    Posicio q(h.pos.x + i*X[j], h.pos.y + i*Y[j]);
+                    if (pA[q.x][q.y]) {
+                        // Mirem si es compleixen les condicions per llençar
+                        // un soldat i el tirem
+                        if (que(q.x, q.y) != AIGUA and quin_soldat(q) == 0) {
+                            ordena_paracaigudista(q.x, q.y);
+                            found = true;
+                            ++tirats;
+                        }
+                    }
+                }
+            }
+            for (int i = 0; i < DIRS and not found; ++i) {
+                Posicio q(h.pos.x + X2[i], h.pos.y + Y2[i]);
+                if (pA[q.x][q.y]) {
+                    if (que(q) != AIGUA and quin_soldat(q) == 0) {
+                        ordena_paracaigudista(q.x, q.y);
+                        found = true;
+                        ++tirats;
+                    }
+                }
+            }
+        }
+        return tirats;
     }
     
     // Pre: VE és un vector d'enters que conté els ID dels helicòpters;
@@ -718,14 +752,13 @@ struct PLAYER_NAME : public Player {
                 if (pH[i][j]) dens[i][j] = heliAtac(Posicio(i, j)); 
             }
         }        
-        
+        int paraques = 0;
         for (int a : helis) {
             Info h = dades(a);
-            tiraParaques(h);
+            if (paraques < MAX_BAIXEN) paraques += tiraParaques(h);
             int ordre = calculaH(h, dens, hiHelis);
-            ordena_helicopter(a, ordre);
+            if (ordre > 0) ordena_helicopter(a, ordre);
         }
-        
     }
     
     // Pre: M és una matriu inicialitzada amb els valors per defecte, type conté
