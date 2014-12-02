@@ -410,19 +410,19 @@ struct PLAYER_NAME : public Player {
     
     // Pre: cap
     // Post: totes les posicions agafables per un helicòpter estan marcades
-    void cHiHaHelis(VVE &helis)
+    void cHiHaHelis(VVE &he)
     {
         for (int i = 1; i <= 4; ++i) {
             if (i != player) {
                 VE H = helis(i);
                 for (int h : H) {
                     Info dH = dades(h);
-                    helis[dH.pos.x][dH.pos.y] = h;
+                    he[dH.pos.x][dH.pos.y] = h;
                     for (int j = 0; j < DIRS; ++j) {
-                        helis[dH.pos.x + X[j]][dH.pos.y + Y[j]] = h;
+                        he[dH.pos.x + X[j]][dH.pos.y + Y[j]] = h;
                     }
                     for (int j = 0; j < DIRS2; ++j) {
-                        helis[dH.pos.x + X2[j]][dH.pos.y + Y2[j]] = h;
+                        he[dH.pos.x + X2[j]][dH.pos.y + Y2[j]] = h;
                     }
                 }
             }
@@ -577,16 +577,13 @@ struct PLAYER_NAME : public Player {
     
     // Pre: 'h' és l'identificador d'un helicòpter de l'equip
     // Post: Mira quina és la millor opció per l'helicòpter
-    int calculaH(const Info &h, VVE &dens, VVE &hiHelis)
+    int calculaH(const Info &h, VVE &dens, VVE &hi)
     {
         // Primer de tot busquem si es pot tirar NAPALM
         if (dens[h.pos.x][h.pos.y] < 0) {
             dens[h.pos.x][h.pos.y] = heliAtac(h.pos);
         }
-        if (dens[h.pos.x][h.pos.y] >= 3) {
-            cerr << "dens: " << dens[h.pos.x][h.pos.y] << endl;
-            return NAPALM;
-        }
+        if (dens[h.pos.x][h.pos.y] >= 3 and h.napalm == 0) return NAPALM;
         
         // A partir d'aquí sabem que s'ha de moure l'helicòpter
         
@@ -603,7 +600,7 @@ struct PLAYER_NAME : public Player {
             find2 f(p, i, i, 1, false);
             if (i != h.orientacio) ++f.dist;
             if ((i + 2)%4 == h.orientacio) ++f.dist;
-            if(pH[p.x][p.y] and ) Q.push(f);
+            if(pH[p.x][p.y] and not hiHaHelis(p, h, hi)) Q.push(f);
             
             V[p.x][p.y] = f.dist;
         }
@@ -612,7 +609,7 @@ struct PLAYER_NAME : public Player {
             find2 f(p, i, i, 1, true);
             if (i != h.orientacio) ++f.dist;
             if ((i + 2)%4 == h.orientacio) ++f.dist;
-            if(pH[p.x][p.y] and not hiHaHelis(p, h)) Q.push(f);
+            if(pH[p.x][p.y] and not hiHaHelis(p, h, hi)) Q.push(f);
             
             V[p.x][p.y] = f.dist;
         }
@@ -626,7 +623,8 @@ struct PLAYER_NAME : public Player {
                 dens[f0.pos.x][f0.pos.y] = heliAtac(f0.pos);
             }
             int post = de_qui_post(f0.pos);
-            if ((dens[f0.pos.x][f0.pos.y] >= 3 and f0.dist < 30) or (post != 0 and post != player)) {
+            if ((dens[f0.pos.x][f0.pos.y] >= 3 and f0.dist < 40) or 
+                    (post != 0 and post != player)) {
                 if (f0.dir0 == h.orientacio) {
                     return (f0.ava)? AVANCA2 : AVANCA1;
                 }
@@ -644,7 +642,7 @@ struct PLAYER_NAME : public Player {
                 if (i != f0.dir) ++aux.dist;
                 if ((i + 2)%4 == f0.dir) ++aux.dist;
                 
-                if(pH[p.x][p.y] and not hiHaHelis(p, h) and V[p.x][p.y] > aux.dist) {
+                if(pH[p.x][p.y] and not hiHaHelis(p, h, hi) and V[p.x][p.y] > aux.dist) {
                     V[p.x][p.y] = aux.dist;
                     Q.push(aux);
                 }
@@ -657,13 +655,12 @@ struct PLAYER_NAME : public Player {
                 
                 if (i != f0.dir) ++aux.dist;
                 if ((i + 2)%4 == f0.dir) ++aux.dist;
-                if(pH[p.x][p.y] and not hiHaHelis(p, h) and V[p.x][p.y] > aux.dist) {
+                if(pH[p.x][p.y] and not hiHaHelis(p, h, hi) and V[p.x][p.y] > aux.dist) {
                     V[p.x][p.y] = aux.dist;
                     Q.push(aux);
                 }
             }
         }
-        cerr << "UNIFORME" << endl;
         return uniforme(1, 5);
     }
     
@@ -726,7 +723,6 @@ struct PLAYER_NAME : public Player {
             Info h = dades(a);
             tiraParaques(h);
             int ordre = calculaH(h, dens, hiHelis);
-            cerr << "ORDRE: " << ordre << endl;
             ordena_helicopter(a, ordre);
         }
         
