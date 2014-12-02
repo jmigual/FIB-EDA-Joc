@@ -46,7 +46,7 @@ const int MAX_SOLDATS   = 5;
 // Constants de direcció
 const int SUD = 0;
 const int EST = 1;
-const int NOR = 2;
+const int NORD = 2;
 const int OEST = 3;
 
 // Arrays de direcció per una casella adjacent
@@ -64,10 +64,10 @@ const int INV2[16] = { 8, 9,10,11,12,13,14,15, 0, 1, 2, 3, 4, 5, 6, 7};
 //                     0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15
 
 // Arrays de direcció per als helicopters
-//                  0  1   2   3  4  5   6   7
-const int XH[8] = { 1, 0, -1,  0, 2, 0, -2,  0 };
-const int YH[8] = { 0, 1,  0, -1, 0, 2,  0, -2 };
-//                  0  1   2   3  4  5   6  7
+//                  0  1   2   3
+const int XH[4] = { 1, 0, -1,  0 };
+const int YH[4] = { 0, 1,  0, -1 };
+//                  0  1   2   3
 
 struct PLAYER_NAME : public Player {
 
@@ -103,17 +103,23 @@ struct PLAYER_NAME : public Player {
     
     // Struct que ens ajuda a buscar en un dijkstra, guarda distància i direcció
     struct find2 {
+        // Posició
+        Posicio pos;
         // Direcció
         short dir;
         // Direcció inicial
         short dir0;
         // Distància
         short dist;
-        // Posició
-        Posicio pos;
+        // Avanç incicial
+        bool ava;
+        find2() {}
         
-        find2(int dir, int dir0, int dist, const Posicio &pos) :
-            dir(dir), dir0(dir0), dist(dist), pos(pos) {}
+        find2(const Posicio &pos, int dir, int dir0, int dist, bool ava) :
+            pos(pos), dir(dir), dir0(dir0), dist(dist), ava(ava)  {}
+        
+        find2(const find2 &f) :
+            pos(f.pos), dir(f.dir), dir0(f.dir0), dist(f.dist), ava(f.ava) {}
             
         bool operator<(const find2 &f) const { return this->dist > f.dist; }
     };
@@ -251,6 +257,37 @@ struct PLAYER_NAME : public Player {
                 }
             }
         }
+        
+#ifdef DDEBUG
+        if (quin_torn()%30 == 0) {
+            cerr << "PRECALC" << endl;
+            for (int i = 0; i < MAX; ++i) {
+                if (i == 0) {
+                    cerr << " ";
+                    for (int j = 0; j < MAX; ++j) {
+                        if (j < 10) cerr << "  " << j;
+                        else cerr << " " << j;
+                    }
+                    cerr << endl;
+                }
+                if (i < 10) cerr << " " << i << "|";
+                else cerr << i << "|";
+                for (int j = 0; j < MAX; ++j) {
+                    if (pH[i][j]) cerr << "#  ";
+                    else cerr << ".  ";
+                }
+                cerr << endl;
+                if (i == MAX - 1) {
+                    cerr << " ";
+                    for (int j = 0; j < MAX; ++j) {
+                        if (j < 10) cerr << "  " << j;
+                        else cerr << " " << j;
+                    }
+                    cerr << endl;
+                }
+            }
+        }
+#endif
     }
     
     // Pre: p0 conté una posició vàlida del mapa
@@ -355,19 +392,41 @@ struct PLAYER_NAME : public Player {
         
     }
     
-    // Pre: p és una posició vàlida del mapa
-    // Post: retorna true si en aquesta posició hi ha algun helicòpter a sobre
-    bool hiHaHelis(const Posicio &p)
+    bool hiHaHelis(Posicio &p, const Info &hel, const VVE &H)
     {
+        int h = H[p.x][p.y];
+        if (h > 0 and h != hel.id) return true;
+        
         for (int i = 0; i < DIRS; ++i) {
-            int h = quin_heli(p.x + X[i], p.y + Y[i]);
-            if (h > 0 and dades(h).equip != player) return true;
+            h = H[p.x + X[i]][p.y + Y[i]];
+            if (h > 0 and h != hel.id) return true;
         }
         for (int i = 0; i < DIRS2; ++i) {
-            int h = quin_heli(p.x + X2[i], p.y + Y2[i]); 
-            if (h > 0 and dades(h).equip != player) return true;
+            h = H[p.x + X2[i]][p.y + Y2[i]];
+            if (h > 0 and h != hel.id) return true;
         }
         return false;
+    }
+    
+    // Pre: cap
+    // Post: totes les posicions agafables per un helicòpter estan marcades
+    void cHiHaHelis(VVE &helis)
+    {
+        for (int i = 1; i <= 4; ++i) {
+            if (i != player) {
+                VE H = helis(i);
+                for (int h : H) {
+                    Info dH = dades(h);
+                    helis[dH.pos.x][dH.pos.y] = h;
+                    for (int j = 0; j < DIRS; ++j) {
+                        helis[dH.pos.x + X[j]][dH.pos.y + Y[j]] = h;
+                    }
+                    for (int j = 0; j < DIRS2; ++j) {
+                        helis[dH.pos.x + X2[j]][dH.pos.y + Y2[j]] = h;
+                    }
+                }
+            }
+        }
     }
     
     // Pre: p és una posició vàlida del maà
@@ -377,21 +436,18 @@ struct PLAYER_NAME : public Player {
         // Primer de tot busquem si es pot tirar NAPALM
         int totMeus = 0;
         int totEnem = 0;
+        int s = quin_soldat(p);
+        if (s > 0) (dades(s).equip != player)? ++totEnem : ++totMeus;
+        
         for (int i = 0; i < DIRS; ++i) {
             Posicio pos(p.x + X[i], p.y + Y[i]);
-            int s = quin_soldat(pos);
-            if (s > 0) {
-                if (dades(s).equip != player) ++totEnem;
-                else ++totMeus;
-            }
+            s = quin_soldat(pos);
+            if (s > 0) (dades(s).equip != player)? ++totEnem : ++totMeus;
         }
         for (int i = 0; i < DIRS2; ++i) {
             Posicio pos(p.x + X2[i], p.y + Y2[i]);
-            int s = quin_soldat(pos);
-            if (s > 0) {
-                if (dades(s).equip != player) ++totEnem;
-                else ++totMeus;
-            }
+            s = quin_soldat(pos);
+            if (s > 0) (dades(s).equip != player)? ++totEnem : ++totMeus;
         }
         return totEnem - totMeus;
     }
@@ -451,6 +507,7 @@ struct PLAYER_NAME : public Player {
         if (solANe) {
             Info sM = dades(solANe);
             ordena_soldat(s.id, sM.pos.x, sM.pos.y);
+            return true;
         }
         if (postT) {
             ordena_soldat(s.id, post.x, post.y);
@@ -520,88 +577,93 @@ struct PLAYER_NAME : public Player {
     
     // Pre: 'h' és l'identificador d'un helicòpter de l'equip
     // Post: Mira quina és la millor opció per l'helicòpter
-    int calculaH(const Info &h, VVE &dens)
+    int calculaH(const Info &h, VVE &dens, VVE &hiHelis)
     {
         // Primer de tot busquem si es pot tirar NAPALM
         if (dens[h.pos.x][h.pos.y] < 0) {
             dens[h.pos.x][h.pos.y] = heliAtac(h.pos);
         }
-        if (dens[h.pos.x][h.pos.y] >= 3) return NAPALM;
+        if (dens[h.pos.x][h.pos.y] >= 3) {
+            cerr << "dens: " << dens[h.pos.x][h.pos.y] << endl;
+            return NAPALM;
+        }
         
         // A partir d'aquí sabem que s'ha de moure l'helicòpter
         
         // Declarem els contenidors
-        VVE V(MAX, VE(MAX, 1000));
+        // first -> distància
+        // second -> direcció
+        VVE V(MAX, VE(MAX, 10000));
         priority_queue< find2 > Q;
-        int direccio;
         
-        Q.push(find2(h.orientacio, h.orientacio, 0, h.pos));
+        // Introducció inicial
+        
+        for (int i = 0; i < 4; ++i) {
+            Posicio p(h.pos.x + XH[i], h.pos.y + YH[i]);
+            find2 f(p, i, i, 1, false);
+            if (i != h.orientacio) ++f.dist;
+            if ((i + 2)%4 == h.orientacio) ++f.dist;
+            if(pH[p.x][p.y] and ) Q.push(f);
+            
+            V[p.x][p.y] = f.dist;
+        }
+        for (int i = 0; i < 4; ++i) {
+            Posicio p(h.pos.x + 2*XH[i], h.pos.y + 2*YH[i]);
+            find2 f(p, i, i, 1, true);
+            if (i != h.orientacio) ++f.dist;
+            if ((i + 2)%4 == h.orientacio) ++f.dist;
+            if(pH[p.x][p.y] and not hiHaHelis(p, h)) Q.push(f);
+            
+            V[p.x][p.y] = f.dist;
+        }
+        
         
         while (not Q.empty()) {
-            find2 f = Q.top();
+            find2 f0 = Q.top();
             Q.pop();
-            
-            //cerr << "dist: " << f.dist << " dir0: " << f.dir0 << " dir: ";
-            //cerr << f.dir << endl;
-            
-            if (dens[f.pos.x][f.pos.y] < 0) {
-                dens[f.pos.x][f.pos.y] = heliAtac(f.pos);
+
+            if (dens[f0.pos.x][f0.pos.y] < 0) {
+                dens[f0.pos.x][f0.pos.y] = heliAtac(f0.pos);
             }
-            if (dens[f.pos.x][f.pos.y] >= 3) {
-                direccio = f.dir0;
-                cerr << "DIST: " << f.dist << " ";
-                cerr << "x: " << f.pos.x << " y: " << f.pos.y << endl;
-                cerr << "orientacio: " << h.orientacio << " direccio: " ;
-                cerr << direccio << endl;
+            int post = de_qui_post(f0.pos);
+            if ((dens[f0.pos.x][f0.pos.y] >= 3 and f0.dist < 30) or (post != 0 and post != player)) {
+                if (f0.dir0 == h.orientacio) {
+                    return (f0.ava)? AVANCA2 : AVANCA1;
+                }
+                if ((f0.dir0 + 1)%4 == h.orientacio) return RELLOTGE;
+                return CONTRA_RELLOTGE;
+            }
+            
+            find2 aux = f0;
+            for (int i = 0; i < 4; ++i) {
+                Posicio p(f0.pos.x + XH[i], f0.pos.y + YH[i]);
+                aux.pos = p;
+                aux.dir = i;
+                aux.dist = f0.dist + 1;
                 
-                if (direccio%4 == h.orientacio) {
-                    return (direccio >= 4)? AVANCA2 : AVANCA1;
+                if (i != f0.dir) ++aux.dist;
+                if ((i + 2)%4 == f0.dir) ++aux.dist;
+                
+                if(pH[p.x][p.y] and not hiHaHelis(p, h) and V[p.x][p.y] > aux.dist) {
+                    V[p.x][p.y] = aux.dist;
+                    Q.push(aux);
                 }
-                if ((direccio + 1)%4 == h.orientacio) return CONTRA_RELLOTGE;
-                return RELLOTGE;
             }
-            
-            if (f.dist == 0) {
-                V[f.pos.x][f.pos.y] = 0;
-                for (int i = 0; i < DIRS; ++i) {
-                    Posicio p(f.pos.x + XH[i], f.pos.y + YH[i]);
-                    bool cond = pH[p.x][p.y] and not hiHaHelis(p);
-                    if (i%4 == f.dir and cond) {
-                        V[p.x][p.y] = 1;
-                        Q.push(find2(i, i, 1, p));
-                    }
-                    else if ((i + 2)%4 == f.dir and cond) {
-                        V[p.x][p.y] = 3;
-                        Q.push(find2(i, i, 3, p));
-                    }
-                    else if (cond) {
-                        V[p.x][p.y] = 2;
-                        Q.push(find2(i, i, 2, p));
-                    }
-                }
-                cerr << endl;
-            }
-            else {
-                for (int i = 0; i < DIRS; ++i) {
-                    Posicio p(f.pos.x + XH[i], f.pos.y + YH[i]);
-                    bool cond = pH[p.x][p.y] and not hiHaHelis(p);
-                    
-                    if (i%4 == f.dir%4 and V[p.x][p.y] > f.dist + 1 and cond) {
-                        V[p.x][p.y] = f.dist + 1;
-                        Q.push(find2(i, f.dir0, f.dist + 1, p));
-                    }
-                    else if ((i + 2)%4 == f.dir and
-                             V[p.x][p.y] > f.dist + 3 and cond) {
-                        V[p.x][p.y] = f.dist + 3;
-                        Q.push(find2(i, f.dir0, f.dist + 3, p));
-                    }
-                    else if (V[p.x][p.y] > f.dist + 2 and cond) {
-                        V[p.x][p.y] = f.dist + 2;
-                        Q.push(find2(i, f.dir0, f.dist + 2, p));
-                    }
+            for (int i = 0; i < 4; ++i) {
+                Posicio p(f0.pos.x + 2*XH[i], f0.pos.y + 2*YH[i]);
+                aux.pos = p;
+                aux.dir = i;
+                aux.dist = f0.dist + 1;
+                
+                if (i != f0.dir) ++aux.dist;
+                if ((i + 2)%4 == f0.dir) ++aux.dist;
+                if(pH[p.x][p.y] and not hiHaHelis(p, h) and V[p.x][p.y] > aux.dist) {
+                    V[p.x][p.y] = aux.dist;
+                    Q.push(aux);
                 }
             }
         }
+        cerr << "UNIFORME" << endl;
         return uniforme(1, 5);
     }
     
@@ -652,17 +714,18 @@ struct PLAYER_NAME : public Player {
     void jugaHelis(VE &helis)
     {
         VVE dens(MAX, VE(MAX, -1));
+        VVE hiHelis(MAX, VE(MAX, 0));
+        cHiHaHelis(hiHelis);
         for (int i = 0; i < MAX; ++i) {
             for (int j = 0; j < MAX; ++j) {
                 if (pH[i][j]) dens[i][j] = heliAtac(Posicio(i, j)); 
             }
-        }
-        
+        }        
         
         for (int a : helis) {
             Info h = dades(a);
             tiraParaques(h);
-            int ordre = calculaH(h, dens);
+            int ordre = calculaH(h, dens, hiHelis);
             cerr << "ORDRE: " << ordre << endl;
             ordena_helicopter(a, ordre);
         }
@@ -785,8 +848,8 @@ struct PLAYER_NAME : public Player {
                 else cerr << i << "|";
                 for (int j = 0; j < MAX; ++j) {
                     if (M[i][j].first >= 0) cerr << M[i][j].first << "  ";
-                    else if (M[i][j].first == NO_PASSAR) cerr << "N  ";
-                    else if (M[i][j].first == type) cerr << "P  ";
+                    else if (M[i][j].first == NO_PASSAR) cerr << ".  ";
+                    else if (M[i][j].first == type) cerr << "#  ";
                     else cerr << ".  ";
                 }
                 cerr << endl;

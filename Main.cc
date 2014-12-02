@@ -95,7 +95,7 @@ int main (int argc, char** argv) {
   }
 
   if (seed < 0) seed = time(0);    
-  srand(seed);
+  //srand(seed);
 
   istream* is = ifile ? new ifstream(ifile) : &cin ;
   ostream* os = ofile ? new ofstream(ofile) : &cout;
