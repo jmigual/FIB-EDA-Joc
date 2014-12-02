@@ -413,17 +413,15 @@ struct PLAYER_NAME : public Player {
     void cHiHaHelis(VVE &he)
     {
         for (int i = 1; i <= 4; ++i) {
-            if (i != player) {
-                VE H = helis(i);
-                for (int h : H) {
-                    Info dH = dades(h);
-                    he[dH.pos.x][dH.pos.y] = h;
-                    for (int j = 0; j < DIRS; ++j) {
-                        he[dH.pos.x + X[j]][dH.pos.y + Y[j]] = h;
-                    }
-                    for (int j = 0; j < DIRS2; ++j) {
-                        he[dH.pos.x + X2[j]][dH.pos.y + Y2[j]] = h;
-                    }
+            VE H = helis(i);
+            for (int h : H) {
+                Info dH = dades(h);
+                he[dH.pos.x][dH.pos.y] = h;
+                for (int j = 0; j < DIRS; ++j) {
+                    he[dH.pos.x + X[j]][dH.pos.y + Y[j]] = h;
+                }
+                for (int j = 0; j < DIRS2; ++j) {
+                    he[dH.pos.x + X2[j]][dH.pos.y + Y2[j]] = h;
                 }
             }
         }
@@ -586,7 +584,7 @@ struct PLAYER_NAME : public Player {
         }
         if (dens[h.pos.x][h.pos.y] >= 3 and h.napalm == 0) return NAPALM;
         
-        if(de_qui_post(h.pos) == player and 
+        if(de_qui_post(h.pos) != 0 and 
                 valor_post(h.pos.x, h.pos.y) == VALOR_ALT)
             return 0;
         
@@ -673,7 +671,7 @@ struct PLAYER_NAME : public Player {
     int tiraParaques(Info &h)
     {
         unsigned short tirats = 0;
-        if (h.paraca.size() >= 1) {
+        if (h.paraca.size()) {
             // Per defecte no hem trobat cap lloc on tirar-ne un
             
             // Anem de 0 a 2 pels 3 nivells de profunditat als que pot
@@ -702,35 +700,6 @@ struct PLAYER_NAME : public Player {
                 if (pA[q.x][q.y]) {
                     if (que(q) != AIGUA and quin_soldat(q) == 0) {
                         ordena_paracaigudista(q.x, q.y);
-                        ++tirats;
-                    }
-                }
-            }
-        }
-        else if (h.paraca.size() and h.paraca[0] < 3) {
-            bool found = false;
-            for (int i = 0; i < 2 and not found; ++i) {
-                    
-                // Mirem per totes les direccions del voltant
-                for (int j = 0; j < DIRS and not found; ++j) {
-                    Posicio q(h.pos.x + i*X[j], h.pos.y + i*Y[j]);
-                    if (pA[q.x][q.y]) {
-                        // Mirem si es compleixen les condicions per llençar
-                        // un soldat i el tirem
-                        if (que(q.x, q.y) != AIGUA and quin_soldat(q) == 0) {
-                            ordena_paracaigudista(q.x, q.y);
-                            found = true;
-                            ++tirats;
-                        }
-                    }
-                }
-            }
-            for (int i = 0; i < DIRS and not found; ++i) {
-                Posicio q(h.pos.x + X2[i], h.pos.y + Y2[i]);
-                if (pA[q.x][q.y]) {
-                    if (que(q) != AIGUA and quin_soldat(q) == 0) {
-                        ordena_paracaigudista(q.x, q.y);
-                        found = true;
                         ++tirats;
                     }
                 }
