@@ -341,8 +341,9 @@ Board::Board(istream& is) {
   post = VP2(NUM_POSTS);
 
   at = VA(5);
-  for (int i = 1; i <= 4; ++i)
+  for (int i = 1; i <= 4; ++i) {
     at[i] = atzar(A.uniforme(1, 100000));
+  }
 
   soldat  = VVE(5);
   heli    = VVE(5);
