@@ -25,6 +25,11 @@ To run the game you just need to pass the path to the map and 4 names of players
 You can use the `-l` flag to list the available players.
 
 
+## Visualizing the game
+
+The `result.txt` file will contain all the simulation of the game. To visualize it, you can open the `viewer/viewer.html` file on a browser and load the `result.txt` file. This will show you the outcome of the game.
+
+
 ## Adding a player.
 
 To add a player, copy the `aidemo.cpp` from `src/players` and rename it with your own name (e.g. `aimyplayer.cpp`). Then set the value of the macro `PLAYER_NAME` to a name of a player that hasn't been defined yet and start writing your player code. 
