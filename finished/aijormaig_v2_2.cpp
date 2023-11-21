@@ -8,7 +8,7 @@ using namespace std;
  * Escriu el nom * del teu jugador i guarda
  * aquest fitxer amb el nom AI*.cc
  */
-#define PLAYER_NAME jormaig_v2_3
+#define PLAYER_NAME jormaig_v2_2
 
 
 /**
@@ -16,13 +16,12 @@ using namespace std;
  */
 
 // Ens permet ometre missatges
-#define DDEBUG
+//#define DDEBUG
 
 const int NO_PASSAR = -1;   // Ens indica que no hem de passar
 const int NO_VIST   = -2;   // Pel BFS, per marcar les caselles no vistes
 const int POST      = -3;   // Ens indica que hi ha un post
 const int ENEM      = -4;   // Ens indica que hi ha un soldat enemic
-const int ENEM2     = -4;    // Per calcular un nou bfs
 
 const int MAX_FOC   =  0;   // Màxim de torns que tolerem un foc per un BFS
 const int DIRS      =  8;   // Direccions totals en les que es pot avançar
@@ -33,15 +32,15 @@ const int ATACANT           = 1;    // Identificador dels atacants
 const int EXPLORADOR        = 2;    // Identificador dels exploradors
 
 // VARIABLES CANVIS ROL
-const double PROP_1         = 0.9;  // Proporció de personlaitats inicial
-const double PROP_2         = 0.2;  // Proporcio de personalits després de canvi
+const double PROP_1         = 0.8;  // Proporció de personlaitats inicial
+const double PROP_2         = 0.3;  // Proporcio de personalits després de canvi
 const int T_R_CANVI         = 45;   // Torns restants pel canvi de personalitat
 const int MAX_NAPALM        = 5;    // Torns maxims fins al següent napalm
 const int MIN_VIDA          = 30;   // Nombre de punts de vida canvi rol
 
 // VARIABLES PROMIG ATAC
 const int BOSC_M        = 30;
-const int GESPA_M       = 70;
+const int GESPA_M       = 75;
 const int MAX_SOLDATS   = 5;
 
 // Constants de direcció
@@ -147,7 +146,6 @@ struct PLAYER_NAME : public Player {
     // first  -> direcció
     // second -> distància
     VVPa atac;
-    VVPa atac2;
     
     VVB pH;     // Per veure les posicions accessibles des d'un helicòpter
     VVB pA;     // True si la posició té un post accessible
@@ -213,7 +211,7 @@ struct PLAYER_NAME : public Player {
         // Obtenim el tipus d'element
         int q = que(p.x, p.y);
         
-        return q != MUNTANYA and q != AIGUA and
+        return q != MUNTANYA && q != AIGUA &&
                temps_foc(p.x, p.y) <= MAX_FOC;
     }
     inline bool passar(int x, int y)
@@ -231,16 +229,12 @@ struct PLAYER_NAME : public Player {
         for (int i = 0; i < MAX; ++i) {
             pH[0][i] = pH[MAX - 1][i] = pH[i][0] = pH[i][MAX - 1] = false;
             pH[1][i] = pH[MAX - 2][i] = pH[i][1] = pH[i][MAX - 2] = false;
-            pH[2][i] = pH[MAX - 3][i] = pH[i][2] = pH[i][MAX - 3] = false;
         }
         for (int i = 2; i < MAX - 2; ++i) {
             for (int j = 2; j < MAX - 2; ++j) {
                 if (que(i, j) == MUNTANYA) {
-                    pH[i][j] = false;
                     for (int k = 0; k < DIRS; ++k) {
                         pH[i + X[k]][j + Y[k]] = false;
-                    }
-                    for (int k = 0; k < DIRS2; ++k) {
                         pH[i + X2[k]][j + Y2[k]] = false;
                     }
                 }
@@ -252,11 +246,11 @@ struct PLAYER_NAME : public Player {
         VP2 Pos = posts();
         for (Post p : Pos) Q.push(p.pos);
         
-        while (not Q.empty()) {
+        while (!Q.empty()) {
             Posicio p = Q.front();
             Q.pop();
             
-            if (not pA[p.x][p.y] and passar(p)) {
+            if (!pA[p.x][p.y] && passar(p)) {
                 pA[p.x][p.y] = true;
                 for (int i = 0; i < DIRS; ++i) {
                     Q.push(Posicio(p.x + X[i], p.y + Y[i]));
@@ -313,23 +307,23 @@ struct PLAYER_NAME : public Player {
             Q.push(P2(POST, Posicio(j, 6)));
         }
         
-        while (not Q.empty()) {
+        while (!Q.empty()) {
             // Obtenim el primer element
             P2 p = Q.front();
             Q.pop();
             
-            if (not V[p.second.x][p.second.y]) {
+            if (!V[p.second.x][p.second.y]) {
                 V[p.second.x][p.second.y] = true;
                 Posicio pn(p0.x + p.second.x, p0.y + p.second.y);
                 
                 // Primer mirem si es pot passar per la posició actual
-                if (not passar(pn)) M[pn.x][pn.y] = PS(NO_PASSAR, NO_PASSAR);
+                if (!passar(pn)) M[pn.x][pn.y] = PS(NO_PASSAR, NO_PASSAR);
                 // Si es pot passar comprovem que sigui una casella del voltant
                 else if (p.first == POST) {
                     for (int i = 0; i < DIRS; ++i) {
                         Posicio pos(p.second.x + X[i], p.second.y + Y[i]);
-                        if (pos.x >= 0 and pos.x < 7 and
-                                pos.y >= 0 and pos.y < 7) {
+                        if (pos.x >= 0 && pos.x < 7 &&
+                                pos.y >= 0 && pos.y < 7) {
                             Q.push(P2(INV[i], pos));
                         }
                     }
@@ -401,15 +395,15 @@ struct PLAYER_NAME : public Player {
     bool hiHaHelis(Posicio &p, const Info &hel, const VVE &H)
     {
         int h = H[p.x][p.y];
-        if (h > 0 and h != hel.id) return true;
+        if (h > 0 && h != hel.id) return true;
         
         for (int i = 0; i < DIRS; ++i) {
             h = H[p.x + X[i]][p.y + Y[i]];
-            if (h > 0 and h != hel.id) return true;
+            if (h > 0 && h != hel.id) return true;
         }
         for (int i = 0; i < DIRS2; ++i) {
             h = H[p.x + X2[i]][p.y + Y2[i]];
-            if (h > 0 and h != hel.id) return true;
+            if (h > 0 && h != hel.id) return true;
         }
         return false;
     }
@@ -434,7 +428,7 @@ struct PLAYER_NAME : public Player {
     }
     
     // Pre: p és una posició vàlida del maà
-    // Post: retorna el càlcul de jugadors
+    // Post: retorna true si en aquesta posició és viable tirar napalm
     int heliAtac(const Posicio &p)
     {
         // Primer de tot busquem si es pot tirar NAPALM
@@ -479,7 +473,7 @@ struct PLAYER_NAME : public Player {
             // Si hi ha un post al voltant l'intentem capturar però només si no
             // hem atacat
             int po = de_qui_post(q);
-            if (po != 0 and po != player) {
+            if (po != 0 && po != player) {
                 post = q;
                 postT = true;
             }
@@ -489,7 +483,7 @@ struct PLAYER_NAME : public Player {
             Info dSol;
             // Si trobem un soldat al nostre voltant el guardem per mirar-ne la
             // vida
-            if (sol and (dSol = dades(sol)).equip != player) {
+            if (sol && (dSol = dades(sol)).equip != player) {
                 int aux;
                 if (que(q) == BOSC) aux = dSol.vida - BOSC_M;
                 else aux = dSol.vida - GESPA_M;
@@ -503,13 +497,13 @@ struct PLAYER_NAME : public Player {
                 }
             }
         }
-        if (solANe) {
-            Info sM = dades(solANe);
+        if (solAPo) {
+            Info sM = dades(solAPo);
             ordena_soldat(s.id, sM.pos.x, sM.pos.y);
             return true;
         }
-        if (solAPo) {
-            Info sM = dades(solAPo);
+        if (solANe) {
+            Info sM = dades(solANe);
             ordena_soldat(s.id, sM.pos.x, sM.pos.y);
             return true;
         }
@@ -554,16 +548,8 @@ struct PLAYER_NAME : public Player {
             
             // En funció de la personalitat fem una cosa o una altra
             // Personalitat atacant, intenta matar a tants soldats com pot
-            if (not atacat and person == ATACANT) {
-                if (atac2[s.pos.x][s.pos.y].first >= 0) {
-                    int x = s.pos.x;
-                    int y = s.pos.y;
-                    s.pos.x += X[atac2[x][y].first];
-                    s.pos.y += Y[atac2[x][y].first];
-                    
-                    ordena_soldat(a, s.pos.x, s.pos.y);
-                }
-                else if (atac[s.pos.x][s.pos.y].first >= 0) {
+            if (!atacat && person == ATACANT) {
+                if (atac[s.pos.x][s.pos.y].first >= 0) {
                     int x = s.pos.x;
                     int y = s.pos.y;
                     s.pos.x += X[atac[x][y].first];
@@ -573,7 +559,7 @@ struct PLAYER_NAME : public Player {
                 }
             }
             // Personalitat explorador, intenta conquerir tants posts com pot
-            else if (not atacat) {
+            else if (!atacat) {
                 // Si no ens trobem en una casella on ens haguem de quedar
                 // ens movem
                 if (dir[s.pos.x][s.pos.y].first >= 0) {
@@ -589,21 +575,18 @@ struct PLAYER_NAME : public Player {
     
     // Pre: 'h' és l'identificador d'un helicòpter de l'equip
     // Post: Mira quina és la millor opció per l'helicòpter fent un Dijkstra
-    int calculaH(const Info &h, VVE &dens, VVE &hi, bool tirat)
+    int calculaH(const Info &h, VVE &dens, VVE &hi)
     {
         
         // Primer de tot busquem si es pot tirar NAPALM
         if (dens[h.pos.x][h.pos.y] < 0) {
             dens[h.pos.x][h.pos.y] = heliAtac(h.pos);
         }
-        if (dens[h.pos.x][h.pos.y] >= 3 and h.napalm == 0 and not tirat) {
-            return NAPALM;
-        }
+        if (dens[h.pos.x][h.pos.y] >= 3 && h.napalm == 0) return NAPALM;
         
-        if(de_qui_post(h.pos) != 0 and 
-                valor_post(h.pos.x, h.pos.y) == VALOR_ALT and
-                torns_restants() <= T_R_CANVI)
-            return RELLOTGE;
+        if(de_qui_post(h.pos) != 0 && 
+                valor_post(h.pos.x, h.pos.y) == VALOR_ALT)
+            return 0;
         
         // A partir d'aquí sabem que s'ha de moure l'helicòpter
         
@@ -620,7 +603,7 @@ struct PLAYER_NAME : public Player {
             find2 f(p, i, i, 1, false);
             if (i != h.orientacio) ++f.dist;
             if ((i + 2)%4 == h.orientacio) ++f.dist;
-            if(pH[p.x][p.y] and not hiHaHelis(p, h, hi)) Q.push(f);
+            if(pH[p.x][p.y] && !hiHaHelis(p, h, hi)) Q.push(f);
             
             V[p.x][p.y] = f.dist;
         }
@@ -629,13 +612,13 @@ struct PLAYER_NAME : public Player {
             find2 f(p, i, i, 1, true);
             if (i != h.orientacio) ++f.dist;
             if ((i + 2)%4 == h.orientacio) ++f.dist;
-            if(pH[p.x][p.y] and not hiHaHelis(p, h, hi)) Q.push(f);
+            if(pH[p.x][p.y] && !hiHaHelis(p, h, hi)) Q.push(f);
             
             V[p.x][p.y] = f.dist;
         }
         
         
-        while (not Q.empty()) {
+        while (!Q.empty()) {
             find2 f0 = Q.top();
             Q.pop();
 
@@ -643,17 +626,7 @@ struct PLAYER_NAME : public Player {
                 dens[f0.pos.x][f0.pos.y] = heliAtac(f0.pos);
             }
             int post = de_qui_post(f0.pos);
-            int sol = quin_soldat(f0.pos);
-            if (torns_restants() <= T_R_CANVI) {
-                if (post != 0 and valor_post(f0.pos.x, f0.pos.y) == VALOR_ALT){
-                    if (f0.dir0 == h.orientacio) {
-                        return (f0.ava)? AVANCA2 : AVANCA1;
-                    }
-                    if ((f0.dir0 + 1)%4 == h.orientacio) return RELLOTGE;
-                    return CONTRA_RELLOTGE;
-                }
-            }
-            else if (dens[f0.pos.x][f0.pos.y] >= 2) {
+            if (post != 0 && valor_post(f0.pos.x, f0.pos.y) == VALOR_ALT) {
                 if (f0.dir0 == h.orientacio) {
                     return (f0.ava)? AVANCA2 : AVANCA1;
                 }
@@ -671,7 +644,7 @@ struct PLAYER_NAME : public Player {
                 if (i != f0.dir) ++aux.dist;
                 if ((i + 2)%4 == f0.dir) ++aux.dist;
                 
-                if(pH[p.x][p.y] and not hiHaHelis(p, h, hi) and V[p.x][p.y] > aux.dist) {
+                if(pH[p.x][p.y] && !hiHaHelis(p, h, hi) && V[p.x][p.y] > aux.dist) {
                     V[p.x][p.y] = aux.dist;
                     Q.push(aux);
                 }
@@ -684,14 +657,13 @@ struct PLAYER_NAME : public Player {
                 
                 if (i != f0.dir) ++aux.dist;
                 if ((i + 2)%4 == f0.dir) ++aux.dist;
-                if(pH[p.x][p.y] and not hiHaHelis(p, h, hi) and V[p.x][p.y] > aux.dist) {
+                if(pH[p.x][p.y] && !hiHaHelis(p, h, hi) && V[p.x][p.y] > aux.dist) {
                     V[p.x][p.y] = aux.dist;
                     Q.push(aux);
                 }
             }
         }
-        int un = uniforme(1, 5);
-        return un;
+        return uniforme(1, 5);
     }
     
     // Pre: H és l'identificador d'un helicòpter de l'equip
@@ -699,23 +671,22 @@ struct PLAYER_NAME : public Player {
     int tiraParaques(Info &h)
     {
         unsigned short tirats = 0;
-        if ((torns_restants() <= T_R_CANVI and h.paraca.size() > 3)
-                || (h.paraca.size() and torns_restants() > T_R_CANVI)
-                || (torns_restants() < 10 and h.paraca.size())) {
+        if (h.paraca.size() >= 1) {
             // Per defecte no hem trobat cap lloc on tirar-ne un
+            
             // Anem de 0 a 2 pels 3 nivells de profunditat als que pot
             // accedir l'helicòpter
-            for (int i = 0; i < 2 and tirats <= MAX_BAIXEN and
+            for (int i = 0; i < 2 && tirats <= MAX_BAIXEN &&
                     tirats < h.paraca.size(); ++i) {
                     
                 // Mirem per totes les direccions del voltant
-                for (int j = 0; j < DIRS and tirats < MAX_BAIXEN and
+                for (int j = 0; j < DIRS && tirats < MAX_BAIXEN &&
                         tirats < h.paraca.size(); ++j) {
                     Posicio q(h.pos.x + i*X[j], h.pos.y + i*Y[j]);
                     if (pA[q.x][q.y]) {
                         // Mirem si es compleixen les condicions per llençar
                         // un soldat i el tirem
-                        if (que(q.x, q.y) != AIGUA and
+                        if (que(q.x, q.y) != AIGUA &&
                                 quin_soldat(q) == 0) {
                             ordena_paracaigudista(q.x, q.y);
                             ++tirats;
@@ -723,43 +694,42 @@ struct PLAYER_NAME : public Player {
                     }
                 }
             }
-            for (int i = 0; i < DIRS and tirats <= MAX_BAIXEN and
+            for (int i = 0; i < DIRS && tirats <= MAX_BAIXEN &&
                     tirats < h.paraca.size(); ++i) {
                 Posicio q(h.pos.x + X2[i], h.pos.y + Y2[i]);
                 if (pA[q.x][q.y]) {
-                    if (que(q) != AIGUA and quin_soldat(q) == 0) {
+                    if (que(q) != AIGUA && quin_soldat(q) == 0) {
                         ordena_paracaigudista(q.x, q.y);
                         ++tirats;
                     }
                 }
             }
         }
-        else if (h.paraca.size() and h.paraca[0] < 4) {
+        else if (h.paraca.size() && h.paraca[0] < 3) {
             bool found = false;
-            for (int i = 0; i < 2 and not found; ++i) {
+            for (int i = 0; i < 2 && !found; ++i) {
                     
                 // Mirem per totes les direccions del voltant
-                for (int j = 0; j < DIRS and not found; ++j) {
+                for (int j = 0; j < DIRS && !found; ++j) {
                     Posicio q(h.pos.x + i*X[j], h.pos.y + i*Y[j]);
                     if (pA[q.x][q.y]) {
                         // Mirem si es compleixen les condicions per llençar
                         // un soldat i el tirem
-                        if (que(q.x, q.y) != AIGUA and
-                                quin_soldat(q) == 0) {
+                        if (que(q.x, q.y) != AIGUA && quin_soldat(q) == 0) {
                             ordena_paracaigudista(q.x, q.y);
-                            ++tirats;
                             found = true;
+                            ++tirats;
                         }
                     }
                 }
             }
-            for (int i = 0; i < DIRS and not found; ++i) {
+            for (int i = 0; i < DIRS && !found; ++i) {
                 Posicio q(h.pos.x + X2[i], h.pos.y + Y2[i]);
                 if (pA[q.x][q.y]) {
-                    if (que(q) != AIGUA and quin_soldat(q) == 0) {
+                    if (que(q) != AIGUA && quin_soldat(q) == 0) {
                         ordena_paracaigudista(q.x, q.y);
-                        ++tirats;
                         found = true;
+                        ++tirats;
                     }
                 }
             }
@@ -780,12 +750,11 @@ struct PLAYER_NAME : public Player {
                 if (pH[i][j]) dens[i][j] = heliAtac(Posicio(i, j)); 
             }
         }        
-        
+        int paraques = 0;
         for (int a : helis) {
-            int paraques = 0;
             Info h = dades(a);
             if (paraques < MAX_BAIXEN) paraques += tiraParaques(h);
-            int ordre = calculaH(h, dens, hiHelis, paraques != 0);
+            int ordre = calculaH(h, dens, hiHelis);
             if (ordre > 0) ordena_helicopter(a, ordre);
         }
     }
@@ -805,7 +774,7 @@ struct PLAYER_NAME : public Player {
             VP2 Pos = posts();
             totsConq = true;
             for (Post y : Pos) {
-                if (y.equip != player and
+                if (y.equip != player &&
                         M[y.pos.x][y.pos.y].second != NO_PASSAR) {
                     Q.push(find(POST, 0, y.pos));
                     totsConq = false;
@@ -815,7 +784,7 @@ struct PLAYER_NAME : public Player {
                 }
             }
         }
-        else if (type == ENEM || type == ENEM2) {
+        else if (type == ENEM) {
             for (int i = 1; i <= 4; ++i) {
                 if (i != player) {
                     VE V = soldats(i);
@@ -827,7 +796,7 @@ struct PLAYER_NAME : public Player {
         
         
         
-        while (not Q.empty()) {
+        while (!Q.empty()) {
             // Obtenim el primer
             find p = Q.front();
             Q.pop();
@@ -837,7 +806,7 @@ struct PLAYER_NAME : public Player {
             if (M[p.pos.x][p.pos.y].first == NO_VIST) {
             
                 // Mirem que no hi hagi cap obstacle
-                if (not passar(p.pos))
+                if (!passar(p.pos))
                     M[p.pos.x][p.pos.y] = PS(NO_PASSAR, NO_PASSAR);
                 // Es comprova també si és un objectiu a trobar
                 else if (p.dir == type) {
@@ -848,12 +817,25 @@ struct PLAYER_NAME : public Player {
                     for (int i = 0; i < DIRS; ++i) {
                         // Calculem la posicio
                         Posicio q(p.pos.x + X[i], p.pos.y + Y[i]);
-                        if (type == POST) Q.push(find(INV[i], p.dist + 1, q));
+                        int tipus = que(q);
+                        if (type == POST) {
+                            if (tipus == BOSC) {
+                                Q.push(find(INV[i], p.dist + 1 + BOSC, q));
+                            }
+                            else if (tipus == GESPA) {
+                                Q.push(find(INV[i], p.dist + 1 + GESPA, q));
+                            }
+                        }
                         else if (type == ENEM) {
                             // Obtenim el soldat a la posició 'q'
                             int sol = quin_soldat(q);
                             if (sol == 0 || dades(sol).equip != player) {
-                                Q.push(find(INV[i], p.dist + 1, q));
+                                if (tipus == BOSC) {
+                                    Q.push(find(INV[i], p.dist + 1 + BOSC, q));
+                                }
+                                else if (tipus == GESPA)  {
+                                    Q.push(find(INV[i], p.dist + 1 + GESPA, q));
+                                }
                             }
                         }
                     }
@@ -862,16 +844,12 @@ struct PLAYER_NAME : public Player {
                 // de bosc o gespa
                 else {
                     M[p.pos.x][p.pos.y] = PS(p.dir, p.dist);
+                    
                     for (int i = 0; i < DIRS; ++i) {
                         // Calculem la posició
                         Posicio q(p.pos.x + X[i], p.pos.y + Y[i]);
-                        if (type == ENEM2) {
-                            int sol = quin_soldat(p.pos);
-                            if (sol == 0 || dades(sol).equip != player) {
-                                Q.push(find(INV[i], p.dist + 1, q));
-                            }
-                        }
-                        else Q.push(find(INV[i], p.dist + 1, q));
+                        
+                        Q.push(find(INV[i], p.dist + 1, q));
                     }
                 }
             }
@@ -940,7 +918,6 @@ struct PLAYER_NAME : public Player {
         // Actualitzem les matrius per buscar camins
         updateBFS(POST, dir);
         updateBFS(ENEM, atac);
-        updateBFS(ENEM2, atac2);
         
         // Donem les ordres dels paracaigudes
         VE h = helis(player);

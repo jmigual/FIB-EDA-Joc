@@ -101,7 +101,7 @@ struct PLAYER_NAME : public Player {
         // Obtenim el tipus d'element
         int que = Board::que(p.x, p.y);
         
-        return que != MUNTANYA and que != AIGUA and
+        return que != MUNTANYA && que != AIGUA &&
                temps_foc(p.x, p.y) < MAX_FOC;
     }
     
@@ -123,11 +123,11 @@ struct PLAYER_NAME : public Player {
             Info s = dades(a);
             bool found = false;
             // Comprovem les 8 direccions
-            for (int i = 0; i < DIRS and not found; ++i) {
+            for (int i = 0; i < DIRS && !found; ++i) {
                 int sol = quin_soldat(s.pos.x + X[i], s.pos.y + Y[i]);
                 Info dSol;
                 // Si trobem un soldat al nostre voltant l'ataquem
-                if (sol and (dSol = dades(sol)).equip != player) {
+                if (sol && (dSol = dades(sol)).equip != player) {
                     found = true;
                     ordena_soldat(a, dSol.pos.x, dSol.pos.y);
                 }
@@ -173,14 +173,14 @@ struct PLAYER_NAME : public Player {
                 
                 // Anem de 0 a 2 pels 3 nivells de profunditat als que pot
                 // accedir l'helicòpter
-                for (int i = 0; i < 3 and not found; ++i) {
+                for (int i = 0; i < 3 && !found; ++i) {
                 
                     // Mirem per totes les direccions del voltant
-                    for (int j = 0; j < DIRS and not found; ++j) {
+                    for (int j = 0; j < DIRS && !found; ++j) {
                         int x = h.pos.x + i*X[j];
                         int y = h.pos.y + i*Y[j];
                         
-                        if (que(x, y) != AIGUA and quin_soldat(x, y) == 0) {
+                        if (que(x, y) != AIGUA && quin_soldat(x, y) == 0) {
                             ordena_paracaigudista(x, y);
                             found = true;
                         }
@@ -219,7 +219,7 @@ struct PLAYER_NAME : public Player {
         }
         
         
-        while (not Q.empty()) {
+        while (!Q.empty()) {
             // Traiem i eliminem el primer element
             PEP p = Q.front();
             Q.pop();
@@ -228,7 +228,7 @@ struct PLAYER_NAME : public Player {
             if (atac[p.second.x][p.second.y] == NO_VIST) {
             
                 // Busquem que no sigui un obstacle
-                if (not passar(p.second)) {
+                if (!passar(p.second)) {
                     atac[p.second.x][p.second.y] = NO_PASSAR;
                 }
                 else {
@@ -324,7 +324,7 @@ struct PLAYER_NAME : public Player {
         }
         
         // Comencem a buscar
-        while (not Q.empty()) {
+        while (!Q.empty()) {
             // Obtenim el primer element
             find p = Q.front();
             Q.pop();
