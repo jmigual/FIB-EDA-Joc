@@ -1,13 +1,10 @@
 #ifndef Game_hh
 #define Game_hh
 
-#include "Utils.hh"
-#include "Board.hh"
-#include "Action.hh"
-#include "Player.hh"
-
-using namespace std;
-
+#include "action.hpp" // IWYU pragma: export
+#include "board.hpp"  // IWYU pragma: export
+#include "player.hpp" // IWYU pragma: export
+#include "utils.hpp"  // IWYU pragma: export
 
 /**
  * Game class.
@@ -16,10 +13,7 @@ using namespace std;
 class Game {
 
 public:
-
-  static void run (const vector<string>& names, istream& is, ostream& os);
-
+    static void run(const std::vector<std::string> &names, std::istream &is, std::ostream &os);
 };
-
 
 #endif

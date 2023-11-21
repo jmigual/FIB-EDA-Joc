@@ -1,6 +1,7 @@
 #ifndef Utils_hh
 #define Utils_hh
 
+// IWYU pragma: begin_exports
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -15,50 +16,41 @@
 #include <cerrno>
 #include <time.h>
 #include <algorithm>
-#include <sys/time.h>
+// #include <sys/time.h>
 //#include <sys/resource.h>
+// IWYU pragma: end_exports
 
-using namespace std;
 
 
 ///////////// conversió a / des de strings ////////////////
 
 // Transforma un string en un int.
-inline int s2i(const string& s) {
-  istringstream iss(s);
-  int i;
-  iss >> i;
-  return i;
+inline int s2i(const std::string& s) {
+  return std::stoi(s);
 }
 
 // Transforma un int en un string.
-inline string i2s(int i) {
-  ostringstream oss;
-  oss << i;
-  return oss.str();
+inline std::string i2s(int i) {
+  return std::to_string(i);
 }
 
 // Transforma un double en un string.
-inline string d2s(double p) {
-  ostringstream ss;
-  ss.setf(ios::fixed);
-  ss.precision(6);
-  ss << p;
-  return ss.str();
+inline std::string d2s(double p) {
+  return std::to_string(p);
 }
 
 
 ////////////////// debugging //////////////////////////
 
-inline void error(string s) { cerr << "error: " << s << endl; }
+inline void error(std::string && s) { std::cerr << "error: " << s << std::endl; }
 
-// PRINT(x) escriu per pantalla "x: <valor de x>"
+// PRINT(x) Writes on screen "x: <value of x>"
 
 #ifndef PRINT
-#define PRINT_AUX(ARG,SEP)  {string tmpStr(SEP # ARG # SEP);	\
-    cerr << boolalpha						\
+#define PRINT_AUX(ARG,SEP)  {std::string tmpStr(SEP # ARG # SEP);	\
+    std::cerr << std::boolalpha						\
 	 << tmpStr.substr(1, tmpStr.size()-5)			\
-	 << ": " << ARG << endl;}
+	 << ": " << ARG << std::endl;}
 #define PRINT(ARG)          PRINT_AUX(ARG,"\"")
 #endif
 
@@ -91,7 +83,7 @@ public:
   bool probabilitat(double p);
 
   // retorna una permutació aleatòria de 0 .. n - 1
-  vector<int> permutacio(int n);
+  std::vector<int> permutacio(int n);
 
   int tria(int n) { return (int)(uniforme()*(double)n); }
 };

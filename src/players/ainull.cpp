@@ -1,7 +1,7 @@
 
-#include "Player.hh"
+#include "player.hpp"
 
-using namespace std;
+
 
 
 /**

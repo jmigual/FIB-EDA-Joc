@@ -1,5 +1,5 @@
 
-#include "Player.hh"
+#include "player.hpp"
 
 using namespace std;
 
@@ -541,7 +541,7 @@ struct PLAYER_NAME : public Player {
             int person = per->second;
             
             // Si hem conquerit totes les bases canviem el rol a un més agressiu
-            if (totsConq or dir[s.pos.x][s.pos.y].first < 0) person = ATACANT;
+            if (totsConq || dir[s.pos.x][s.pos.y].first < 0) person = ATACANT;
             
             // Ens dirà si ja ha atact per no fer crides inútils. Crida a la
             // funció que mira al voltant i ataca també mira si hi ha post al
@@ -623,7 +623,7 @@ struct PLAYER_NAME : public Player {
                 dens[f0.pos.x][f0.pos.y] = heliAtac(f0.pos);
             }
             int post = de_qui_post(f0.pos);
-            if ((dens[f0.pos.x][f0.pos.y] >= 3 and f0.dist < 30) or 
+            if ((dens[f0.pos.x][f0.pos.y] >= 3 and f0.dist < 30) || 
                     (post != 0 and post != player)) {
                 if (f0.dir0 == h.orientacio) {
                     return (f0.ava)? AVANCA2 : AVANCA1;
@@ -798,7 +798,7 @@ struct PLAYER_NAME : public Player {
                         else if (type == ENEM) {
                             // Obtenim el soldat a la posició 'q'
                             int sol = quin_soldat(q);
-                            if (sol == 0 or dades(sol).equip != player) {
+                            if (sol == 0 || dades(sol).equip != player) {
                                 if (tipus == BOSC) {
                                     Q.push(find(INV[i], p.dist + 1 + BOSC, q));
                                 }

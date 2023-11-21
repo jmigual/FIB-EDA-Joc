@@ -1,5 +1,5 @@
 
-#include "Player.hh"
+#include "player.hpp"
 
 using namespace std;
 
@@ -545,7 +545,7 @@ struct PLAYER_NAME : public Player {
             int person = per->second;
             
             // Si hem conquerit totes les bases canviem el rol a un més agressiu
-            if (totsConq or dir[s.pos.x][s.pos.y].first < 0) person = ATACANT;
+            if (totsConq || dir[s.pos.x][s.pos.y].first < 0) person = ATACANT;
             
             // Ens dirà si ja ha atact per no fer crides inútils. Crida a la
             // funció que mira al voltant i ataca també mira si hi ha post al
@@ -700,8 +700,8 @@ struct PLAYER_NAME : public Player {
     {
         unsigned short tirats = 0;
         if ((torns_restants() <= T_R_CANVI and h.paraca.size() > 3)
-                or (h.paraca.size() and torns_restants() > T_R_CANVI)
-                or (torns_restants() < 10 and h.paraca.size())) {
+                || (h.paraca.size() and torns_restants() > T_R_CANVI)
+                || (torns_restants() < 10 and h.paraca.size())) {
             // Per defecte no hem trobat cap lloc on tirar-ne un
             // Anem de 0 a 2 pels 3 nivells de profunditat als que pot
             // accedir l'helicòpter
@@ -815,7 +815,7 @@ struct PLAYER_NAME : public Player {
                 }
             }
         }
-        else if (type == ENEM or type == ENEM2) {
+        else if (type == ENEM || type == ENEM2) {
             for (int i = 1; i <= 4; ++i) {
                 if (i != player) {
                     VE V = soldats(i);
@@ -852,7 +852,7 @@ struct PLAYER_NAME : public Player {
                         else if (type == ENEM) {
                             // Obtenim el soldat a la posició 'q'
                             int sol = quin_soldat(q);
-                            if (sol == 0 or dades(sol).equip != player) {
+                            if (sol == 0 || dades(sol).equip != player) {
                                 Q.push(find(INV[i], p.dist + 1, q));
                             }
                         }
@@ -867,7 +867,7 @@ struct PLAYER_NAME : public Player {
                         Posicio q(p.pos.x + X[i], p.pos.y + Y[i]);
                         if (type == ENEM2) {
                             int sol = quin_soldat(p.pos);
-                            if (sol == 0 or dades(sol).equip != player) {
+                            if (sol == 0 || dades(sol).equip != player) {
                                 Q.push(find(INV[i], p.dist + 1, q));
                             }
                         }

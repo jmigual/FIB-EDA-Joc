@@ -2,10 +2,7 @@
 #ifndef Registry_hh
 #define Registry_hh
 
-#include "Utils.hh"
-
-using namespace std;
-
+#include "utils.hpp"
 
 class Player;
 
@@ -18,20 +15,17 @@ class Player;
 class Registry {
 
 public:
+    using Factory = Player *(*)();
 
-  typedef Player* (*Factory)();
+    static int Register(const char *name, Factory fact);
 
-  static int Register (const char* name, Factory fact);
+    static Player *newPlayer(std::string name);
 
-  static Player* new_player (string name);
-
-  static void print_players (ostream& os);
+    static void printPlayers(std::ostream &os);
 };
 
-
-
 #define stringification(s) #s
-#define RegisterPlayer(x) static int registration = Registry::Register(stringification(x), x::factory)
-
+#define RegisterPlayer(x)                                                                          \
+    static int registration = Registry::Register(stringification(x), x::factory)
 
 #endif

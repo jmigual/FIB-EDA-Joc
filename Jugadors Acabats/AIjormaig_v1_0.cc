@@ -1,5 +1,5 @@
 
-#include "Player.hh"
+#include "player.hpp"
 
 using namespace std;
 
@@ -284,7 +284,7 @@ struct PLAYER_NAME : public Player {
                 int que = Board::que(p.pos.x, p.pos.y);
                 
                 // Comprovem que no sigui un obstacle
-                if (que == MUNTANYA or que == AIGUA or
+                if (que == MUNTANYA || que == AIGUA ||
                         temps_foc(p.pos.x, p.pos.y) >= MAX_FOC) {
                     dir[p.pos.x][p.pos.y] = P(NO_PASSAR, NO_PASSAR);
                 }
@@ -304,7 +304,7 @@ struct PLAYER_NAME : public Player {
         }
         if (quin_torn()%30 == 0)
             for (int i = 0; i < MAX; ++i) {
-                if (i == 0 or i == MAX - 1) {
+                if (i == 0 || i == MAX - 1) {
                     cerr << "   ";
                     for (int j = 0; j < MAX; ++j) {
                         if (j < 10) cerr << "  " << j;

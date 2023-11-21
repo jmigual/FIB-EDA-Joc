@@ -1,109 +1,81 @@
-#include "Game.hh"
-#include "Registry.hh"
+#include "game.hpp"
+#include "registry.hpp"
+
+#include <cxxopts.hpp>
 
 #include <fstream>
-#include <getopt.h>
-
-using namespace std;
 
 int seed;
 
-void help (int argc, char** argv) {
-  cout << "Usage: " << argv[0] << " [options] player1 player2 ... [< default.cnf] [> default.res] " << endl;
-  cout << "Available options:" << endl;
-  cout << "--seed=seed   	 -s seed      set random seed (default: time)"   << endl;
-  cout << "--input=file  	 -i input     set input file  (default: stdin)"  << endl;
-  cout << "--output=file 	 -o output    set output file (default: stdout)" << endl;
-  cout << "--list        	 -l           list registered players" 		 << endl;
-  cout << "--version     	 -v           print version"           		 << endl;
-  cout << "--help        	 -h           print help"              		 << endl;   
+void version() {
+    std::cout << "Apocalypse Now v2." << std::endl;
+    std::cout << "compiled " << __TIME__ << " " << __DATE__ << std::endl;
 }
 
+cxxopts::Options getOptions() {
+    cxxopts::Options options("Apocalypse Now", "A 2D AI game for Apocalypse Now");
 
-void version () {
-  cout << "Apocalypse Now v2." << endl;
-  cout << "compiled " << __TIME__ << " " << __DATE__ << endl;
+    // clang-format off
+    options.add_options()
+        ("player", "Players to play", cxxopts::value<std::vector<std::string>>())
+        ("s,seed", "set random seed (default: time)", cxxopts::value<int>()->default_value("-1"))
+        ("i,input", "set input file  (default: stdin)", cxxopts::value<std::string>()->default_value(""))
+        ("o,output", "set output file (default: stdout)", cxxopts::value<std::string>()->default_value(""))
+        ("l,list", "list registered players")
+        ("v,version", "print version")
+        ("h,help", "print help");
+    // clang-format on
+
+    options.parse_positional({"player"});
+    return options;
 }
 
+int main(int argc, char **argv) {
 
+    auto options = getOptions();
+    const auto result = options.parse(argc, argv);
 
+    seed = result["seed"].as<int>();
+    if (seed < 0) {
+        seed = time(0);
+        srand(seed);
+    }
 
-int main (int argc, char** argv) {
+    std::vector<std::string> names;
+    if (result.count("player")) {
+        names = result["player"].as<std::vector<std::string>>();
+    }
 
-  if (argc == 1) {
-    help(argc, argv);
-    return EXIT_SUCCESS;
-  }
+    std::string pathIn = result["input"].as<std::string>();
+    std::unique_ptr<std::ifstream> fileIn;
+    std::istream *streamIn = &std::cin;
+    if (!pathIn.empty()) {
+        fileIn = std::make_unique<std::ifstream>(pathIn);
+        streamIn = fileIn.get();
+    }
 
-  struct option long_options[] = {
-    {"seed",           required_argument,  0, 's'},
-    {"input",          required_argument,  0, 'i'},
-    {"output",         required_argument,  0, 'o'},
-    {"list",           no_argument,        0, 'l'},
-    {"version",        no_argument,        0, 'v'},
-    {"help",           no_argument,        0, 'h'},
-    {0, 0, 0, 0}
-  };
+    std::string pathOut = result["output"].as<std::string>();
+    std::unique_ptr<std::ofstream> fileOut;
+    std::ostream *streamOut = &std::cout;
+    if (!pathOut.empty()) {
+        fileOut = std::make_unique<std::ofstream>(pathOut);
+        streamOut = fileOut.get();
+    }
 
-  char* ifile = 0;
-  char* ofile = 0;
-  seed = -1;
-  vector<string> names;
+    if (result.count("help")) {
+        std::cout << options.help() << std::endl;
+        return EXIT_SUCCESS;
+    }
 
-  while (true) {
-    int option_index = 0;
-    int c = getopt_long(
-			argc, argv,
-			"s:i:o:lvh",
-			long_options, &option_index
-			);
+    if (result.count("list")) {
+        Registry::printPlayers(std::cout);
+        return EXIT_SUCCESS;
+    }
 
-    if (c == -1) break;
+    if (result.count("version")) {
+        version();
+        return EXIT_SUCCESS;
+    }
 
-    switch (c) {
-
-    case 's':
-      seed = s2i(optarg);
-      break;
-
-    case 'i':
-      ifile = optarg;
-      break;
-
-    case 'o':
-      ofile = optarg;
-      break;
-
-    case 'l':
-      Registry::print_players(cout);
-      return EXIT_SUCCESS;
-
-    case 'v':
-      version();
-      return EXIT_SUCCESS;
-
-    case 'h':
-      help(argc, argv);
-      return EXIT_SUCCESS;
-
-    default:
-      return EXIT_FAILURE;
-    }   }
-
-  while (optind < argc) {
-    names.push_back(argv[optind++]);
-  }
-
-  if (seed < 0) seed = time(0);    
-  srand(seed);
-
-  istream* is = ifile ? new ifstream(ifile) : &cin ;
-  ostream* os = ofile ? new ofstream(ofile) : &cout;
-        
-  Game::run(names, *is, *os);
-
-  if (ifile) delete is;
-  if (ofile) delete os;
+    Game::run(names, *streamIn, *streamOut);
 }
-
-

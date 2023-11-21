@@ -1,5 +1,5 @@
 
-#include "Player.hh"
+#include "player.hpp"
 
 using namespace std;
 
@@ -423,7 +423,7 @@ struct PLAYER_NAME : public Player {
                         else {
                             // Obtenim el soldat a la posició 'q' 
                             int sol = quin_soldat(q);
-                            if (sol == 0 or dades(sol).equip != player) 
+                            if (sol == 0 || dades(sol).equip != player) 
                                 Q.push(find(INV[i], p.dist + 1, q));
                         }
                     }

@@ -1,7 +1,7 @@
-#include "Board.hh"
-#include "Action.hh"
+#include "board.hpp"
+#include "action.hpp"
 
-using namespace std;
+
 
 const char Board::code[5] = {' ',
 			     ':',  // BOSC
@@ -44,10 +44,10 @@ void Board::ini_veins_en_creu() {
 // coherentment. Si sí, i és d'un altre equip, calcula el mal que li
 // fa en funció d'on estigui, i si els punts de vida arriben a zero el
 // mata.
-void Board::fes_torn_soldat(int id, int x2, int y2, vector<Action>& done) {
+void Board::fes_torn_soldat(int id, int x2, int y2, std::vector<Action>& done) {
 
-  if (x2 < 0 or x2 >= MAX or y2 < 0 or y2 >= MAX) return;
-  if (terreny[x2][y2] != BOSC and terreny[x2][y2] != GESPA) return;
+  if (x2 < 0 || x2 >= MAX || y2 < 0 || y2 >= MAX) return;
+  if (terreny[x2][y2] != BOSC && terreny[x2][y2] != GESPA) return;
 
   MI p = dada.find(id);
   if (p == dada.end()) return;
@@ -69,10 +69,10 @@ void Board::fes_torn_soldat(int id, int x2, int y2, vector<Action>& done) {
   if (id2 == id) return;
 
   if (id2 == 0) {
-    swap(iden[SOLDAT][x][y], iden[SOLDAT][x2][y2]);
+    std::swap(iden[SOLDAT][x][y], iden[SOLDAT][x2][y2]);
     p->second.pos = Posicio(x2, y2);
     done[equip].ordres1[id] = Posicio(x2, y2);
-    if (quipost[x2][y2] == 0 or quipost[x2][y2] == equip) return;
+    if (quipost[x2][y2] == 0 || quipost[x2][y2] == equip) return;
 
     quipost[x2][y2] = equip;
     int k = 0;
@@ -97,7 +97,7 @@ void Board::fes_torn_soldat(int id, int x2, int y2, vector<Action>& done) {
 
 
 // Executa totes les ordres donades a soldats en ordre aleatori.
-void Board::fes_torn_soldats(vector<P2>& V, vector<Action>& done) {
+void Board::fes_torn_soldats(std::vector<P2>& V, std::vector<Action>& done) {
 
   int n = V.size();
   VE perm = A.permutacio(n);
@@ -115,7 +115,7 @@ void Board::fes_torn_soldats(vector<P2>& V, vector<Action>& done) {
 // assignar-los a l'equip que toqui. Si cal moure, es mira quants
 // passos es demanaven (1 o 2) i quants pot donar, i es queda amb el
 // mínim.
-void Board::fes_torn_heli(int id, int ins, vector<Action>& done) {
+void Board::fes_torn_heli(int id, int ins, std::vector<Action>& done) {
 
   MI p = dada.find(id);
   int x = p->second.pos.x;
@@ -142,7 +142,7 @@ void Board::fes_torn_heli(int id, int ins, vector<Action>& done) {
       for (int j = -ABAST; j <= ABAST; ++j) {
 	int xx = x + i;
 	int yy = y + j;
-	if (xx >= 0 and xx < MAX and yy >= 0 and yy < MAX) {
+	if (xx >= 0 && xx < MAX && yy >= 0 && yy < MAX) {
 	  int t = terreny[xx][yy];
 	  if (t != MUNTANYA) {
 	    foc[xx][yy] = 1 + (t == BOSC ? CREMA_BOSC : CREMA_ALTRE);
@@ -171,11 +171,11 @@ void Board::fes_torn_heli(int id, int ins, vector<Action>& done) {
   bool ok = true;
   int i = 2;
   int fi = (ins == AVANCA1 ? 3 : 4);
-  while (ok and ++i <= fi) {
-    for (int j = -2; ok and j <= 2; ++j) {
+  while (ok && ++i <= fi) {
+    for (int j = -2; ok && j <= 2; ++j) {
       int xx = x + i*Xcreu[ori] + j*Ycreu[ori];
       int yy = y + i*Ycreu[ori] + j*Xcreu[ori];
-      if (terreny[xx][yy] == MUNTANYA or cel[xx][yy]) ok = false;
+      if (terreny[xx][yy] == MUNTANYA || cel[xx][yy]) ok = false;
     }
   }
   int x2 = x + (i - 3)*Xcreu[ori];
@@ -193,7 +193,7 @@ void Board::fes_torn_heli(int id, int ins, vector<Action>& done) {
 
 // Executa totes les ordres donades a helicòpters en ordre aleatori.
 // També decrementa tots els comptadors de napalm.
-void Board::fes_torn_helis(vector<P>& V, vector<Action>& done) {
+void Board::fes_torn_helis(std::vector<P>& V, std::vector<Action>& done) {
 
   int n = V.size();
   VE perm = A.permutacio(n);
@@ -220,7 +220,7 @@ void Board::fes_torn_helis(vector<P>& V, vector<Action>& done) {
 // sota d'un del dos helicòpters de l'equip. Si això falla, el
 // paracaigudista mor i passa a un altre equip. En cas de baixar, es
 // mira si es marca un post directament.
-void Board::paracaigudistes_baixen(const VVP& ordres3, vector<Action>& done) {
+void Board::paracaigudistes_baixen(const VVP& ordres3, std::vector<Action>& done) {
 
   VE nous_para(5, 0);
   for (int e = 1; e <= 4; ++e) {
@@ -233,7 +233,7 @@ void Board::paracaigudistes_baixen(const VVP& ordres3, vector<Action>& done) {
       for (int k = 0; k < int(ordres3[e].size()); ++k) {
 	int x = ordres3[e][k].x;
 	int y = ordres3[e][k].y;
-	if (abs(x2 - x) <= 2 and abs(y2 - y) <= 2)
+	if (abs(x2 - x) <= 2 && abs(y2 - y) <= 2)
 	  ++cnt;
       }
       VE B;
@@ -258,7 +258,7 @@ void Board::paracaigudistes_baixen(const VVP& ordres3, vector<Action>& done) {
     for (int i = 0; i < (int)ordres3[e].size(); ++i) {
       int x = ordres3[e][i].x;
       int y = ordres3[e][i].y;
-      if (x < 0 or x >= MAX or y < 0 or y >= MAX) {
+      if (x < 0 || x >= MAX || y < 0 || y >= MAX) {
 	int nou_equip = diferent(e);
 	int heli_id = heli[nou_equip][A.uniforme(0, int(heli[nou_equip].size())-1)];
 	dada[heli_id].paraca.push_back(TORNS_BAIXAR);
@@ -267,7 +267,7 @@ void Board::paracaigudistes_baixen(const VVP& ordres3, vector<Action>& done) {
   	int t = terreny[x][y];
   	int id2 = iden[SOLDAT][x][y];
   	int e2 = (id2 ? dada[id2].equip : 0);
-  	if ((t != BOSC and t != GESPA) or foc[x][y] or (e2 and e2 == e)) {
+  	if ((t != BOSC && t != GESPA) || foc[x][y] || (e2 && e2 == e)) {
 	  int nou_equip = diferent(e);
 	  int heli_id = heli[nou_equip][A.uniforme(0, int(heli[nou_equip].size())-1)];
 	  dada[heli_id].paraca.push_back(TORNS_BAIXAR);
@@ -278,17 +278,17 @@ void Board::paracaigudistes_baixen(const VVP& ordres3, vector<Action>& done) {
 	}
   	else {
   	  bool ok = false;
-  	  for (int j = 0; not ok and j < (int)heli[e].size(); ++j) {
+  	  for (int j = 0; ! ok && j < (int)heli[e].size(); ++j) {
   	    int id = heli[e][j];
   	    int x2 = dada[id].pos.x;
   	    int y2 = dada[id].pos.y;
-  	    if (abs(x2 - x) <= 2 and abs(y2 - y) <= 2) ok = true;
+  	    if (abs(x2 - x) <= 2 && abs(y2 - y) <= 2) ok = true;
   	  }
 
   	  if (ok) {
   	    soldat[e].push_back(nou_soldat(e, x, y));
 	    done[e].ordres3.push_back(Posicio(x, y));
-  	    if (quipost[x][y] and quipost[x][y] != e) {
+  	    if (quipost[x][y] && quipost[x][y] != e) {
   	      quipost[x][y] = e;
   	      int k = 0;
   	      while (post[k].pos != Posicio(x, y)) ++k;
@@ -306,25 +306,25 @@ void Board::paracaigudistes_baixen(const VVP& ordres3, vector<Action>& done) {
 }
 
 
-Board::Board(istream& is) {
+Board::Board(std::istream& is) {
 
   foo = -1;
 
-  string s;
+  std::string s;
   is >> s; 
   if (s != "ApocalypseNow") {
-    cerr << "Read string " << s << endl;
+    std::cerr << "Read std::string " << s << std::endl;
   }
   assert(s == "ApocalypseNow");
   is >> s; assert(s == "v2");
 
-  names_ = vector<string>(4);
+  names_ = std::vector<std::string>(4);
   is >> s; assert(s == "names");
   for (int pl = 0; pl < 4; ++pl)
     is >> names_[pl];
 
   is >> s;    assert(s == "round");
-  is >> torn; assert(torn >= 0 and torn < TORNS_JOC);
+  is >> torn; assert(torn >= 0 && torn < TORNS_JOC);
 
   is >> s; assert(s == "nou");
   is >> nou;
@@ -376,7 +376,7 @@ Board::Board(istream& is) {
   for (int k = 0; k < NUM_POSTS; ++k) {
     int equip, x, y, valor;
     is >> equip >> x >> y >> valor;
-    assert(-1 == equip or ( 1 <= equip and equip <= 4));
+    assert(-1 == equip || ( 1 <= equip && equip <= 4));
     assert(valid(x, y));
     post[k].equip = equip;
     post[k].pos.x = x;
@@ -387,12 +387,12 @@ Board::Board(istream& is) {
   }
 
   is >> s; assert(s == "score");
-  vector<int> score(4);
+  std::vector<int> score(4);
   for (int pl = 0; pl < 4; ++pl)
     is >> score[pl];
 
   is >> s; assert(s == "status");
-  status_ = vector<double>(4);
+  status_ = std::vector<double>(4);
   for (int pl = 0; pl < 4; ++pl)
     is >> status_[pl];
 
@@ -408,7 +408,7 @@ Board::Board(istream& is) {
   is >> s; assert(s == "paraca");
   int id;
 
-  while (is >> id and id != -1) {
+  while (is >> id && id != -1) {
     int tipus, equip, x, y, vida, ori, napalm, paraca_size;
     is >> tipus >> equip >> x >> y >> vida >> ori >> napalm >> paraca_size;
     VE par(paraca_size);
@@ -434,7 +434,7 @@ Board::Board(istream& is) {
   is >> s; assert(s == "x");
   is >> s; assert(s == "y");
   int torns;
-  while (is >> torns and torns != -1) {
+  while (is >> torns && torns != -1) {
     int x, y;
     is >> x >> y;
     assert(0 < torns);  // Només es guarden els no nuls.
@@ -450,67 +450,67 @@ Board::Board(istream& is) {
 }
 
 
-void Board::print_header(ostream& out) const {
+void Board::print_header(std::ostream& out) const {
 
-  out << "ApocalypseNow v2" << endl << endl;
+  out << "ApocalypseNow v2" << std::endl << std::endl;
 
   // Adding row numbers.
-  out << "names" << endl;
+  out << "names" << std::endl;
   for (int e = 1; e <= 4; ++e)
     out << nom(e) << "\t";
-  out << endl << endl;
+  out << std::endl << std::endl;
 }
 
 
-void Board::print(ostream& out) const {
+void Board::print(std::ostream& out) const {
 
-  out << "round " << quin_torn() << endl << endl;
+  out << "round " << quin_torn() << std::endl << std::endl;
 
-  out << "nou" << endl << nou << endl << endl;
+  out << "nou" << std::endl << nou << std::endl << std::endl;
 
-  out << "terreny" << endl;
+  out << "terreny" << std::endl;
   out << "   ";
   for (int j = 0; j < MAX; ++j) out << (j / 10);
-  out << endl;
+  out << std::endl;
 
   out << "   ";
   for (int j = 0; j < MAX; ++j) out << (j % 10);
-  out << endl;
-  out << endl;
+  out << std::endl;
+  out << std::endl;
 
   for (int i = 0; i < MAX; ++i) {
     out << (i / 10) << (i % 10) << " "; // Adding col numbers.
     for (int j = 0; j < MAX; ++j)
       out << code[terreny[i][j]];
-    out << endl;
+    out << std::endl;
   }
 
-  out << endl;
-  out << "posts" << endl;
+  out << std::endl;
+  out << "posts" << std::endl;
   out << "equip"  << "\t"
       << "x"      << "\t"
       << "y"      << "\t"
       << "valor"      << "\t"
-      << endl;
+      << std::endl;
   for (const auto& p : post)
     out << p.equip 
 	<< "\t" << p.pos.x 
 	<< "\t" << p.pos.y 
 	<< "\t" << p.valor
-	<< endl;
-  out << endl;
+	<< std::endl;
+  out << std::endl;
 
-  out << "score" << endl;
+  out << "score" << std::endl;
   for (int e = 1; e <= 4; ++e)
     out << puntuacio(e) << "\t";
-  out << endl << endl;
+  out << std::endl << std::endl;
 
-  out << "status" << endl;
+  out << "status" << std::endl;
   for (int e = 1; e <= 4; ++e)
     out << status(e) << "\t";
-  out << endl << endl;
+  out << std::endl << std::endl;
 
-  out << "agents" << endl;
+  out << "agents" << std::endl;
   out << "id"     << "\t"
       << "tipus"  << "\t"
       << "equip"  << "\t"
@@ -520,7 +520,7 @@ void Board::print(ostream& out) const {
       << "ori"    << "\t"
       << "napalm" << "\t"
       << "paraca" << "\t"
-      << endl;
+      << std::endl;
   for (const auto& p: dada) {
     int id     = p.second.id;
     int tipus  = p.second.tipus;
@@ -544,22 +544,22 @@ void Board::print(ostream& out) const {
       out << "\t" << x;
  
 	
-    out << "\t" << endl;
+    out << "\t" << std::endl;
   }
-  out << "-1" << endl;
-  out << endl;
+  out << "-1" << std::endl;
+  out << std::endl;
 
-  out << "foc" << endl;
-  out << "torns" << "\t" << "x" << "\t" << "y" << endl;
+  out << "foc" << std::endl;
+  out << "torns" << "\t" << "x" << "\t" << "y" << std::endl;
   for (int x = 0; x < MAX; ++x)
     for (int y = 0; y < MAX; ++y)
       if (foc[x][y] != 0)
-	out << foc[x][y] << "\t" << x << "\t" << y << endl;
-  out << "-1" << endl << endl;
+	out << foc[x][y] << "\t" << x << "\t" << y << std::endl;
+  out << "-1" << std::endl << std::endl;
 }
 
 
-Board Board::next(const vector<Action>& asked, vector<Action>& done) const {
+Board Board::next(const std::vector<Action>& asked, std::vector<Action>& done) const {
   assert(ok());
 
   Board b = *this;
@@ -569,13 +569,13 @@ Board Board::next(const vector<Action>& asked, vector<Action>& done) const {
     ordres3[e] = asked[e].ordres3;
   b.paracaigudistes_baixen(ordres3, done);
 
-  vector<P> ordres2;
+  std::vector<P> ordres2;
   for (int e = 1; e <= 4; ++e)
     for (auto& p : asked[e].ordres2)
       ordres2.push_back(p);
   b.fes_torn_helis(ordres2, done);
 
-  vector<P2> ordres1;
+  std::vector<P2> ordres1;
   for (int e = 1; e <= 4; ++e)
     for (auto& p : asked[e].ordres1)
       ordres1.push_back(p);
@@ -591,7 +591,7 @@ Board Board::next(const vector<Action>& asked, vector<Action>& done) const {
 
 bool Board::ok(void) const {
 
-  if (not(0 <= torn and torn <= TORNS_JOC)) {
+  if (!(0 <= torn && torn <= TORNS_JOC)) {
     error("torn té un valor invàlid");
     return false;
   }
@@ -602,24 +602,24 @@ bool Board::ok(void) const {
 	error("foc no pot tenir valors negatius");
 	return false;
       }
-      if (foc[x][y] > 0 and terreny[x][y] == MUNTANYA) {
+      if (foc[x][y] > 0 && terreny[x][y] == MUNTANYA) {
 	error("hi ha foc en muntanya");
 	return false;
       }
-      if (terreny[x][y] != BOSC and foc[x][y] > CREMA_ALTRE) {
+      if (terreny[x][y] != BOSC && foc[x][y] > CREMA_ALTRE) {
 	error("foc > CREMA_ALTRE en terreny no boscós");
 	return false;
       }
-      if (terreny[x][y] == BOSC and foc[x][y] > CREMA_BOSC) {
+      if (terreny[x][y] == BOSC && foc[x][y] > CREMA_BOSC) {
 	error("foc > CREMA_BOSC en terreny boscós");
 	return false;
       }
     }
 
   for (int k = 0; k < MAX; ++k)
-    if (terreny[  k  ][  0  ] != MUNTANYA or
-	terreny[  k  ][MAX-1] != MUNTANYA or
-	terreny[  0  ][  k  ] != MUNTANYA or
+    if (terreny[  k  ][  0  ] != MUNTANYA ||
+	terreny[  k  ][MAX-1] != MUNTANYA ||
+	terreny[  0  ][  k  ] != MUNTANYA ||
 	terreny[MAX-1][  k  ] != MUNTANYA) {
       error("el tauler ha d'estar rodejat de muntanyes");
       return false;
@@ -641,7 +641,7 @@ bool Board::ok(void) const {
 	  error("problema amb la posició de soldat registrada");
 	  return false;
 	}
-	if (terreny[x][y] == MUNTANYA or terreny[x][y] == AIGUA) {
+	if (terreny[x][y] == MUNTANYA || terreny[x][y] == AIGUA) {
 	  PRINT(x);
 	  PRINT(y);
 	  PRINT(terreny[x][y]);
@@ -666,7 +666,7 @@ bool Board::ok(void) const {
 	  for (int dy = -2; dy <= 2; ++dy) {
 	    int xx = x + dx;
 	    int yy = y + dy;
-	    if (not valid(xx, yy)) {
+	    if (! valid(xx, yy)) {
 	      error("helicòpter fora de tauler");
 	      return false;
 	    }
@@ -674,7 +674,7 @@ bool Board::ok(void) const {
 	      error("els helicòpters no poden anar per muntanya");
 	      return false;
 	    }
-	    if (not cel[xx][yy]) {
+	    if (! cel[xx][yy]) {
 	      error("cel no consta com a ocupat");
 	      return false;
 	    }
@@ -703,7 +703,7 @@ bool Board::ok(void) const {
     for (int y = 0; y < MAX; ++y) {
       if (quipost[x][y] != 0)
 	++cnt_post;
-      if (quipost[x][y] < -1 or quipost[x][y] > 4) {
+      if (quipost[x][y] < -1 || quipost[x][y] > 4) {
 	error("valor erroni a quipost");
 	return false;
       }
@@ -718,7 +718,7 @@ bool Board::ok(void) const {
     for (int y = 0; y < MAX; ++y) {
       if (valorpost[x][y] != 0) {
 	++cnt_post;
-	if (valorpost[x][y] != VALOR_ALT and valorpost[x][y] != VALOR_BAIX) {
+	if (valorpost[x][y] != VALOR_ALT && valorpost[x][y] != VALOR_BAIX) {
 	  error("valor erroni a valorpost");
 	  return false;
 	}
@@ -754,40 +754,40 @@ bool Board::ok(void) const {
       error("identificadors no quadren");
       return false;
     }
-    if (info.tipus != SOLDAT and info.tipus != HELI) {
+    if (info.tipus != SOLDAT && info.tipus != HELI) {
       error("tipus incorrecte");
       return false;
     }
-    if (info.tipus == HELI and info.vida != -1) {
+    if (info.tipus == HELI && info.vida != -1) {
       error("els helicòpters mai moren");
       return false;
     }
-    if (info.tipus == SOLDAT and (info.vida < 0 or info.vida > VIDA)) {
+    if (info.tipus == SOLDAT && (info.vida < 0 || info.vida > VIDA)) {
       error("valor de vida incorrecte");
       return false;
     }
-    if (info.tipus == HELI and (info.orientacio < 0 or info.orientacio > 3)) {
+    if (info.tipus == HELI && (info.orientacio < 0 || info.orientacio > 3)) {
       error("valor de orientació incorrecte");
       return false;
     }
-    if (info.tipus == SOLDAT and info.orientacio != -1) {
+    if (info.tipus == SOLDAT && info.orientacio != -1) {
       error("els soldats no tenen orientació");
       return false;
     }
-    if (info.tipus == HELI and (info.napalm < 0 or info.napalm > TORNS_NAPALM)) {
+    if (info.tipus == HELI && (info.napalm < 0 || info.napalm > TORNS_NAPALM)) {
       error("valor de napalm incorrecte");
       return false;
     }
-    if (info.tipus == SOLDAT and info.napalm != -1) {
+    if (info.tipus == SOLDAT && info.napalm != -1) {
       error("els soldats no tenen napalm");
       return false;
     }
-    if (info.tipus == SOLDAT and info.paraca != VE()) {
+    if (info.tipus == SOLDAT && info.paraca != VE()) {
       error("els soldats no tenen paracaigudistes");
       return false;
     }
     for (int r : info.paraca)
-      if (r < 0 or r > TORNS_BAIXAR) {
+      if (r < 0 || r > TORNS_BAIXAR) {
 	error("paracaigudistes amb nombre de torns per baixar erroni");
 	return false;
       }

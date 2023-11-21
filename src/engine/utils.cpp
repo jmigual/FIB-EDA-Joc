@@ -1,4 +1,4 @@
-#include "Utils.hh"
+#include "utils.hpp"
 
 // atzar.cc
 // SR, febrer/06
@@ -45,9 +45,9 @@ bool atzar::probabilitat(double p) {
 }
 
 
-vector<int> atzar::permutacio(int n) {
-  vector<int> V(n);
+std::vector<int> atzar::permutacio(int n) {
+  std::vector<int> V(n);
   for (int i = 0; i < n; ++i) V[i] = i;
-  for (int i = n - 1; i > 0; --i) swap(V[i], V[uniforme(0, i)]);
+  for (int i = n - 1; i > 0; --i) std::swap(V[i], V[uniforme(0, i)]);
   return V;
 }
