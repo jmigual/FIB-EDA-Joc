@@ -27,8 +27,9 @@ You can use the `-l` flag to list the available players.
 
 ## Visualizing the game
 
-The `result.txt` file will contain all the simulation of the game. To visualize it, you can open the `viewer/viewer.html` file on a browser and load the `result.txt` file. This will show you the outcome of the game.
+The `result.txt` file will contain all the simulation of the game. To visualize it, you can open the `viewer/viewer.html` file on a browser and load the `result.txt` file. This will show you the outcome of the game. It should look like this:
 
+![Example of a map](viewer/img/demo.png)
 
 ## Adding a player.
 
